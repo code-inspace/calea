@@ -16,7 +16,7 @@ export const bungalows = [
     jacuzzi: true,
     gallery: [
       "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=75",
-      "https://images.unsplash.com/photo-1522771731478-44bf10cb73fc?auto=format&fit=crop&w=1200&q=75",
+      "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1200&q=75",
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=75"
     ]
   },
