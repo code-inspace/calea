@@ -4,12 +4,12 @@ import { useTranslation } from 'react-i18next';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ResortMap from '../components/ResortMap';
-import useButtonAnim from '../hooks/useButtonAnim';
+import useTextRoll from '../hooks/useTextRoll';
 
 export default function Contact() {
   const { t } = useTranslation();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const submitRef = useButtonAnim('cta');
+  const submitRef = useTextRoll();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -149,9 +149,10 @@ export default function Contact() {
                 <button
                   ref={submitRef}
                   type="submit"
-                  className="px-16 py-5 bg-paradou-green text-paradou-cream font-inter tracking-widest text-sm uppercase hover:bg-paradou-green/80 transition-colors duration-300 w-full md:w-auto"
+                  className="px-16 py-5 bg-paradou-green text-paradou-cream font-inter tracking-widest text-sm uppercase hover:bg-paradou-green/80 transition-colors duration-300 w-full md:w-auto overflow-hidden relative"
                 >
-                  {t('contactPage.form.submitBtn')}
+                  <span className="roll-top flex items-center justify-center">{t('contactPage.form.submitBtn')}</span>
+                  <span className="roll-bottom absolute inset-0 flex items-center justify-center">{t('contactPage.form.submitBtn')}</span>
                 </button>
               </div>
             </form>

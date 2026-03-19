@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import useButtonAnim from '../hooks/useButtonAnim';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
@@ -7,6 +6,50 @@ import gsap from 'gsap';
 import { Menu, X } from 'lucide-react';
 import logoDark from '../assets/logo-calea.png';
 import logoLight from '../assets/logo-calea-light.png';
+import useButtonAnim from '../hooks/useButtonAnim';
+
+// Lien de nav avec underline progressif GSAP
+function NavItem({ link, className }) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const line = el.querySelector('.nav-line');
+    if (!line) return;
+
+    gsap.set(line, { scaleX: 0, transformOrigin: 'left center' });
+
+    const onEnter = () => {
+      gsap.set(line, { transformOrigin: 'left center' });
+      gsap.to(line, { scaleX: 1, duration: 0.4, ease: 'power2.out', overwrite: true });
+    };
+    const onLeave = () => {
+      gsap.set(line, { transformOrigin: 'right center' });
+      gsap.to(line, { scaleX: 0, duration: 0.32, ease: 'power2.in', overwrite: true });
+    };
+
+    el.addEventListener('mouseenter', onEnter);
+    el.addEventListener('mouseleave', onLeave);
+    return () => {
+      el.removeEventListener('mouseenter', onEnter);
+      el.removeEventListener('mouseleave', onLeave);
+      gsap.killTweensOf(line);
+    };
+  }, []);
+
+  const inner = (
+    <>
+      {link.label}
+      <span className="nav-line block h-px w-full bg-current mt-[3px]" />
+    </>
+  );
+
+  if (link.isRouterLink) {
+    return <Link ref={ref} to={link.href} className={className}>{inner}</Link>;
+  }
+  return <a ref={ref} href={link.href} className={className}>{inner}</a>;
+}
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
@@ -26,22 +69,22 @@ export default function Navbar() {
   // Fade in AFTER the entire Hero text animation sequence ends (only on home)
   useEffect(() => {
     hasForcedNav.current = false;
-    
+
     if (navTween.current) navTween.current.kill();
-    
+
     const isHome = location.pathname === '/';
     navTween.current = gsap.fromTo(navRef.current,
       { opacity: 0, y: -20 },
-      { 
-        opacity: 1, 
-        y: 0, 
-        duration: 1, 
-        ease: 'power2.out', 
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power2.out',
         delay: isHome ? 7.2 : 0,
         overwrite: 'auto'
       }
     );
-    
+
     return () => {
       if (navTween.current) navTween.current.kill();
     };
@@ -57,16 +100,14 @@ export default function Navbar() {
 
       if (scrollY > 10 && !hasForcedNav.current) {
         hasForcedNav.current = true;
-        if (navTween.current) navTween.current.kill(); // On tue explicitement l'animation initiale retardée !
+        if (navTween.current) navTween.current.kill();
         gsap.to(navRef.current, { opacity: 1, y: 0, duration: 0.3, overwrite: 'auto' });
       }
 
       const main = document.querySelector('main');
-      let shouldBeLight = true; // default on Hero pages
+      let shouldBeLight = true;
 
       if (main) {
-        // If we scroll past the initial hero (typically 100vh)
-        // Wait, on some pages (like Contact) the Hero is shorter and cream.
         if (scrollY > window.innerHeight - 80 || !['/', '/histoire'].includes(location.pathname)) {
           const bg = main.style.backgroundColor || window.getComputedStyle(main).backgroundColor;
           const match = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
@@ -74,14 +115,12 @@ export default function Navbar() {
             const r = parseInt(match[1]);
             const g = parseInt(match[2]);
             const b = parseInt(match[3]);
-            // Calcul de la luminance perceptive
             const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-            shouldBeLight = luminance < 0.5; // Si très sombre, texte clair
+            shouldBeLight = luminance < 0.5;
           } else {
             shouldBeLight = false;
           }
         } else {
-          // If on home hero (video) it's strictly light
           shouldBeLight = true;
         }
       }
@@ -89,11 +128,9 @@ export default function Navbar() {
       setIsLight(shouldBeLight);
     };
 
-    // Run once on mount
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Observer pour capter les animations GSAP du background meme quand on ne scroll plus
     const main = document.querySelector('main');
     if (main) {
       observer = new MutationObserver(() => handleScroll());
@@ -108,19 +145,18 @@ export default function Navbar() {
 
   useEffect(() => {
     if (!menuOverlayRef.current || !menuArchRef.current) return;
-    
-    // Toggle pointer events
+
     menuOverlayRef.current.style.pointerEvents = isMenuOpen ? 'auto' : 'none';
 
     if (isMenuOpen) {
       gsap.to(menuOverlayRef.current, { autoAlpha: 1, duration: 0.3 });
-      
+
       const tl = gsap.timeline();
-      tl.fromTo(menuArchRef.current, 
+      tl.fromTo(menuArchRef.current,
         { height: '0vh', borderRadius: '50% 50% 0 0' },
         { height: '80vh', borderRadius: '40px 40px 0 0', duration: 1, ease: 'power3.inOut' }
       );
-      
+
       tl.fromTo(menuLinksRef.current,
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'power2.out' },
@@ -177,26 +213,15 @@ export default function Navbar() {
         <ul className="hidden md:flex items-center gap-10">
           {navLinks.left.map((link) => (
             <li key={link.label}>
-              {link.isRouterLink ? (
-                <Link
-                  to={link.href}
-                  className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  href={link.href}
-                  className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
-                >
-                  {link.label}
-                </a>
-              )}
+              <NavItem
+                link={link}
+                className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
+              />
             </li>
           ))}
         </ul>
 
-        {/* Center: Logo — always light version on video/dark, dark on mint */}
+        {/* Center: Logo */}
         <div className="absolute left-1/2 -translate-x-1/2">
           <Link to="/">
             <img
@@ -212,21 +237,10 @@ export default function Navbar() {
           <ul className="hidden md:flex items-center gap-10">
             {navLinks.right.map((link) => (
               <li key={link.label}>
-                {link.isRouterLink ? (
-                  <Link
-                    to={link.href}
-                    className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    href={link.href}
-                    className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
-                  >
-                    {link.label}
-                  </a>
-                )}
+                <NavItem
+                  link={link}
+                  className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
+                />
               </li>
             ))}
 
@@ -252,21 +266,18 @@ export default function Navbar() {
       </nav>
     </header>
 
-      {/* Mobile Menu Overlay / Modal - Rendered via Portal to escape CSS stacking context of Navbar */}
+      {/* Mobile Menu Overlay */}
       {typeof document !== 'undefined' && createPortal(
-        <div 
-          ref={menuOverlayRef} 
+        <div
+          ref={menuOverlayRef}
           className="fixed inset-0 z-[100] flex flex-col justify-end invisible opacity-0"
         >
-          {/* Dark blurry backdrop */}
           <div className="absolute inset-0 bg-black/40 backdrop-blur-md" onClick={() => setIsMenuOpen(false)} />
-          
-          {/* The Arch */}
-          <div 
-            ref={menuArchRef} 
+
+          <div
+            ref={menuArchRef}
             className="relative w-full bg-paradou-green text-paradou-cream origin-bottom flex flex-col items-center pt-24 pb-12 px-6 overflow-hidden"
           >
-            {/* Close Button */}
             <button
               ref={closeRef}
               onClick={() => setIsMenuOpen(false)}
@@ -274,7 +285,7 @@ export default function Navbar() {
             >
               <X size={36} strokeWidth={1} />
             </button>
-            
+
             <div className="flex flex-col items-center justify-center gap-10 h-full w-full max-w-sm mt-4">
               {mobileLinks.map((link, i) => (
                 <React.Fragment key={link.label}>
@@ -301,7 +312,7 @@ export default function Navbar() {
               ))}
 
               {/* Language Toggle in Menu */}
-              <div 
+              <div
                 ref={el => menuLinksRef.current[mobileLinks.length] = el}
                 className="mt-8 flex gap-8 font-inter text-sm tracking-widest text-white/50"
               >

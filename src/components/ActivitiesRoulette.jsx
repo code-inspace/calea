@@ -4,7 +4,7 @@ import { Sparkles, Sailboat, ChefHat, Sun } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import useButtonAnim from '../hooks/useButtonAnim';
+import useTextRoll from '../hooks/useTextRoll';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +19,7 @@ export default function ActivitiesRoulette() {
   const { t } = useTranslation();
   const containerRef = useRef(null);
   const itemsRef = useRef([]);
-  const ctaRef = useButtonAnim('cta');
+  const ctaRef = useTextRoll();
 
   const sliderData = t('activitiesSlider', { returnObjects: true });
   const items = sliderData.items || [];
@@ -179,9 +179,10 @@ export default function ActivitiesRoulette() {
         <Link
           ref={ctaRef}
           to="/contact"
-          className="bg-[#1A2F23] text-[#FDFCF8] px-10 md:px-14 py-4 md:py-5 rounded-full font-inter text-xs md:text-sm tracking-widest uppercase hover:bg-black transition-colors duration-500 shadow-xl shadow-[#1A2F23]/20"
+          className="bg-[#1A2F23] text-[#FDFCF8] px-10 md:px-14 py-4 md:py-5 rounded-full font-inter text-xs md:text-sm tracking-widest uppercase hover:bg-black transition-colors duration-500 shadow-xl shadow-[#1A2F23]/20 overflow-hidden relative"
         >
-          VOIR NOS ACTIVITÉS
+          <span className="roll-top flex items-center justify-center">VOIR NOS ACTIVITÉS</span>
+          <span className="roll-bottom absolute inset-0 flex items-center justify-center">VOIR NOS ACTIVITÉS</span>
         </Link>
       </div>
 

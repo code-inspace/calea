@@ -5,11 +5,11 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Users, BedDouble, Droplets, Waves } from 'lucide-react';
 import { bungalows } from '../data/bungalows';
-import useButtonAnim from '../hooks/useButtonAnim';
+import useTextRoll from '../hooks/useTextRoll';
 
 export default function Bungalows() {
   const { t } = useTranslation();
-  const ctaRef = useButtonAnim('cta');
+  const ctaRef = useTextRoll();
   const [activeIndex, setActiveIndex] = useState(0);
   const activeBungalow = bungalows[activeIndex];
   const [mainImage, setMainImage] = useState(activeBungalow.gallery[0]);
@@ -69,9 +69,10 @@ export default function Bungalows() {
             <a
               ref={ctaRef}
               href="/#contact"
-              className="inline-block px-8 py-4 bg-white text-paradou-green font-inter tracking-[0.2em] text-xs uppercase hover:bg-paradou-mint transition-colors duration-300"
+              className="inline-block px-8 py-4 bg-white text-paradou-green font-inter tracking-[0.2em] text-xs uppercase hover:bg-paradou-mint transition-colors duration-300 overflow-hidden relative"
             >
-              {t('footer.ctaPrimary')}
+              <span className="roll-top flex items-center justify-center">{t('footer.ctaPrimary')}</span>
+              <span className="roll-bottom absolute inset-0 flex items-center justify-center">{t('footer.ctaPrimary')}</span>
             </a>
           </div>
 

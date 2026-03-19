@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import logoLight from '../assets/logo-calea-light.png';
-import useButtonAnim from '../hooks/useButtonAnim';
+import useTextRoll from '../hooks/useTextRoll';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,8 +12,8 @@ export default function Footer() {
   const { t } = useTranslation();
   const location = useLocation();
   const footerRef = useRef(null);
-  const ctaPrimaryRef = useButtonAnim('cta');
-  const ctaSecondaryRef = useButtonAnim('cta');
+  const ctaPrimaryRef = useTextRoll();
+  const ctaSecondaryRef = useTextRoll();
 
   useLayoutEffect(() => {
     // La page d'accueil gère déjà son propre ScrollTrigger global pour tous les blocs data-color
@@ -53,16 +53,18 @@ export default function Footer() {
         <Link
           ref={ctaPrimaryRef}
           to="/contact"
-          className="flex-1 md:flex-none px-10 py-5 bg-white text-paradou-green font-sans tracking-widest text-sm uppercase hover:bg-paradou-mint transition-colors duration-300"
+          className="flex-1 md:flex-none px-10 py-5 bg-white text-paradou-green font-sans tracking-widest text-sm uppercase hover:bg-paradou-mint transition-colors duration-300 overflow-hidden relative"
         >
-          {t('footer.ctaPrimary')}
+          <span className="roll-top flex items-center justify-center">{t('footer.ctaPrimary')}</span>
+          <span className="roll-bottom absolute inset-0 flex items-center justify-center">{t('footer.ctaPrimary')}</span>
         </Link>
         <Link
           ref={ctaSecondaryRef}
           to="/contact"
-          className="flex-1 md:flex-none px-10 py-5 border border-white/30 text-white font-sans tracking-widest text-sm uppercase hover:bg-white hover:text-paradou-green transition-colors duration-300"
+          className="flex-1 md:flex-none px-10 py-5 border border-white/30 text-white font-sans tracking-widest text-sm uppercase hover:bg-white hover:text-paradou-green transition-colors duration-300 overflow-hidden relative"
         >
-          {t('footer.ctaSecondary')}
+          <span className="roll-top flex items-center justify-center">{t('footer.ctaSecondary')}</span>
+          <span className="roll-bottom absolute inset-0 flex items-center justify-center">{t('footer.ctaSecondary')}</span>
         </Link>
       </div>
       <div className="mt-32 w-full px-4 opacity-50 font-sans text-xs tracking-widest text-white leading-loose text-center">

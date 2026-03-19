@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Sparkles, Sailboat, ChefHat, Sun, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import useButtonAnim from '../hooks/useButtonAnim';
+import useTextRoll from '../hooks/useTextRoll';
 
 const iconMap = {
   Sparkles,
@@ -16,7 +17,7 @@ export default function ActivitiesSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const contentRef = useRef(null);
   const imageRef = useRef(null);
-  const ctaRef = useButtonAnim('cta');
+  const ctaRef = useTextRoll();
   const prevRef = useButtonAnim('icon');
   const nextRef = useButtonAnim('icon');
   
@@ -67,9 +68,9 @@ export default function ActivitiesSlider() {
               {currentItem.description}
             </p>
             
-            <button ref={ctaRef} className="flex items-center gap-4 px-8 py-3 border border-[#1A2F23]/20 rounded-full font-sans text-sm tracking-widest text-[#1A2F23] hover:bg-[#1A2F23] hover:text-[#FDFCF8] transition-colors duration-300">
-              {sliderData.cta}
-              <ArrowRight size={16} />
+            <button ref={ctaRef} className="flex items-center gap-4 px-8 py-3 border border-[#1A2F23]/20 rounded-full font-sans text-sm tracking-widest text-[#1A2F23] hover:bg-[#1A2F23] hover:text-[#FDFCF8] transition-colors duration-300 overflow-hidden relative">
+              <span className="roll-top flex items-center gap-4">{sliderData.cta}<ArrowRight size={16} /></span>
+              <span className="roll-bottom absolute inset-0 flex items-center justify-center gap-4">{sliderData.cta}<ArrowRight size={16} /></span>
             </button>
           </div>
         </div>
