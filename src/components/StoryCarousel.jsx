@@ -83,37 +83,8 @@ export default function StoryCarousel() {
               alt={card.title}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             />
-            {/* Gradient Overlay for Text Readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
             
             {/* Decorative arrow buttons like in the mockup */}
-            {i > 0 && (
-              <button 
-                onClick={() => handleScroll(-1)}
-                className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#4A3B32]/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 hover:bg-[#3A2D26]"
-              >
-                <ArrowLeft size={24} />
-              </button>
-            )}
-            
-            {i < storyCards.length - 1 && (
-              <button 
-                onClick={() => handleScroll(1)}
-                className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#4A3B32]/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 hover:bg-[#3A2D26]"
-              >
-                <ArrowRight size={24} />
-              </button>
-            )}
-
-            {/* Content overlay */}
-            <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 flex flex-col justify-end">
-              <span className="font-sans text-xs uppercase tracking-widest text-white/70 mb-4">
-                {card.title}
-              </span>
-              <p className="font-sans text-xl md:text-3xl leading-relaxed text-white max-w-3xl whitespace-pre-line">
-                {card.text}
-              </p>
-            </div>
           </div>
         ))}
       </div>

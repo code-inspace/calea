@@ -2,6 +2,7 @@ import React, { useRef, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Sparkles, Leaf, Hourglass } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -15,11 +16,14 @@ const timelineImages = [
   "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&w=1000&q=80"
 ];
 
+const valueIcons = [Sparkles, Leaf, Hourglass];
+
 export default function Story() {
   const { t } = useTranslation();
   
   const mainRef = useRef(null);
   const narrativeRef = useRef(null);
+  const timelineWrapperRef = useRef(null);
   const valuesRef = useRef(null);
   const galleryWrapperRef = useRef(null);
   const galleryRef = useRef(null);
@@ -42,90 +46,99 @@ export default function Story() {
       });
 
       // 2. Timeline Verticale
-      // Animer la hauteur de la ligne de progression centrale
       gsap.fromTo('.timeline-progress', 
         { scaleY: 0 },
         {
           scaleY: 1,
           ease: 'none',
           scrollTrigger: {
-            trigger: narrativeRef.current,
+            trigger: timelineWrapperRef.current,
             start: 'top center',
-            end: 'bottom 80%',
+            end: 'bottom center',
             scrub: true
           }
         }
       );
 
-      // Animer chaque étape de la timeline
       const steps = gsap.utils.toArray('.timeline-step');
       steps.forEach((step) => {
-        // Apparition text
         const text = step.querySelector('.timeline-text');
         if (text) {
           gsap.fromTo(text, 
             { opacity: 0, y: 50 },
-            {
-              opacity: 1, 
-              y: 0, 
-              duration: 1,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: step,
-                start: 'top 60%',
-              }
-            }
+            { opacity: 1, y: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: step, start: 'top 60%' } }
           );
         }
 
-        // Apparition image
         const img = step.querySelector('.timeline-img');
         if (img) {
           gsap.fromTo(img, 
             { opacity: 0, y: 70 },
-            {
-              opacity: 1, 
-              y: 0, 
-              duration: 1.5,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: step,
-                start: 'top 70%',
-              }
-            }
+            { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out', scrollTrigger: { trigger: step, start: 'top 70%' } }
           );
         }
 
-        // Apparition du point sur la ligne centrale
         const dot = step.querySelector('.timeline-dot');
         if (dot) {
           gsap.fromTo(dot,
             { scale: 0, opacity: 0 },
-            {
-              scale: 1,
-              opacity: 1,
-              ease: 'back.out(1.7)',
-              scrollTrigger: {
-                trigger: step,
-                start: 'top center',
-                end: 'center center',
-                scrub: true
-              }
-            }
+            { scale: 1, opacity: 1, ease: 'back.out(1.7)', scrollTrigger: { trigger: step, start: 'top center', end: 'center center', scrub: true } }
           );
         }
       });
 
-      // 3. Les Valeurs
-      gsap.from('.value-card', {
-        y: 60,
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: valuesRef.current,
-          start: 'top 75%',
+      // 3. Les Valeurs (Sophisticated individual block animations)
+      const valueCards = gsap.utils.toArray('.value-card');
+      valueCards.forEach((card) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+          }
+        });
+
+        const bgNum = card.querySelector('.value-bg-num');
+        if(bgNum) {
+          tl.fromTo(bgNum, 
+            { opacity: 0, y: 30 }, 
+            { opacity: 0.03, y: 0, duration: 1, ease: 'power3.out' }
+          );
+        }
+        
+        const icon = card.querySelector('.value-icon');
+        if(icon) {
+          tl.fromTo(icon, 
+            { opacity: 0, scale: 0.5 }, 
+            { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)' },
+            "-=0.8"
+          );
+        }
+
+        const title = card.querySelector('.value-title');
+        if(title) {
+          tl.fromTo(title, 
+            { opacity: 0, y: 20 }, 
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+            "-=0.6"
+          );
+        }
+
+        const line = card.querySelector('.value-line');
+        if(line) {
+          tl.fromTo(line, 
+            { scaleX: 0 }, 
+            { scaleX: 1, duration: 1, ease: 'power3.out' },
+            "-=0.6"
+          );
+        }
+
+        const descs = card.querySelectorAll('.value-desc p');
+        if(descs.length > 0) {
+          tl.fromTo(descs, 
+            { opacity: 0, y: 15 }, 
+            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power2.out' },
+            "-=0.8"
+          );
         }
       });
 
@@ -174,47 +187,28 @@ export default function Story() {
       </section>
 
       {/* SECTION 02 — LE RÉCIT (TIMELINE) */}
-      <section ref={narrativeRef} className="relative w-full bg-[#1A2F23] text-[#FDFCF8] py-32 overflow-hidden">
+      <section ref={narrativeRef} className="relative w-full bg-[#1A2F23] text-[#FDFCF8] py-16 overflow-hidden">
         
-        {/* Lignes de repère */}
-        <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-white/10 z-10 md:-translate-x-1/2" />
-        <div className="timeline-progress absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-white z-20 origin-top md:-translate-x-1/2" />
+        <div ref={timelineWrapperRef} className="relative w-full max-w-7xl mx-auto flex flex-col pt-32 pb-0">
+          {/* Lignes de repère limitées à ce conteneur */}
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-white/10 z-10 md:-translate-x-1/2" />
+          <div className="timeline-progress absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-white z-20 origin-top md:-translate-x-1/2" />
 
-        <div className="w-full max-w-7xl mx-auto flex flex-col pt-24 pb-48">
-          {mockStory.narrative.paragraphs.map((p, i) => {
-            // Le dernier paragraphe est affiché au centre sans image pour conclure
-            const isLast = i === mockStory.narrative.paragraphs.length - 1;
+          {mockStory.narrative.paragraphs.slice(0, -1).map((p, i) => {
             const imgSrc = timelineImages[i];
             const isEven = i % 2 === 0;
 
-            if (isLast) {
-              return (
-                <div key={i} className="timeline-step relative w-full pt-48 pb-20 flex justify-center text-center z-30">
-                  <div className="absolute left-6 md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-white rounded-full z-30 timeline-dot" />
-                  <p className="timeline-text font-serif text-4xl md:text-6xl lg:text-7xl leading-tight text-white max-w-4xl px-6 md:px-0 bg-[#1A2F23] py-8">
-                    {p}
-                  </p>
-                </div>
-              );
-            }
-
             return (
-              <div key={i} className={`timeline-step relative w-full min-h-[90vh] py-24 flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center z-30 px-6 md:px-12`}>
-                
-                {/* Point d'étape */}
+              <div key={i} className={`timeline-step relative w-full min-h-[90vh] pb-32 flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center z-30 px-6 md:px-12`}>
                 <div className="hidden md:block absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 bg-white rounded-full z-30 timeline-dot box-content border-4 border-[#1A2F23]" />
-                
-                {/* Mobile Dot (aligné à gauche) */}
                 <div className="md:hidden absolute left-6 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 bg-white rounded-full z-30 timeline-dot box-content border-4 border-[#1A2F23]" />
 
-                {/* Bloc Texte */}
                 <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${isEven ? 'md:pr-24 text-left md:text-right' : 'md:pl-24 text-left'} flex flex-col justify-center`}>
                   <p className="timeline-text font-sans text-2xl md:text-3xl lg:text-4xl leading-relaxed text-white/90">
                     {p}
                   </p>
                 </div>
 
-                {/* Bloc Image */}
                 <div className={`w-full md:w-1/2 pl-12 md:pl-0 mt-16 md:mt-0 ${isEven ? 'md:pl-24' : 'md:pr-24 flex justify-end'} timeline-img`}>
                   <div className="relative w-full aspect-[4/5] max-w-sm md:max-w-md overflow-hidden">
                     <img 
@@ -224,30 +218,60 @@ export default function Story() {
                     />
                   </div>
                 </div>
-
               </div>
             );
           })}
+
+          {/* Point final de la ligne */}
+          <div className="timeline-step relative w-full h-0 z-30">
+            <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full timeline-dot box-content border-4 border-[#1A2F23]" />
+            <div className="md:hidden absolute left-6 top-0 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full timeline-dot box-content border-4 border-[#1A2F23]" />
+          </div>
         </div>
+
+        {/* Paragraphe de conclusion hors de l'axe central vertical */}
+        <div className="timeline-step relative w-full max-w-4xl mx-auto pt-32 pb-32 flex justify-center text-center z-30">
+          <p className="timeline-text font-serif text-4xl md:text-6xl lg:text-7xl leading-tight text-white px-6 md:px-0 bg-[#1A2F23]">
+            {mockStory.narrative.paragraphs[mockStory.narrative.paragraphs.length - 1]}
+          </p>
+        </div>
+
       </section>
 
       {/* SECTION 03 — LES VALEURS */}
-      <section ref={valuesRef} className="w-full text-[#1A2F23] py-40 px-6 md:px-12 flex flex-col items-center">
-        <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between gap-24 md:gap-8">
-          {mockStory.values.map((v, i) => (
-            <div key={i} className="value-card flex-1 flex flex-col items-start md:items-center text-left md:text-center">
-              <h3 className="font-serif text-5xl md:text-6xl mb-8">
-                {v.title}
-              </h3>
-              <div className="flex flex-col gap-2 opacity-80">
-                {v.lines.map((line, j) => (
-                  <p key={j} className="font-sans text-lg lg:text-xl leading-relaxed">
-                    {line}
-                  </p>
-                ))}
+      <section ref={valuesRef} className="relative w-full text-[#1A2F23] py-48 px-6 md:px-12 flex flex-col items-center overflow-hidden">
+        <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-24 md:gap-12 relative z-10 pt-16">
+          {mockStory.values.map((v, i) => {
+            const Icon = valueIcons[i];
+            return (
+              <div key={i} className="value-card relative flex flex-col items-center text-center p-8">
+                
+                {/* Grand chiffre de fond */}
+                <div className="value-bg-num absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 font-serif text-[12rem] leading-none text-[#1A2F23] opacity-5 pointer-events-none select-none z-0">
+                  0{i + 1}
+                </div>
+
+                <div className="value-icon mb-10 text-[#1A2F23]/60 relative z-10">
+                  <Icon size={48} strokeWidth={1} />
+                </div>
+                
+                <h3 className="value-title font-serif text-4xl lg:text-5xl mb-6 relative z-10">
+                  {v.title}
+                </h3>
+                
+                {/* Ligne séparatrice */}
+                <div className="value-line w-12 h-px bg-[#1A2F23]/20 mb-8 relative z-10 origin-center" />
+
+                <div className="value-desc flex flex-col gap-2 opacity-80 relative z-10">
+                  {v.lines.map((line, j) => (
+                    <p key={j} className="font-sans text-lg lg:text-xl leading-relaxed text-[#1A2F23]/90">
+                      {line}
+                    </p>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

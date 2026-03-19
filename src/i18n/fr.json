@@ -113,15 +113,44 @@
       "image": "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?auto=format&fit=crop&q=80&w=2000"
     }
   ],
-  "experiencesIntro": "Ce que vous vivrez ici ne ressemble à rien d'autre.",
-  "experiences": [
-    "Petit-déjeuner servi au bord de votre piscine privée.",
-    "Dîner aux flambeaux sous les frangipaniers.",
-    "Soin duo au spa au coucher du soleil.",
-    "Excursion en voilier privé le long de la Côte d'Azur.",
-    "Cours de cuisine provençale avec notre chef étoilé.",
-    "Yoga au lever du soleil face à la Méditerranée."
-  ],
+  "activitiesSlider": {
+    "headline": "Vos moments Caléa",
+    "cta": "Découvrir Notre Spa",
+    "items": [
+      {
+        "icon": "Sparkles",
+        "title": "Votre Oasis Personnelle",
+        "description": "Après une journée de découvertes sous le soleil de la Méditerranée, notre Spa est l'endroit parfait pour décompresser et vous ressourcer – avec des soins apaisants pour le corps et l'esprit.",
+        "image": "https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=1000",
+        "imageOverlayTitle": "Bain à remous",
+        "imageOverlaySub": "L'eau chaude qui bouillonne pour laisser votre âme s'apaiser."
+      },
+      {
+        "icon": "Sailboat",
+        "title": "Escapade Marine",
+        "description": "Embarquez à bord de notre voilier privé pour explorer les criques inaccessibles et les îles secrètes de la Côte d'Azur.",
+        "image": "https://images.unsplash.com/photo-1518099074172-2e47ee6cb394?auto=format&fit=crop&q=80&w=1000",
+        "imageOverlayTitle": "Navigation au Vent",
+        "imageOverlaySub": "Glissez sur l'eau au large des calanques."
+      },
+      {
+        "icon": "ChefHat",
+        "title": "Saveurs Provençales",
+        "description": "Apprenez les secrets de la cuisine du soleil lors d'un atelier exclusif avec notre Chef étoilé, et dégustez vos créations face à la mer.",
+        "image": "https://images.unsplash.com/photo-1556910103-1c02745a872f?auto=format&fit=crop&q=80&w=1000",
+        "imageOverlayTitle": "Atelier Culinaire",
+        "imageOverlaySub": "La passion du goût et du produit local."
+      },
+      {
+        "icon": "Sun",
+        "title": "Éveil au lever du Soleil",
+        "description": "Retrouvez un équilibre parfait face à l'horizon. Nos cours de yoga privatisés au crépuscule ou à l'aube raniment chaque sens.",
+        "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1000",
+        "imageOverlayTitle": "Yoga Matinal",
+        "imageOverlaySub": "Harmonie ultime entre le souffle et la vague."
+      }
+    ]
+  },
   "footer": {
     "headline": "Votre rêve commence ici.",
     "subhead": "Réservez votre bungalow — disponibilités limitées.",

@@ -9,6 +9,7 @@ import ScrollExperience from '../components/ScrollExperience';
 import StoryCarousel from '../components/StoryCarousel';
 import BungalowGrid from '../components/BungalowGrid';
 import AudioToggle from '../components/AudioToggle';
+import ActivitiesSlider from '../components/ActivitiesSlider';
 import Footer from '../components/Footer';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -75,20 +76,8 @@ export default function Home() {
         <BungalowGrid />
       </section>
 
-      {/* Experiences section */}
-      <section id="experiences" data-color="#E0F2F1" className="py-32 w-full flex flex-col items-center text-center">
-        <h2 className="font-serif text-3xl md:text-5xl text-paradou-green mb-16 px-4">
-          {t('experiencesIntro')}
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-x-20 w-full px-4 md:px-12 text-left">
-          {t('experiences', { returnObjects: true }).map((exp, i) => (
-            <div key={i} className="flex gap-4 items-start border-t border-paradou-green/20 pt-6">
-              <span className="font-sans text-sm text-paradou-green/40 mt-1">0{i + 1}</span>
-              <p className="font-serif text-xl md:text-2xl text-paradou-green/90">{exp}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Activities Slider replaces the old static experiences */}
+      <ActivitiesSlider />
 
       <Footer />
     </main>

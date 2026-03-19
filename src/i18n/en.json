@@ -113,15 +113,44 @@
       "image": "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?auto=format&fit=crop&q=80&w=2000"
     }
   ],
-  "experiencesIntro": "What you experience here resembles nothing else.",
-  "experiences": [
-    "Breakfast served at the edge of your private pool.",
-    "Candlelit dinner beneath the frangipani trees.",
-    "Couples' treatment at the spa as the sun sets.",
-    "Private sailing trip along the French Riviera.",
-    "Provençal cooking class with our starred chef.",
-    "Sunrise yoga facing the Mediterranean."
-  ],
+  "activitiesSlider": {
+    "headline": "Your Caléa Moments",
+    "cta": "Discover Our Spa",
+    "items": [
+      {
+        "icon": "Sparkles",
+        "title": "Your Personal Oasis",
+        "description": "After a day of exploring under the Mediterranean sun, our Spa is the perfect place to unwind and recharge – featuring soothing treatments for body and mind.",
+        "image": "https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=1000",
+        "imageOverlayTitle": "Whirlpool",
+        "imageOverlaySub": "Gently bubbling warm water to let your soul unwind."
+      },
+      {
+        "icon": "Sailboat",
+        "title": "Marine Escape",
+        "description": "Get on board our private sailboat to explore inaccessible coves and the secret islands of the French Riviera.",
+        "image": "https://images.unsplash.com/photo-1518099074172-2e47ee6cb394?auto=format&fit=crop&q=80&w=1000",
+        "imageOverlayTitle": "Wind Sailing",
+        "imageOverlaySub": "Glide over the water off the coastline."
+      },
+      {
+        "icon": "ChefHat",
+        "title": "Provençal Flavors",
+        "description": "Learn the secrets of sunny cuisine during an exclusive workshop with our Michelin-starred Chef, and taste your creations facing the sea.",
+        "image": "https://images.unsplash.com/photo-1556910103-1c02745a872f?auto=format&fit=crop&q=80&w=1000",
+        "imageOverlayTitle": "Culinary Workshop",
+        "imageOverlaySub": "Passion for taste and local products."
+      },
+      {
+        "icon": "Sun",
+        "title": "Sunrise Awakening",
+        "description": "Find perfect balance facing the horizon. Our private yoga classes at dusk or dawn revive every sense.",
+        "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1000",
+        "imageOverlayTitle": "Morning Yoga",
+        "imageOverlaySub": "Ultimate harmony between breath and waves."
+      }
+    ]
+  },
   "footer": {
     "headline": "Your dream begins here.",
     "subhead": "Reserve your bungalow — limited availability.",
