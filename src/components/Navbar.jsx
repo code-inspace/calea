@@ -108,7 +108,7 @@ export default function Navbar() {
       let shouldBeLight = true;
 
       if (main) {
-        if (scrollY > window.innerHeight - 80 || !['/', '/histoire'].includes(location.pathname)) {
+        if (scrollY > window.innerHeight - 80 || !['/', '/histoire', '/mentions-legales'].includes(location.pathname)) {
           const bg = main.style.backgroundColor || window.getComputedStyle(main).backgroundColor;
           const match = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
           if (match) {
@@ -188,8 +188,8 @@ export default function Navbar() {
     ...navLinks.right
   ];
 
-  const textClass = isLight ? 'text-white' : 'text-paradou-green';
-  const textHover = isLight ? 'hover:text-white/60' : 'hover:text-paradou-green/60';
+  const textClass = isLight ? 'text-white' : 'text-calea-primary';
+  const textHover = isLight ? 'hover:text-white/60' : 'hover:text-calea-primary/60';
 
   return (
     <>
@@ -276,7 +276,7 @@ export default function Navbar() {
 
           <div
             ref={menuArchRef}
-            className="relative w-full bg-paradou-green text-paradou-cream origin-bottom flex flex-col items-center pt-24 pb-12 px-6 overflow-hidden"
+            className="relative w-full bg-calea-primary text-calea-cream origin-bottom flex flex-col items-center pt-24 pb-12 px-6 overflow-hidden"
           >
             <button
               ref={closeRef}

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import 'leaflet/dist/leaflet.css';
+import { getPrimaryHex } from '../config/colors';
 
 const LAT = 43.2681;
 const LNG = 6.6400;
@@ -30,15 +31,15 @@ export default function ResortMap() {
       ).addTo(map);
 
       // Grayscale + assombrissement sur le tile pane
-      // Le mix-blend-mode: color de l'overlay imposera ensuite le hue exact #1A2F23
-      // → terres : vert clair, routes : vert moyen, eau : vert foncé (#1A2F23)
+      // Le mix-blend-mode: color de l'overlay imposera ensuite le hue exact ${getPrimaryHex()}
+      // → terres : vert clair, routes : vert moyen, eau : vert foncé (${getPrimaryHex()})
       function applyStyle() {
         const tilePane = containerRef.current?.querySelector('.leaflet-tile-pane');
         if (!tilePane) return;
 
         tilePane.style.filter = 'grayscale(1) brightness(0.52) contrast(1.35)';
 
-        // Overlay couleur : impose le hue + saturation de #1A2F23 sur chaque pixel
+        // Overlay couleur : impose le hue + saturation de ${getPrimaryHex()} sur chaque pixel
         // mais conserve la luminosité relative → dégradé naturel de vert
         if (!containerRef.current.querySelector('.map-color-overlay')) {
           const overlay = document.createElement('div');
@@ -74,7 +75,7 @@ export default function ResortMap() {
             <span style="
               width:18px;height:18px;
               border-radius:50%;
-              background:#1A2F23;
+              background:${getPrimaryHex()};
               border:2.5px solid #FDFCF8;
               box-shadow:0 2px 12px rgba(26,47,35,0.4);
               display:block;
@@ -94,7 +95,7 @@ export default function ResortMap() {
           font-size:10px;
           letter-spacing:0.25em;
           text-transform:uppercase;
-          color:#1A2F23;
+          color:${getPrimaryHex()};
           padding:7px 14px;
           white-space:nowrap;
           background:#FDFCF8;
@@ -124,7 +125,7 @@ export default function ResortMap() {
       className="w-full h-full"
       style={{
         minHeight: '400px',
-        background: '#1A2F23',
+        background: getPrimaryHex(),
         isolation: 'isolate', // confine le blend mode aux enfants de la carte
       }}
     />

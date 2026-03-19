@@ -26,7 +26,7 @@ export default function Bungalows() {
   };
 
   return (
-    <main className="relative w-full min-h-screen bg-paradou-green overflow-hidden">
+    <main className="relative w-full min-h-screen bg-calea-primary overflow-hidden">
       <Helmet>
         <title>Bungalows · Caléa Resort</title>
         <meta name="description" content="Découvrez les bungalows privés de Caléa : General Room, Suite Royale et Villa Privée face à la Mediterranée. Chaque hébergement conjugue luxe, nature et intimité." />
@@ -41,7 +41,7 @@ export default function Bungalows() {
           className="w-full h-full object-cover transition-all duration-700 ease-in-out"
         />
         {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-paradou-green/90 via-transparent to-paradou-green/70 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-calea-primary/90 via-transparent to-calea-primary/70 mix-blend-multiply" />
       </div>
 
       {/* Top Sidebar / Selector -> Or a floating header like mockup */}
@@ -74,7 +74,7 @@ export default function Bungalows() {
             <a
               ref={ctaRef}
               href="/#contact"
-              className="inline-block px-8 py-4 bg-white text-paradou-green font-inter tracking-[0.2em] text-xs uppercase hover:bg-paradou-mint transition-colors duration-300 overflow-hidden relative"
+              className="inline-block px-8 py-4 bg-white text-calea-primary font-inter tracking-[0.2em] text-xs uppercase hover:bg-calea-mint transition-colors duration-300 overflow-hidden relative"
             >
               <span className="roll-top flex items-center justify-center">{t('footer.ctaPrimary')}</span>
               <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center">{t('footer.ctaPrimary')}</span>
@@ -99,20 +99,20 @@ export default function Bungalows() {
 
             {/* Info Cards */}
             <div className="flex flex-row flex-wrap md:flex-nowrap gap-[2px] justify-end">
-              <div className="bg-[#FDFCF8] text-paradou-green w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
+              <div className="bg-[#FDFCF8] text-calea-primary w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
                 <Users size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
                 <span className="font-sans text-[10px] uppercase tracking-widest text-center">
                   {activeBungalow.capacity}
                 </span>
               </div>
-              <div className="bg-[#FDFCF8] text-paradou-green w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
+              <div className="bg-[#FDFCF8] text-calea-primary w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
                 <BedDouble size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
                 <span className="font-sans text-[10px] uppercase tracking-widest text-center">
                   {activeBungalow.bedrooms}
                 </span>
               </div>
               {activeBungalow.pool && (
-                <div className="bg-[#FDFCF8] text-paradou-green w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
+                <div className="bg-[#FDFCF8] text-calea-primary w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
                   <Waves size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
                   <span className="font-sans text-[10px] uppercase tracking-widest text-center">
                     {t('bungalowFeatures.pool')}
@@ -120,7 +120,7 @@ export default function Bungalows() {
                 </div>
               )}
               {activeBungalow.jacuzzi && (
-                <div className="bg-[#FDFCF8] text-paradou-green w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
+                <div className="bg-[#FDFCF8] text-calea-primary w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
                   <Droplets size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
                   <span className="font-sans text-[10px] uppercase tracking-widest text-center">
                     {t('bungalowFeatures.jacuzzi')}

@@ -33,7 +33,7 @@ export default function Contact() {
   };
 
   return (
-    <main className="relative w-full min-h-screen bg-paradou-cream text-paradou-green overflow-x-hidden">
+    <main className="relative w-full min-h-screen bg-calea-cream text-calea-primary overflow-x-hidden">
       <Helmet>
         <title>Contact · Caléa Resort</title>
         <meta name="description" content="Écrivez-nous pour réserver votre bungalow, obtenir des informations ou planifier votre séjour à Caléa, sur la Côte d'Azur." />
@@ -45,7 +45,7 @@ export default function Contact() {
         <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl tracking-tight mb-8">
           {t('contactPage.heroTitle')}
         </h1>
-        <p className="font-sans text-lg md:text-xl text-paradou-green/60">
+        <p className="font-sans text-lg md:text-xl text-calea-primary/60">
           {t('contactPage.heroSub')}
         </p>
       </section>
@@ -54,7 +54,7 @@ export default function Contact() {
       <section className="py-20 px-4 flex justify-center w-full">
         <div className="w-full max-w-2xl">
           {isSubmitted ? (
-            <div className="bg-paradou-green/5 p-12 text-center fade-in">
+            <div className="bg-calea-primary/5 p-12 text-center fade-in">
               <h3 className="font-serif text-3xl md:text-4xl mb-4">
                 {t('contactPage.form.successTitle')}
               </h3>
@@ -73,7 +73,7 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="peer w-full bg-transparent border-b border-paradou-green/30 px-0 py-3 font-sans text-lg md:text-xl text-paradou-green placeholder-transparent focus:outline-none focus:border-paradou-green transition-colors"
+                  className="peer w-full bg-transparent border-b border-calea-primary/30 px-0 py-3 font-sans text-lg md:text-xl text-calea-primary placeholder-transparent focus:outline-none focus:border-calea-primary transition-colors"
                   placeholder={t('contactPage.form.nameLabel')}
                 />
                 <label 
@@ -93,7 +93,7 @@ export default function Contact() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="peer w-full bg-transparent border-b border-paradou-green/30 px-0 py-3 font-sans text-lg md:text-xl text-paradou-green placeholder-transparent focus:outline-none focus:border-paradou-green transition-colors"
+                  className="peer w-full bg-transparent border-b border-calea-primary/30 px-0 py-3 font-sans text-lg md:text-xl text-calea-primary placeholder-transparent focus:outline-none focus:border-calea-primary transition-colors"
                   placeholder={t('contactPage.form.emailLabel')}
                 />
                 <label 
@@ -111,7 +111,7 @@ export default function Contact() {
                   required
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-b border-paradou-green/30 px-0 py-3 font-sans text-lg md:text-xl text-paradou-green appearance-none focus:outline-none focus:border-paradou-green transition-colors cursor-pointer"
+                  className="w-full bg-transparent border-b border-calea-primary/30 px-0 py-3 font-sans text-lg md:text-xl text-calea-primary appearance-none focus:outline-none focus:border-calea-primary transition-colors cursor-pointer"
                 >
                   <option value="" disabled hidden>{t('contactPage.form.subjectLabel')}</option>
                   <option value="reservation">{t('contactPage.form.subjects.reservation')}</option>
@@ -134,7 +134,7 @@ export default function Contact() {
                   rows="4"
                   value={formData.message}
                   onChange={handleChange}
-                  className="peer w-full bg-transparent border-b border-paradou-green/30 px-0 py-3 font-sans text-lg md:text-xl text-paradou-green placeholder-transparent focus:outline-none focus:border-paradou-green transition-colors resize-none"
+                  className="peer w-full bg-transparent border-b border-calea-primary/30 px-0 py-3 font-sans text-lg md:text-xl text-calea-primary placeholder-transparent focus:outline-none focus:border-calea-primary transition-colors resize-none"
                   placeholder={t('contactPage.form.messageLabel')}
                 />
                 <label 
@@ -149,7 +149,7 @@ export default function Contact() {
                 <button
                   ref={submitRef}
                   type="submit"
-                  className="px-16 py-5 bg-paradou-green text-paradou-cream font-inter tracking-widest text-sm uppercase hover:bg-paradou-green/80 transition-colors duration-300 w-full md:w-auto overflow-hidden relative"
+                  className="px-16 py-5 bg-calea-primary text-calea-cream font-inter tracking-widest text-sm uppercase hover:bg-calea-primary/80 transition-colors duration-300 w-full md:w-auto overflow-hidden relative"
                 >
                   <span className="roll-top flex items-center justify-center">{t('contactPage.form.submitBtn')}</span>
                   <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center">{t('contactPage.form.submitBtn')}</span>
@@ -205,7 +205,7 @@ export default function Contact() {
       </section>
 
       {/* SECTION 04: CARTE */}
-      <section className="w-full bg-[#1A2F23] relative flex flex-col md:flex-row overflow-hidden">
+      <section className="w-full bg-calea-primary relative flex flex-col md:flex-row overflow-hidden">
 
         {/* Text Content */}
         <div className="w-full md:w-[45%] z-10 flex flex-col justify-center py-24 px-8 md:px-16">

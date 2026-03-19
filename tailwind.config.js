@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'paradou-cream': '#FDFCF8',
-        'paradou-mint': '#E0F2F1',
-        'paradou-green': '#1A2F23',
+        'calea-cream': '#FDFCF8',
+        'calea-mint': '#E0F2F1',
+        'calea-primary': 'rgb(var(--calea-primary) / <alpha-value>)',
       },
       fontFamily: {
         // Fraunces = corps de texte (textes longs, paragraphes)

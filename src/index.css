@@ -2,10 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Couleur principale — modifier ici uniquement ─── */
+:root {
+  --calea-primary: 94 0 6; /* #5E0006 */
+}
+
 
 @layer base {
   body {
-    @apply font-sans antialiased text-paradou-green bg-paradou-cream;
+    @apply font-sans antialiased text-calea-primary bg-calea-cream;
     overflow-x: hidden;
   }
   
@@ -44,7 +49,7 @@
 /* Leaflet zoom controls */
 .leaflet-control-zoom a {
   background: #FDFCF8 !important;
-  color: #1A2F23 !important;
+  color: #FF6F61 !important;
   border-color: rgba(26,47,35,0.2) !important;
   font-size: 16px !important;
   line-height: 26px !important;

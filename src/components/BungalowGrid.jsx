@@ -32,25 +32,25 @@ function BungalowCard({ bungalow, index }) {
 
       {/* Text Box */}
       <div className="bungalow-text w-full md:w-1/2 flex flex-col justify-center px-8 py-16 md:px-24">
-        <span className="font-sans text-paradou-green/50 text-sm tracking-widest mb-4">
+        <span className="font-sans text-calea-primary/50 text-sm tracking-widest mb-4">
           {bungalow.id}
         </span>
-        <h3 className="font-serif text-3xl md:text-5xl text-paradou-green mb-6">
+        <h3 className="font-serif text-3xl md:text-5xl text-calea-primary mb-6">
           {bungalow.name}
         </h3>
-        <p className="font-sans text-lg md:text-xl text-paradou-green/80 leading-relaxed mb-8">
+        <p className="font-sans text-lg md:text-xl text-calea-primary/80 leading-relaxed mb-8">
           {bungalow.atmosphere}
         </p>
-        <div className="flex items-center justify-between border-t border-paradou-green/20 pt-6 mb-10">
-          <span className="text-paradou-green font-sans uppercase tracking-widest text-sm font-semibold">{bungalow.price}</span>
-          <span className="text-paradou-green/50 font-sans tracking-widest text-xs uppercase">{bungalow.capacity}</span>
+        <div className="flex items-center justify-between border-t border-calea-primary/20 pt-6 mb-10">
+          <span className="text-calea-primary font-sans uppercase tracking-widest text-sm font-semibold">{bungalow.price}</span>
+          <span className="text-calea-primary/50 font-sans tracking-widest text-xs uppercase">{bungalow.capacity}</span>
         </div>
 
         <Link
           ref={btnRef}
           to="/bungalows"
           state={{ index }}
-          className="self-start px-10 py-4 bg-paradou-green text-paradou-cream font-inter text-xs tracking-widest uppercase overflow-hidden relative"
+          className="self-start px-10 py-4 bg-calea-primary text-calea-cream font-inter text-xs tracking-widest uppercase overflow-hidden relative"
         >
           <span className="roll-top flex items-center justify-center">{t('bungalowsIntro.cta', 'Consulter')}</span>
           <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center">{t('bungalowsIntro.cta', 'Consulter')}</span>
@@ -112,8 +112,8 @@ export default function BungalowGrid() {
   return (
     <section data-color="#FDFCF8" ref={containerRef} className="py-24">
       <div className="w-full text-center mb-20 px-4">
-        <h2 className="font-serif text-4xl md:text-6xl text-paradou-green mb-6">{intro.title}</h2>
-        <p className="font-sans text-lg text-paradou-green/70 uppercase tracking-widest">{intro.subtitle}</p>
+        <h2 className="font-serif text-4xl md:text-6xl text-calea-primary mb-6">{intro.title}</h2>
+        <p className="font-sans text-lg text-calea-primary/70 uppercase tracking-widest">{intro.subtitle}</p>
       </div>
 
       <div className="flex flex-col w-full">

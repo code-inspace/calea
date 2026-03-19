@@ -123,7 +123,7 @@ export default function ScrollExperience() {
   }, { scope: containerRef }); // Automatically cleans up GSAP context!
 
   return (
-    <section data-color="#1A2F23" ref={containerRef} className="h-screen w-full relative overflow-hidden bg-paradou-green text-paradou-cream flex items-center justify-center">
+    <section data-color="#FF6F61" ref={containerRef} className="h-screen w-full relative overflow-hidden bg-calea-primary text-calea-cream flex items-center justify-center">
       
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
@@ -154,7 +154,7 @@ export default function ScrollExperience() {
           {/* Central Text */}
           <div className="anim-text absolute z-10 w-full max-w-4xl px-4 text-center flex flex-col items-center">
              {index === 1 && (
-               <div className="anim-icon mb-6 text-paradou-mint">
+               <div className="anim-icon mb-6 text-calea-mint">
                  <Sparkles size={48} strokeWidth={1} />
                </div>
              )}

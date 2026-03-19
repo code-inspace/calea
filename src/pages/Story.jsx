@@ -183,7 +183,7 @@ export default function Story() {
   }, []);
 
   return (
-    <main ref={mainRef} className="relative w-full bg-[#FDFCF8] text-paradou-green overflow-x-hidden">
+    <main ref={mainRef} className="relative w-full bg-[#FDFCF8] text-calea-primary overflow-x-hidden">
       <Helmet>
         <title>L'Histoire de Caléa · Un Rêve Provençal</title>
         <meta name="description" content="Découvrez l'histoire de Caléa : un jardin secret, une famille, un héritage vivant sur la Côte d'Azur. L'authenticité d'un domaine provençal réinventé avec âme." />
@@ -191,8 +191,8 @@ export default function Story() {
       <Navbar />
 
       {/* SECTION 01 · HERO HISTOIRE */}
-      <section data-color="#1A2F23" className="hero-section relative w-full h-screen overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 z-0 bg-[#1A2F23]">
+      <section data-color="#FF6F61" className="hero-section relative w-full h-screen overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 z-0 bg-calea-primary">
           <img 
             src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=75"
             alt="Jardin atmo" 
@@ -205,7 +205,7 @@ export default function Story() {
       </section>
 
       {/* SECTION 02 · LE RÉCIT (TIMELINE) */}
-      <section data-color="#1A2F23" ref={narrativeRef} className="relative w-full text-[#FDFCF8] py-16 overflow-hidden transition-colors duration-1000">
+      <section data-color="#FF6F61" ref={narrativeRef} className="relative w-full text-[#FDFCF8] py-16 overflow-hidden transition-colors duration-1000">
         
         <div ref={timelineWrapperRef} className="relative w-full max-w-7xl mx-auto flex flex-col pt-32 pb-0">
           {/* Lignes de repère limitées à ce conteneur (exact pixels on mobile to avoid subpixel rendering translation bugs) */}
@@ -218,10 +218,10 @@ export default function Story() {
 
             return (
               <div key={i} className={`timeline-step relative w-full min-h-0 md:min-h-[90vh] py-16 md:py-0 md:pb-32 flex flex-col items-start ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} md:items-center z-30 px-6 md:px-12`}>
-                <div className="hidden md:block absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 bg-white rounded-full z-30 timeline-dot box-content border-4 border-[#1A2F23]" />
+                <div className="hidden md:block absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 bg-white rounded-full z-30 timeline-dot box-content border-4 border-calea-primary" />
                 
                 {/* 14px left edge + 10px half-width = 24px center */}
-                <div className="md:hidden absolute left-[14px] top-[80px] -translate-y-1/2 w-3 h-3 bg-white rounded-full z-30 timeline-dot box-content border-4 border-[#1A2F23]" />
+                <div className="md:hidden absolute left-[14px] top-[80px] -translate-y-1/2 w-3 h-3 bg-white rounded-full z-30 timeline-dot box-content border-4 border-calea-primary" />
 
                 <div className={`w-full md:w-1/2 pl-[60px] md:pl-0 ${isEven ? 'md:pr-24 text-left md:text-right' : 'md:pl-24 text-left'} flex flex-col justify-center pt-2 md:pt-0`}>
                   <p className="timeline-text font-sans text-xl md:text-3xl lg:text-4xl leading-relaxed text-white/90">
@@ -244,8 +244,8 @@ export default function Story() {
 
           {/* Point final de la ligne */}
           <div className="timeline-step relative w-full h-0 z-30">
-            <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full timeline-dot box-content border-4 border-[#1A2F23]" />
-            <div className="md:hidden absolute left-[12px] top-0 -translate-y-1/2 w-4 h-4 bg-white rounded-full timeline-dot box-content border-4 border-[#1A2F23]" />
+            <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full timeline-dot box-content border-4 border-calea-primary" />
+            <div className="md:hidden absolute left-[12px] top-0 -translate-y-1/2 w-4 h-4 bg-white rounded-full timeline-dot box-content border-4 border-calea-primary" />
           </div>
         </div>
 
@@ -259,7 +259,7 @@ export default function Story() {
       </section>
 
       {/* SECTION 03 · LES VALEURS */}
-      <section data-color="#FDFCF8" ref={valuesRef} className="relative w-full text-[#1A2F23] py-48 px-6 md:px-12 flex flex-col items-center overflow-hidden transition-colors duration-1000">
+      <section data-color="#FDFCF8" ref={valuesRef} className="relative w-full text-calea-primary py-48 px-6 md:px-12 flex flex-col items-center overflow-hidden transition-colors duration-1000">
         <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-24 md:gap-12 relative z-10 pt-16">
           {mockStory.values.map((v, i) => {
             const Icon = valueIcons[i];
@@ -267,11 +267,11 @@ export default function Story() {
               <div key={i} className="value-card relative flex flex-col items-center text-center p-8">
                 
                 {/* Grand chiffre de fond */}
-                <div className="value-bg-num absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 font-serif text-[12rem] leading-none text-[#1A2F23] opacity-5 pointer-events-none select-none z-0">
+                <div className="value-bg-num absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 font-serif text-[12rem] leading-none text-calea-primary opacity-5 pointer-events-none select-none z-0">
                   0{i + 1}
                 </div>
 
-                <div className="value-icon mb-10 text-[#1A2F23]/60 relative z-10">
+                <div className="value-icon mb-10 text-calea-primary/60 relative z-10">
                   <Icon size={48} strokeWidth={1} />
                 </div>
                 
@@ -280,11 +280,11 @@ export default function Story() {
                 </h3>
                 
                 {/* Ligne séparatrice */}
-                <div className="value-line w-12 h-px bg-[#1A2F23]/20 mb-8 relative z-10 origin-center" />
+                <div className="value-line w-12 h-px bg-calea-primary/20 mb-8 relative z-10 origin-center" />
 
                 <div className="value-desc flex flex-col gap-2 opacity-80 relative z-10">
                   {v.lines.map((line, j) => (
-                    <p key={j} className="font-sans text-lg lg:text-xl leading-relaxed text-[#1A2F23]/90">
+                    <p key={j} className="font-sans text-lg lg:text-xl leading-relaxed text-calea-primary/90">
                       {line}
                     </p>
                   ))}

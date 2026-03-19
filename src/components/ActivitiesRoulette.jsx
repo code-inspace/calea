@@ -104,7 +104,7 @@ export default function ActivitiesRoulette() {
 
       {/* Intro Text */}
       <div className="roulette-intro max-w-3xl mx-auto text-center px-6 mb-20 md:mb-32 relative z-10">
-        <p className="font-sans text-base md:text-lg text-[#1A2F23]/80 leading-relaxed font-medium">
+        <p className="font-sans text-base md:text-lg text-calea-primary/80 leading-relaxed font-medium">
           {sliderData.headline} — {t('activitiesRoulette.intro')}
         </p>
       </div>
@@ -140,7 +140,7 @@ export default function ActivitiesRoulette() {
 
                 {/* Vertical hanging line for outer cards (0 and 3) */}
                 {(i === 0 || i === 3) && (
-                  <div className="roulette-line hidden md:block absolute bottom-full left-1/2 w-px h-[300px] bg-[#1A2F23]/15 origin-top" />
+                  <div className="roulette-line hidden md:block absolute bottom-full left-1/2 w-px h-[300px] bg-calea-primary/15 origin-top" />
                 )}
 
                 {/* The Image */}
@@ -154,12 +154,12 @@ export default function ActivitiesRoulette() {
 
                 {/* The Text Label */}
                 <div className="mt-8 flex flex-col items-center text-center">
-                  <h3 className="font-serif text-xl md:text-2xl text-[#1A2F23] mb-2">{item.title}</h3>
-                  <p className="font-sans text-xs md:text-sm text-[#1A2F23]/60 px-4 md:px-0 max-w-[250px] mb-4 line-clamp-2">
+                  <h3 className="font-serif text-xl md:text-2xl text-calea-primary mb-2">{item.title}</h3>
+                  <p className="font-sans text-xs md:text-sm text-calea-primary/60 px-4 md:px-0 max-w-[250px] mb-4 line-clamp-2">
                     {item.description}
                   </p>
-                  <div className="flex items-center gap-3 text-xs tracking-widest uppercase text-[#1A2F23] font-medium cursor-pointer hover:opacity-60 transition-opacity">
-                    <span className="w-8 h-8 rounded-full border border-[#1A2F23]/20 flex items-center justify-center">
+                  <div className="flex items-center gap-3 text-xs tracking-widest uppercase text-calea-primary font-medium cursor-pointer hover:opacity-60 transition-opacity">
+                    <span className="w-8 h-8 rounded-full border border-calea-primary/20 flex items-center justify-center">
                       <IconComp size={14} />
                     </span>
                     {t('activitiesRoulette.discover')}
@@ -177,7 +177,7 @@ export default function ActivitiesRoulette() {
         <Link
           ref={ctaRef}
           to="/contact"
-          className="bg-[#1A2F23] text-[#FDFCF8] px-10 md:px-14 py-4 md:py-5 rounded-full font-inter text-xs md:text-sm tracking-widest uppercase hover:bg-black transition-colors duration-500 shadow-xl shadow-[#1A2F23]/20 overflow-hidden relative"
+          className="bg-calea-primary text-[#FDFCF8] px-10 md:px-14 py-4 md:py-5 rounded-full font-inter text-xs md:text-sm tracking-widest uppercase hover:bg-black transition-colors duration-500 shadow-xl shadow-calea-primary/20 overflow-hidden relative"
         >
           <span className="roll-top flex items-center justify-center">{t('activitiesRoulette.cta')}</span>
           <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center">{t('activitiesRoulette.cta')}</span>

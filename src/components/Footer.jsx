@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { getPrimaryHex } from '../config/colors';
 import logoLight from '../assets/logo-calea-light.png';
 import useTextRoll from '../hooks/useTextRoll';
 
@@ -30,7 +31,7 @@ export default function Footer() {
         ScrollTrigger.create({
           trigger: footerRef.current,
           start: 'top 50%',
-          onEnter: () => gsap.to(mainEl, { backgroundColor: '#1A2F23', duration: 1.5, overwrite: "auto" }),
+          onEnter: () => gsap.to(mainEl, { backgroundColor: getPrimaryHex(), duration: 1.5, overwrite: "auto" }),
           onLeaveBack: () => gsap.to(mainEl, { backgroundColor: originalColor, duration: 1.5, overwrite: "auto" }),
         });
         ScrollTrigger.refresh();
@@ -41,7 +42,7 @@ export default function Footer() {
   }, [location.pathname]);
 
   return (
-    <section ref={footerRef} id="contact" data-color="#1A2F23" className="min-h-screen flex flex-col items-center justify-center text-center w-full py-20">
+    <section ref={footerRef} id="contact" data-color="primary" className="min-h-screen flex flex-col items-center justify-center text-center w-full py-20">
       <img src={logoLight} alt="Caléa" className="h-12 md:h-16 mb-16 opacity-80" />
       <h2 className="font-serif text-5xl md:text-7xl text-white mb-6 px-4">
         {t('footer.headline')}
@@ -53,7 +54,7 @@ export default function Footer() {
         <Link
           ref={ctaPrimaryRef}
           to="/contact"
-          className="flex-1 md:flex-none px-10 py-5 bg-white text-paradou-green font-sans tracking-widest text-sm uppercase hover:bg-paradou-mint transition-colors duration-300 overflow-hidden relative"
+          className="flex-1 md:flex-none px-10 py-5 bg-white text-calea-primary font-sans tracking-widest text-sm uppercase hover:bg-calea-mint transition-colors duration-300 overflow-hidden relative"
         >
           <span className="roll-top flex items-center justify-center">{t('footer.ctaPrimary')}</span>
           <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center">{t('footer.ctaPrimary')}</span>
@@ -61,7 +62,7 @@ export default function Footer() {
         <Link
           ref={ctaSecondaryRef}
           to="/contact"
-          className="flex-1 md:flex-none px-10 py-5 border border-white/30 text-white font-sans tracking-widest text-sm uppercase hover:bg-white hover:text-paradou-green transition-colors duration-300 overflow-hidden relative"
+          className="flex-1 md:flex-none px-10 py-5 border border-white/30 text-white font-sans tracking-widest text-sm uppercase hover:bg-white hover:text-calea-primary transition-colors duration-300 overflow-hidden relative"
         >
           <span className="roll-top flex items-center justify-center">{t('footer.ctaSecondary')}</span>
           <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center">{t('footer.ctaSecondary')}</span>

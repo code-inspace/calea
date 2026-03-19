@@ -60,15 +60,15 @@ export default function ActivitiesSlider() {
           <div ref={contentRef} className="flex flex-col items-start">
             <IconComponent size={64} strokeWidth={1} className="text-[#D4C3B3] mb-8" />
             
-            <h2 className="font-serif text-4xl lg:text-5xl text-[#1A2F23] mb-6 leading-tight">
+            <h2 className="font-serif text-4xl lg:text-5xl text-calea-primary mb-6 leading-tight">
               {currentItem.title}
             </h2>
             
-            <p className="font-sans text-lg text-[#1A2F23]/70 leading-relaxed mb-10">
+            <p className="font-sans text-lg text-calea-primary/70 leading-relaxed mb-10">
               {currentItem.description}
             </p>
             
-            <button ref={ctaRef} className="flex items-center gap-4 px-8 py-3 border border-[#1A2F23]/20 rounded-full font-sans text-sm tracking-widest text-[#1A2F23] hover:bg-[#1A2F23] hover:text-[#FDFCF8] transition-colors duration-300 overflow-hidden relative">
+            <button ref={ctaRef} className="flex items-center gap-4 px-8 py-3 border border-calea-primary/20 rounded-full font-sans text-sm tracking-widest text-calea-primary hover:bg-calea-primary hover:text-[#FDFCF8] transition-colors duration-300 overflow-hidden relative">
               <span className="roll-top flex items-center gap-4">{sliderData.cta}<ArrowRight size={16} /></span>
               <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center gap-4">{sliderData.cta}<ArrowRight size={16} /></span>
             </button>
@@ -108,14 +108,14 @@ export default function ActivitiesSlider() {
             <button
               ref={prevRef}
               onClick={handlePrev}
-              className="w-12 h-12 flex items-center justify-center rounded-full border border-[#1A2F23]/20 text-[#1A2F23] hover:bg-[#1A2F23] hover:text-[#FDFCF8] transition-colors duration-300"
+              className="w-12 h-12 flex items-center justify-center rounded-full border border-calea-primary/20 text-calea-primary hover:bg-calea-primary hover:text-[#FDFCF8] transition-colors duration-300"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               ref={nextRef}
               onClick={handleNext}
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1A2F23] text-[#FDFCF8] hover:bg-black transition-colors duration-300"
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-calea-primary text-[#FDFCF8] hover:bg-black transition-colors duration-300"
             >
               <ChevronRight size={20} />
             </button>
