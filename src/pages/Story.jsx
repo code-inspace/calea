@@ -230,7 +230,7 @@ export default function Story() {
                 </div>
 
                 <div className={`w-full md:w-1/2 pl-[60px] md:pl-0 mt-8 md:mt-0 ${isEven ? 'md:pl-24' : 'md:pr-24 md:flex md:justify-end'} timeline-img`}>
-                  <div className="relative w-full aspect-[4/5] max-w-[260px] md:max-w-md overflow-hidden">
+                  <div className="relative w-full aspect-[4/5] max-w-[260px] md:max-w-md overflow-hidden rounded-[2rem] md:rounded-[3rem]">
                     <img 
                       src={imgSrc} 
                       alt={`Histoire étape ${i+1}`} 
@@ -303,7 +303,7 @@ export default function Story() {
           style={{ width: 'max-content' }}
         >
           {mockStory.gallery.map((img, i) => (
-            <div key={i} className="w-[80vw] md:w-[60vw] lg:w-[45vw] h-[60vh] flex-shrink-0 overflow-hidden relative group">
+            <div key={i} className="w-[80vw] md:w-[60vw] lg:w-[45vw] h-[60vh] flex-shrink-0 overflow-hidden rounded-[2rem] md:rounded-[3rem] relative group">
               <div className="absolute inset-0 bg-[#FDFCF8]/10 group-hover:bg-transparent transition-colors duration-700 z-10" />
               <img 
                 src={img} 

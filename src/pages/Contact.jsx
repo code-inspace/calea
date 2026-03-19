@@ -4,10 +4,12 @@ import { useTranslation } from 'react-i18next';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ResortMap from '../components/ResortMap';
+import useButtonAnim from '../hooks/useButtonAnim';
 
 export default function Contact() {
   const { t } = useTranslation();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const submitRef = useButtonAnim('cta');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -144,7 +146,8 @@ export default function Contact() {
               </div>
 
               <div className="pt-8 w-full flex justify-center">
-                <button 
+                <button
+                  ref={submitRef}
                   type="submit"
                   className="px-16 py-5 bg-paradou-green text-paradou-cream font-inter tracking-widest text-sm uppercase hover:bg-paradou-green/80 transition-colors duration-300 w-full md:w-auto"
                 >

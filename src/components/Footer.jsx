@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import logoLight from '../assets/logo-calea-light.png';
+import useButtonAnim from '../hooks/useButtonAnim';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,6 +12,8 @@ export default function Footer() {
   const { t } = useTranslation();
   const location = useLocation();
   const footerRef = useRef(null);
+  const ctaPrimaryRef = useButtonAnim('cta');
+  const ctaSecondaryRef = useButtonAnim('cta');
 
   useLayoutEffect(() => {
     // La page d'accueil gère déjà son propre ScrollTrigger global pour tous les blocs data-color
@@ -47,13 +50,15 @@ export default function Footer() {
         {t('footer.subhead')}
       </p>
       <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto px-4">
-        <Link 
+        <Link
+          ref={ctaPrimaryRef}
           to="/contact"
           className="flex-1 md:flex-none px-10 py-5 bg-white text-paradou-green font-sans tracking-widest text-sm uppercase hover:bg-paradou-mint transition-colors duration-300"
         >
           {t('footer.ctaPrimary')}
         </Link>
-        <Link 
+        <Link
+          ref={ctaSecondaryRef}
           to="/contact"
           className="flex-1 md:flex-none px-10 py-5 border border-white/30 text-white font-sans tracking-widest text-sm uppercase hover:bg-white hover:text-paradou-green transition-colors duration-300"
         >

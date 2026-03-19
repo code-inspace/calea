@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import useButtonAnim from '../hooks/useButtonAnim';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
@@ -15,6 +16,8 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef(null);
   const menuOverlayRef = useRef(null);
+  const burgerRef = useButtonAnim('icon');
+  const closeRef = useButtonAnim('icon');
   const menuArchRef = useRef(null);
   const menuLinksRef = useRef([]);
   const hasForcedNav = useRef(false);
@@ -165,7 +168,7 @@ export default function Navbar() {
 
         {/* Mobile Burger (Left) */}
         <div className="md:hidden flex items-center">
-          <button onClick={() => setIsMenuOpen(true)} className={`transition-colors duration-300 ${textClass}`}>
+          <button ref={burgerRef} onClick={() => setIsMenuOpen(true)} className={`transition-colors duration-300 ${textClass}`}>
             <Menu size={28} strokeWidth={1.5} />
           </button>
         </div>
@@ -264,8 +267,9 @@ export default function Navbar() {
             className="relative w-full bg-paradou-green text-paradou-cream origin-bottom flex flex-col items-center pt-24 pb-12 px-6 overflow-hidden"
           >
             {/* Close Button */}
-            <button 
-              onClick={() => setIsMenuOpen(false)} 
+            <button
+              ref={closeRef}
+              onClick={() => setIsMenuOpen(false)}
               className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors"
             >
               <X size={36} strokeWidth={1} />

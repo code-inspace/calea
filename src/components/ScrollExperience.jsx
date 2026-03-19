@@ -146,7 +146,7 @@ export default function ScrollExperience() {
           
           {/* Images floating behind/around the text */}
           {slide.images.map((img, i) => (
-            <div key={i} className={`anim-image absolute overflow-hidden rounded-[2rem] shadow-2xl ${img.class} pointer-events-auto`}>
+            <div key={i} className={`anim-image absolute overflow-hidden rounded-[2rem] md:rounded-[3rem] shadow-2xl ${img.class} pointer-events-auto`}>
               <img src={img.src} alt="" className="w-full h-full object-cover" />
             </div>
           ))}

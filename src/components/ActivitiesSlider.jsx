@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Sparkles, Sailboat, ChefHat, Sun, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
+import useButtonAnim from '../hooks/useButtonAnim';
 
 const iconMap = {
   Sparkles,
@@ -15,6 +16,9 @@ export default function ActivitiesSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const contentRef = useRef(null);
   const imageRef = useRef(null);
+  const ctaRef = useButtonAnim('cta');
+  const prevRef = useButtonAnim('icon');
+  const nextRef = useButtonAnim('icon');
   
   const sliderData = t('activitiesSlider', { returnObjects: true });
   const items = sliderData.items || [];
@@ -63,7 +67,7 @@ export default function ActivitiesSlider() {
               {currentItem.description}
             </p>
             
-            <button className="flex items-center gap-4 px-8 py-3 border border-[#1A2F23]/20 rounded-full font-sans text-sm tracking-widest text-[#1A2F23] hover:bg-[#1A2F23] hover:text-[#FDFCF8] transition-colors duration-300">
+            <button ref={ctaRef} className="flex items-center gap-4 px-8 py-3 border border-[#1A2F23]/20 rounded-full font-sans text-sm tracking-widest text-[#1A2F23] hover:bg-[#1A2F23] hover:text-[#FDFCF8] transition-colors duration-300">
               {sliderData.cta}
               <ArrowRight size={16} />
             </button>
@@ -76,7 +80,7 @@ export default function ActivitiesSlider() {
           <div className="absolute top-[-10%] right-[-5%] w-full md:w-4/5 h-[120%] bg-[#F4F1EA] rounded-[40px] z-0 hidden md:block" />
           
           {/* Image Frame */}
-          <div className="relative z-10 w-full h-[50vh] md:h-[60vh] rounded-[30px] overflow-hidden shadow-xl">
+          <div className="relative z-10 w-full h-[50vh] md:h-[60vh] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-xl">
             <img 
               ref={imageRef}
               src={currentItem.image} 
@@ -100,13 +104,15 @@ export default function ActivitiesSlider() {
 
           {/* Controls Below Image */}
           <div className="flex gap-4 mt-8 relative z-10 w-full md:w-auto md:mr-auto md:ml-0 justify-start">
-            <button 
+            <button
+              ref={prevRef}
               onClick={handlePrev}
               className="w-12 h-12 flex items-center justify-center rounded-full border border-[#1A2F23]/20 text-[#1A2F23] hover:bg-[#1A2F23] hover:text-[#FDFCF8] transition-colors duration-300"
             >
               <ChevronLeft size={20} />
             </button>
-            <button 
+            <button
+              ref={nextRef}
               onClick={handleNext}
               className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1A2F23] text-[#FDFCF8] hover:bg-black transition-colors duration-300"
             >

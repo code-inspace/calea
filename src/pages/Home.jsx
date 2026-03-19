@@ -9,7 +9,6 @@ import Hero from '../components/Hero';
 import ScrollExperience from '../components/ScrollExperience';
 import StoryCarousel from '../components/StoryCarousel';
 import BungalowGrid from '../components/BungalowGrid';
-import AudioToggle from '../components/AudioToggle';
 import ActivitiesRoulette from '../components/ActivitiesRoulette';
 import Footer from '../components/Footer';
 
@@ -43,7 +42,6 @@ export default function Home() {
         <meta name="description" content="Caléa, le resort provençal secret sur la Côte d'Azur. Bungalows privatifs face à la mer, spa, cuisine locale et expériences uniques. Réservez votre escapade." />
       </Helmet>
       <Noise />
-      <AudioToggle />
       <Navbar />
 
       <Hero />

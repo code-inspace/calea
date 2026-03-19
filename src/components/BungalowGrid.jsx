@@ -72,7 +72,7 @@ export default function BungalowGrid() {
             {/* Image Box */}
             <Link 
               to="/bungalows" 
-              className="w-full md:w-1/2 overflow-hidden aspect-[4/5] md:aspect-auto md:h-[80vh] relative block group cursor-pointer"
+              className="w-full md:w-1/2 overflow-hidden rounded-[2rem] md:rounded-[3rem] aspect-[4/5] md:aspect-auto md:h-[80vh] relative block group cursor-pointer"
             >
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none flex items-center justify-center">
                 <span className="text-white font-serif italic text-2xl rotate-[-5deg] scale-90 group-hover:scale-100 transition-transform duration-700">Découvrir</span>

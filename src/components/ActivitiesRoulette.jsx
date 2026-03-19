@@ -4,6 +4,7 @@ import { Sparkles, Sailboat, ChefHat, Sun } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import useButtonAnim from '../hooks/useButtonAnim';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +19,7 @@ export default function ActivitiesRoulette() {
   const { t } = useTranslation();
   const containerRef = useRef(null);
   const itemsRef = useRef([]);
+  const ctaRef = useButtonAnim('cta');
 
   const sliderData = t('activitiesSlider', { returnObjects: true });
   const items = sliderData.items || [];
@@ -175,8 +177,9 @@ export default function ActivitiesRoulette() {
       {/* Global CTA Button */}
       <div className="roulette-cta mt-24 md:mt-48 w-full flex justify-center relative z-20 px-6 opacity-0">
         <Link
+          ref={ctaRef}
           to="/contact"
-          className="bg-[#1A2F23] text-[#FDFCF8] px-10 md:px-14 py-4 md:py-5 rounded-full font-inter text-xs md:text-sm tracking-widest uppercase hover:bg-black hover:scale-105 transition-all duration-500 shadow-xl shadow-[#1A2F23]/20"
+          className="bg-[#1A2F23] text-[#FDFCF8] px-10 md:px-14 py-4 md:py-5 rounded-full font-inter text-xs md:text-sm tracking-widest uppercase hover:bg-black transition-colors duration-500 shadow-xl shadow-[#1A2F23]/20"
         >
           VOIR NOS ACTIVITÉS
         </Link>

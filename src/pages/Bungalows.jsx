@@ -5,10 +5,11 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Users, BedDouble, Droplets, Waves } from 'lucide-react';
 import { bungalows } from '../data/bungalows';
+import useButtonAnim from '../hooks/useButtonAnim';
 
 export default function Bungalows() {
   const { t } = useTranslation();
-  
+  const ctaRef = useButtonAnim('cta');
   const [activeIndex, setActiveIndex] = useState(0);
   const activeBungalow = bungalows[activeIndex];
   const [mainImage, setMainImage] = useState(activeBungalow.gallery[0]);
@@ -65,7 +66,8 @@ export default function Bungalows() {
             <p className="font-sans text-lg md:text-xl text-white/80 leading-relaxed mb-8">
               {activeBungalow.atmosphere}
             </p>
-            <a 
+            <a
+              ref={ctaRef}
               href="/#contact"
               className="inline-block px-8 py-4 bg-white text-paradou-green font-inter tracking-[0.2em] text-xs uppercase hover:bg-paradou-mint transition-colors duration-300"
             >
@@ -82,7 +84,7 @@ export default function Bungalows() {
                 <div 
                   key={i}
                   onMouseEnter={() => setMainImage(img)}
-                  className={`w-24 h-16 md:w-32 md:h-20 overflow-hidden cursor-pointer border-2 transition-all ${mainImage === img ? 'border-white' : 'border-transparent opacity-60 hover:opacity-100'}`}
+                  className={`w-24 h-16 md:w-32 md:h-20 overflow-hidden rounded-[1rem] md:rounded-[1.25rem] cursor-pointer border-2 transition-all ${mainImage === img ? 'border-white' : 'border-transparent opacity-60 hover:opacity-100'}`}
                 >
                   <img src={img} alt="Thumbnail" className="w-full h-full object-cover" />
                 </div>

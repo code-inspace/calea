@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import useButtonAnim from '../hooks/useButtonAnim';
 
 export default function NotFound() {
   const { t } = useTranslation();
+  const btnRef = useButtonAnim('cta');
 
   return (
     <main className="relative w-full min-h-screen bg-paradou-cream text-paradou-green overflow-x-hidden flex flex-col">
@@ -29,8 +31,9 @@ export default function NotFound() {
         </p>
 
         <Link
+          ref={btnRef}
           to="/"
-          className="group relative inline-flex justify-center items-center w-48 h-12 bg-[#1A2F23] text-[#FDFCF8] font-inter text-xs tracking-widest uppercase overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-[#1A2F23]/20"
+          className="group relative inline-flex justify-center items-center w-48 h-12 bg-[#1A2F23] text-[#FDFCF8] font-inter text-xs tracking-widest uppercase overflow-hidden transition-shadow duration-500 hover:shadow-xl hover:shadow-[#1A2F23]/20"
         >
           <span className="relative z-10 transition-colors duration-500 group-hover:text-[#1A2F23] mix-blend-difference">{t('notFound.btn')}</span>
           <div className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] group-hover:translate-y-0" />
