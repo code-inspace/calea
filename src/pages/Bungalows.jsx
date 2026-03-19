@@ -90,31 +90,31 @@ export default function Bungalows() {
             </div>
 
             {/* Info Cards */}
-            <div className="grid grid-cols-2 gap-[2px]">
-              <div className="bg-[#FDFCF8] text-paradou-green w-32 h-32 md:w-36 md:h-36 flex flex-col items-center justify-center p-4">
-                <Users size={32} className="mb-3 opacity-80" strokeWidth={1.5} />
-                <span className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-center">
+            <div className="flex flex-row flex-wrap md:flex-nowrap gap-[2px] justify-end">
+              <div className="bg-[#FDFCF8] text-paradou-green w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
+                <Users size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
+                <span className="font-sans text-[10px] uppercase tracking-widest text-center">
                   {activeBungalow.capacity}
                 </span>
               </div>
-              <div className="bg-[#FDFCF8] text-paradou-green w-32 h-32 md:w-36 md:h-36 flex flex-col items-center justify-center p-4">
-                <BedDouble size={32} className="mb-3 opacity-80" strokeWidth={1.5} />
-                <span className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-center">
+              <div className="bg-[#FDFCF8] text-paradou-green w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
+                <BedDouble size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
+                <span className="font-sans text-[10px] uppercase tracking-widest text-center">
                   {activeBungalow.bedrooms}
                 </span>
               </div>
               {activeBungalow.pool && (
-                <div className="bg-[#FDFCF8] text-paradou-green w-32 h-32 md:w-36 md:h-36 flex flex-col items-center justify-center p-4">
-                  <Waves size={32} className="mb-3 opacity-80" strokeWidth={1.5} />
-                  <span className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-center">
+                <div className="bg-[#FDFCF8] text-paradou-green w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
+                  <Waves size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
+                  <span className="font-sans text-[10px] uppercase tracking-widest text-center">
                     Piscine
                   </span>
                 </div>
               )}
               {activeBungalow.jacuzzi && (
-                <div className="bg-[#FDFCF8] text-paradou-green w-32 h-32 md:w-36 md:h-36 flex flex-col items-center justify-center p-4">
-                  <Droplets size={32} className="mb-3 opacity-80" strokeWidth={1.5} />
-                  <span className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-center">
+                <div className="bg-[#FDFCF8] text-paradou-green w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
+                  <Droplets size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
+                  <span className="font-sans text-[10px] uppercase tracking-widest text-center">
                     Jacuzzi
                   </span>
                 </div>

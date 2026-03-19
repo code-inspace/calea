@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ResortMap from '../components/ResortMap';
 
 export default function Contact() {
   const { t } = useTranslation();
@@ -28,8 +29,6 @@ export default function Contact() {
     });
     if (res.ok) setIsSubmitted(true);
   };
-
-  const iframeSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.2014187062402!2d6.636605915228833!3d43.268157779136155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cebdcb2bf6201b%3A0xe549557b44565780!2sSaint-Tropez%2C%20France!5e0!3m2!1sen!2s!4v1655112000000!5m2!1sen!2s";
 
   return (
     <main className="relative w-full min-h-screen bg-paradou-cream text-paradou-green overflow-x-hidden">
@@ -202,14 +201,22 @@ export default function Contact() {
       </section>
 
       {/* SECTION 04: CARTE */}
-      <section className="w-full h-[50vh] relative opacity-90 hover:opacity-100 transition-opacity duration-700" style={{ filter: 'grayscale(0.6) sepia(0.2)' }}>
-        <iframe 
-          title="Map"
-          src={iframeSrc}
-          className="absolute inset-0 w-full h-full border-0"
-          loading="lazy"
-          allowFullScreen
-        ></iframe>
+      <section className="w-full bg-[#1A2F23] relative flex flex-col md:flex-row overflow-hidden">
+
+        {/* Text Content */}
+        <div className="w-full md:w-[45%] z-10 flex flex-col justify-center py-24 px-8 md:px-16">
+          <h2 className="font-serif text-4xl md:text-6xl text-white mb-8 leading-tight max-w-lg">
+            Caléa, un refuge exclusif niché au cœur de la <span className="italic">French Riviera</span>.
+          </h2>
+          <p className="font-sans text-lg md:text-xl text-white/70 max-w-md leading-relaxed">
+            Situé sur les hauteurs de la presqu'île, notre domaine offre une parenthèse de calme absolu, suspendu entre le maquis provençal et l'azur infini de la Méditerranée.
+          </p>
+        </div>
+
+        {/* Map */}
+        <div className="w-full md:w-[55%] h-[60vw] md:h-auto md:min-h-[70vh]">
+          <ResortMap />
+        </div>
       </section>
 
       <Footer />

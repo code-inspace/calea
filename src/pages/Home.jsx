@@ -82,7 +82,7 @@ export default function Home() {
       </section>
 
       {/* Activities Roulette replaces the old slider */}
-      <ActivitiesRoulette />
+      {/* <ActivitiesRoulette /> */}
 
       <Footer />
     </main>

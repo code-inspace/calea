@@ -135,10 +135,10 @@ export default function Navbar() {
   const navLinks = {
     left: [
       { label: t('nav.bungalows'), href: '/bungalows', isRouterLink: true },
-      { label: t('nav.experiences'), href: '/#experiences', isRouterLink: false },
+      { label: t('nav.story'), href: '/histoire', isRouterLink: true },
     ],
     right: [
-      { label: t('nav.story'), href: '/histoire', isRouterLink: true },
+      { label: t('nav.contact'), href: '/contact', isRouterLink: true },
       { label: t('nav.book'), href: '/contact', isRouterLink: true },
     ],
   };
@@ -209,12 +209,21 @@ export default function Navbar() {
           <ul className="hidden md:flex items-center gap-10">
             {navLinks.right.map((link) => (
               <li key={link.label}>
-                <a
-                  href={link.href}
-                  className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
-                >
-                  {link.label}
-                </a>
+                {link.isRouterLink ? (
+                  <Link
+                    to={link.href}
+                    className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    href={link.href}
+                    className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
+                  >
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
 
