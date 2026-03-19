@@ -227,6 +227,8 @@ export default function Navbar() {
             <img
               src={isLight ? logoLight : logoDark}
               alt="Caléa"
+              width="148"
+              height="71"
               className="h-10 md:h-14 object-contain transition-all duration-500"
             />
           </Link>

@@ -37,10 +37,10 @@
       "Bienvenue dans l'héritage vivant."
     ],
     "images": [
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=75",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=75",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=75",
+      "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&w=1200&q=75"
     ]
   },
   "features": [
@@ -62,70 +62,70 @@
       "name": "LE BUNGALOW TIARE",
       "description": "Le plus intime. Niché sous un frangipier centenaire, il éveille tous les sens dès l'aube. Terrasse privée, douche extérieure en pierre de Bourgogne, lit baldaquin voilé de lin blanc.",
       "price": "à partir de 480 € / nuit",
-      "image": "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=80&w=2000"
+      "image": "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=75&w=1200"
     },
     {
       "id": "02",
       "name": "LE BUNGALOW AZUR",
       "description": "Face à la mer. Le bleu de la Méditerranée devient votre horizon depuis le lit. Piscine privée chauffée, terrasse suspendue, service petit-déjeuner en chambre inclus.",
       "price": "à partir de 780 € / nuit",
-      "image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=2000"
+      "image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=75&w=1200"
     },
     {
       "id": "03",
       "name": "LE BUNGALOW SELVA",
       "description": "Immergé dans la végétation tropicale. La jungle provençale vous enveloppe. Hammam privatif, bain japonais en bois, lumière filtrée par les feuilles toute la journée.",
       "price": "à partir de 560 € / nuit",
-      "image": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=2000"
+      "image": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=75&w=1200"
     },
     {
       "id": "04",
       "name": "LE BUNGALOW SOLANDRA",
       "description": "Le plus grand. Conçu pour les familles qui refusent de choisir entre espace et raffinement. Deux chambres, salon ouvert sur jardin, piscine privée, cuisine d'été.",
       "price": "à partir de 1 200 € / nuit",
-      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000"
+      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=75&w=1200"
     },
     {
       "id": "05",
       "name": "LE BUNGALOW ALBA",
       "description": "Le bungalow de l'aurore. Orienté plein est, il capte la première lumière du jour. Idéal pour les lève-tôt et les amoureux du silence doré du matin.",
       "price": "à partir de 510 € / nuit",
-      "image": "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&q=80&w=2000"
+      "image": "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&q=75&w=1200"
     },
     {
       "id": "06",
       "name": "LE BUNGALOW CORAIL",
       "description": "Tons corail et blanc. Une chaleur douce et enveloppante. Accès direct au jardin tropical, baignoire îlot en marbre blanc, terrasse avec daybed suspendu.",
       "price": "à partir de 620 € / nuit",
-      "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=2000"
+      "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=75&w=1200"
     },
     {
       "id": "07",
       "name": "LE BUNGALOW NOHEA",
       "description": "\"Gracieux\" en hawaïen. Le plus épuré. Lignes nettes, matières naturelles brutes, silence absolu. Pour ceux qui savent que le vrai luxe est l'absence de superflu.",
       "price": "à partir de 540 € / nuit",
-      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000"
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=75&w=1200"
     },
     {
       "id": "08",
       "name": "LE BUNGALOW MISTRAL",
       "description": "Le plus sauvage. Perché en lisière du domaine, il offre une vue dégagée sur le maquis et la mer. Architecture ouverte, pergola de bambou, vent tiède en permanence.",
       "price": "à partir de 590 € / nuit",
-      "image": "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=2000"
+      "image": "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=75&w=1200"
     },
     {
       "id": "09",
       "name": "LE BUNGALOW LOTUS",
       "description": "Notre bungalow signature. Une piscine privée entourée de fleurs de lotus, une terrasse flottante sur l'eau, un lit face au ciel étoilé. L'expérience Caléa dans sa forme la plus pure.",
       "price": "à partir de 1 450 € / nuit",
-      "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=2000"
+      "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=75&w=1200"
     },
     {
       "id": "10",
       "name": "LE BUNGALOW HENRI",
       "description": "En hommage au fondateur. Le bungalow originel, restauré avec soin par Théo. Meubles chinés, photos d'archives au mur, âme intacte. Dormir ici, c'est dormir dans l'histoire.",
       "price": "à partir de 680 € / nuit",
-      "image": "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?auto=format&fit=crop&q=80&w=2000"
+      "image": "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?auto=format&fit=crop&q=75&w=1200"
     }
   ],
   "activitiesSlider": {
@@ -136,7 +136,7 @@
         "icon": "Sparkles",
         "title": "Votre Oasis Personnelle",
         "description": "Après une journée de découvertes sous le soleil de la Méditerranée, notre Spa est l'endroit parfait pour décompresser et vous ressourcer – avec des soins apaisants pour le corps et l'esprit.",
-        "image": "https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=1000",
+        "image": "https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=75&w=800",
         "imageOverlayTitle": "Bain à remous",
         "imageOverlaySub": "L'eau chaude qui bouillonne pour laisser votre âme s'apaiser."
       },
@@ -144,7 +144,7 @@
         "icon": "Sailboat",
         "title": "Escapade Marine",
         "description": "Embarquez à bord de notre voilier privé pour explorer les criques inaccessibles et les îles secrètes de la Côte d'Azur.",
-        "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=1000",
+        "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=75&w=800",
         "imageOverlayTitle": "Navigation au Vent",
         "imageOverlaySub": "Glissez sur l'eau au large des calanques."
       },
@@ -152,7 +152,7 @@
         "icon": "ChefHat",
         "title": "Saveurs Provençales",
         "description": "Apprenez les secrets de la cuisine du soleil lors d'un atelier exclusif avec notre Chef étoilé, et dégustez vos créations face à la mer.",
-        "image": "https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?auto=format&fit=crop&q=80&w=1000",
+        "image": "https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?auto=format&fit=crop&q=75&w=800",
         "imageOverlayTitle": "Atelier Culinaire",
         "imageOverlaySub": "La passion du goût et du produit local."
       },
@@ -160,7 +160,7 @@
         "icon": "Sun",
         "title": "Éveil au lever du Soleil",
         "description": "Retrouvez un équilibre parfait face à l'horizon. Nos cours de yoga privatisés au crépuscule ou à l'aube raniment chaque sens.",
-        "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1000",
+        "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=75&w=800",
         "imageOverlayTitle": "Yoga Matinal",
         "imageOverlaySub": "Harmonie ultime entre le souffle et la vague."
       }
@@ -223,9 +223,9 @@
       "bedSize": "180 cm",
       "description": "Une chambre lumineuse et élégante avec vue imprenable sur la ville.",
       "gallery": [
-        "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-        "https://images.unsplash.com/photo-1522771731478-44bf10cb73fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+        "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=75",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=75",
+        "https://images.unsplash.com/photo-1522771731478-44bf10cb73fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=75"
       ]
     },
     {
@@ -235,8 +235,8 @@
       "bedSize": "200 cm",
       "description": "Un luxe spacieux avec des équipements haut de gamme et la brise océanique.",
       "gallery": [
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-        "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=75",
+        "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=75"
       ]
     },
     {
@@ -246,8 +246,8 @@
       "bedSize": "3 Chambres",
       "description": "Une immense villa avec cuisine tout équipée, grand salon extérieur et une sublime piscine à débordement privée pour des moments exclusifs.",
       "gallery": [
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=75",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=75"
       ]
     }
   ],
@@ -325,11 +325,11 @@
       }
     ],
     "gallery": [
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=75",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=75",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=75",
+      "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&w=1200&q=75",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=75"
     ]
   }
 }

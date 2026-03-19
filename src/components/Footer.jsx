@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
@@ -43,7 +43,7 @@ export default function Footer() {
 
   return (
     <section ref={footerRef} id="contact" data-color="primary" className="min-h-screen flex flex-col items-center justify-center text-center w-full py-20">
-      <img src={logoLight} alt="Caléa" className="h-12 md:h-16 mb-16 opacity-80" />
+      <img src={logoLight} alt="Caléa" width="148" height="71" className="h-12 md:h-16 mb-16 opacity-80" />
       <h2 className="font-serif text-5xl md:text-7xl text-white mb-6 px-4">
         {t('footer.headline')}
       </h2>
