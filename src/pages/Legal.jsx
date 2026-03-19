@@ -16,7 +16,7 @@ export default function Legal() {
       <section className="relative w-full h-[40vh] min-h-[300px] flex items-center justify-center mb-16">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&q=80&w=2000" 
+            src="https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&w=1600&q=75"
             alt="Mentions Légales" 
             className="w-full h-full object-cover grayscale opacity-80"
           />

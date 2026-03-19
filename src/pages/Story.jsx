@@ -10,11 +10,11 @@ import Footer from '../components/Footer';
 gsap.registerPlugin(ScrollTrigger);
 
 const timelineImages = [
-  "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1000&q=80",
-  "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1000&q=80",
-  "https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=1000&q=80",
-  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80",
-  "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&w=1000&q=80"
+  "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=75",
+  "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=75",
+  "https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=800&q=75",
+  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=75",
+  "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&w=800&q=75"
 ];
 
 const valueIcons = [Sparkles, Leaf, Hourglass];
@@ -194,7 +194,7 @@ export default function Story() {
       <section data-color="#1A2F23" className="hero-section relative w-full h-screen overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0 bg-[#1A2F23]">
           <img 
-            src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=2000" 
+            src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=75"
             alt="Jardin atmo" 
             className="hero-image w-full h-[120vh] object-cover -top-[10%] relative opacity-60" 
           />
