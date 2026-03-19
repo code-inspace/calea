@@ -59,11 +59,11 @@ export default function Navbar() {
   const navLinks = {
     left: [
       { label: 'Bungalows', href: '/bungalows', isRouterLink: true },
-      { label: 'Expériences', href: '/#experiences' },
+      { label: 'Expériences', href: '/#experiences', isRouterLink: false },
     ],
     right: [
-      { label: "L'histoire", href: '/#story' },
-      { label: 'Réserver', href: '/#contact' },
+      { label: "L'histoire", href: '/#story', isRouterLink: false },
+      { label: 'Réserver', href: '/contact', isRouterLink: true },
     ],
   };
 

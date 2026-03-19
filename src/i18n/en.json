@@ -164,5 +164,38 @@
         "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
       ]
     }
-  ]
+  ],
+  "contactPage": {
+    "heroTitle": "Write to us.",
+    "form": {
+      "nameLabel": "Your name",
+      "emailLabel": "Your email address",
+      "subjectLabel": "Subject of your message",
+      "subjects": {
+        "reservation": "Reservation request",
+        "info": "General information",
+        "other": "Other inquiry"
+      },
+      "messageLabel": "Your message",
+      "submitBtn": "SEND",
+      "successTitle": "Message sent.",
+      "successDesc": "Our team will get back to you shortly."
+    },
+    "info": {
+      "addressTitle": "Address",
+      "addressLines": [
+        "Domaine de Caléa",
+        "Chemin des Crêtes, 83990 Saint-Tropez",
+        "France"
+      ],
+      "contactTitle": "Contact",
+      "phone": "+33 (0)4 94 00 00 00",
+      "email": "reception@calea-resort.com",
+      "hoursTitle": "Reception",
+      "hoursLines": [
+        "Open 24/7",
+        "Continuous concierge service"
+      ]
+    }
+  }
 }
