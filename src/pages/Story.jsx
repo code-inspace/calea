@@ -191,7 +191,7 @@ export default function Story() {
       <Navbar />
 
       {/* SECTION 01 · HERO HISTOIRE */}
-      <section data-color="#00235B" className="hero-section relative w-full h-screen overflow-hidden flex items-center justify-center">
+      <section data-color="#1A2E23" className="hero-section relative w-full h-screen overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0 bg-calea-primary">
           <img 
             src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=75"
@@ -205,7 +205,7 @@ export default function Story() {
       </section>
 
       {/* SECTION 02 · LE RÉCIT (TIMELINE) */}
-      <section data-color="#00235B" ref={narrativeRef} className="relative w-full text-[#FDFCF8] py-16 overflow-hidden transition-colors duration-1000">
+      <section data-color="#1A2E23" ref={narrativeRef} className="relative w-full text-[#FDFCF8] py-16 overflow-hidden transition-colors duration-1000">
         
         <div ref={timelineWrapperRef} className="relative w-full max-w-7xl mx-auto flex flex-col pt-32 pb-0">
           {/* Lignes de repère limitées à ce conteneur (exact pixels on mobile to avoid subpixel rendering translation bugs) */}

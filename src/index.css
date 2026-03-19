@@ -4,8 +4,7 @@
 
 /* ─── Couleur principale — modifier ici uniquement ─── */
 :root {
-  --calea-primary: 0 35 91
-    /* #4793AF */
+  --calea-primary: 26 46 35; /* #1A2E23 */
 }
 
 
@@ -59,7 +58,7 @@
 /* Leaflet zoom controls */
 .leaflet-control-zoom a {
   background: #FDFCF8 !important;
-  color: #00235B !important;
+  color: #1A2E23 !important;
   border-color: rgba(26, 47, 35, 0.2) !important;
   font-size: 16px !important;
   line-height: 26px !important;
