@@ -123,7 +123,7 @@ export default function ScrollExperience() {
   }, { scope: containerRef }); // Automatically cleans up GSAP context!
 
   return (
-    <section data-color="#FF6F61" ref={containerRef} className="h-screen w-full relative overflow-hidden bg-calea-primary text-calea-cream flex items-center justify-center">
+    <section data-color="#00235B" ref={containerRef} className="h-screen w-full relative overflow-hidden bg-calea-primary text-calea-cream flex items-center justify-center">
       
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
