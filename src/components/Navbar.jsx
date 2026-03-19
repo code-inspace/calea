@@ -29,30 +29,56 @@ export default function Navbar() {
 
 
   useEffect(() => {
+    let observer;
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setScrolled(scrollY > 60);
 
       const main = document.querySelector('main');
-      if (main) {
-        const bg = main.style.backgroundColor;
-        // Dark green section OR still on the hero (no bg set yet = cream/video)
-        // We want white text on:
-        //   - the very top (Hero video, bg not yet set or cream)
-        //   - the ScrollExperience dark green section
-        const isDarkGreen = bg === 'rgb(26, 47, 35)'; // #1A2F23
-        const isCreamOrTop = !bg || bg === 'rgb(253, 252, 248)' || bg === ''; // #FDFCF8
+      let shouldBeLight = true; // default on Hero pages
 
-        // White text for Hero (top) and dark green footer, dark text for mint sections
-        setIsLight(isDarkGreen || isCreamOrTop || scrollY < window.innerHeight);
+      if (main) {
+        // If we scroll past the initial hero (typically 100vh)
+        // Wait, on some pages (like Contact) the Hero is shorter and cream.
+        if (scrollY > window.innerHeight - 80 || location.pathname !== '/') {
+          const bg = main.style.backgroundColor || window.getComputedStyle(main).backgroundColor;
+          const match = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+          if (match) {
+            const r = parseInt(match[1]);
+            const g = parseInt(match[2]);
+            const b = parseInt(match[3]);
+            // Calcul de la luminance perceptive
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            shouldBeLight = luminance < 0.5; // Si très sombre, texte clair
+          } else {
+            shouldBeLight = false;
+          }
+        } else {
+          // If on home hero (video) it's strictly light
+          shouldBeLight = true;
+        }
       }
+
+      setIsLight(shouldBeLight);
     };
 
     // Run once on mount
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+
+    // Observer pour capter les animations GSAP du background meme quand on ne scroll plus
+    const main = document.querySelector('main');
+    if (main) {
+      observer = new MutationObserver(() => handleScroll());
+      observer.observe(main, { attributes: true, attributeFilter: ['style'] });
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (observer) observer.disconnect();
+    };
+  }, [location.pathname]);
 
   const changeLanguage = (lang) => i18n.changeLanguage(lang);
 
@@ -62,7 +88,7 @@ export default function Navbar() {
       { label: 'Expériences', href: '/#experiences', isRouterLink: false },
     ],
     right: [
-      { label: "L'histoire", href: '/#story', isRouterLink: false },
+      { label: "L'histoire", href: '/histoire', isRouterLink: true },
       { label: 'Réserver', href: '/contact', isRouterLink: true },
     ],
   };

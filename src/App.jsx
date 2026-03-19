@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Bungalows from './pages/Bungalows';
 import Contact from './pages/Contact';
 import Legal from './pages/Legal';
+import Story from './pages/Story';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/bungalows" element={<Bungalows />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/mentions-legales" element={<Legal />} />
+        <Route path="/histoire" element={<Story />} />
       </Routes>
     </Router>
   );

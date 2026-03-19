@@ -197,5 +197,48 @@
         "Continuous concierge service"
       ]
     }
+  },
+  "storyPage": {
+    "heroTitle": "The Story of Caléa.",
+    "narrative": {
+      "paragraphs": [
+        "It begins with an abandoned garden.",
+        "In the 1970s, Henri Marceau fell in love with a secret estate on the heights of the French Riviera. He planted frangipani, banana trees, hibiscus. He built ten white wooden bungalows facing the sea. He called it Caléa — the hidden paradise.",
+        "For forty years, families from around the world came here to leave behind their luggage and their urgencies.",
+        "Then came Théo. The son. The heir. The one who could have sold it all. He chose to dream differently.",
+        "With the vision of a new generation and a deep respect for what his father had planted, Théo reimagined Caléa. Same soul. New breath.",
+        "Welcome to the living legacy."
+      ]
+    },
+    "values": [
+      {
+        "title": "Absolute Discretion",
+        "lines": [
+          "No ostentatious lobby, no crowds.",
+          "Your privacy is our number one priority."
+        ]
+      },
+      {
+        "title": "Natural Luxury",
+        "lines": [
+          "Raw materials, linen, driftwood.",
+          "Refinement is found in absolute simplicity."
+        ]
+      },
+      {
+        "title": "Suspended Time",
+        "lines": [
+          "Here, there are no watches. No strict schedules.",
+          "You live to the rhythm of the sun and the sea."
+        ]
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+    ]
   }
 }

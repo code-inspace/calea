@@ -197,5 +197,48 @@
         "Service conciergerie en continu"
       ]
     }
+  },
+  "storyPage": {
+    "heroTitle": "L'histoire de Caléa.",
+    "narrative": {
+      "paragraphs": [
+        "L'histoire commence par un jardin à l'abandon.",
+        "Dans les années 70, Henri Marceau tombe amoureux d'un domaine secret sur les hauteurs de la Côte d'Azur. Il y plante des frangipaniers, des bananiers, des hibiscus. Il bâtit dix maisons de bois blanc face à la mer. Il appelle ça Caléa — le paradis caché.",
+        "Pendant quarante ans, des familles du monde entier viennent ici déposer leurs valises et leurs urgences.",
+        "Puis vient Théo. Le fils. L'héritier. Celui qui aurait pu vendre. Il choisit de rêver autrement.",
+        "Avec le regard d'une nouvelle génération et le respect de ce que son père avait semé, Théo réinvente Caléa. Même âme. Nouveau souffle.",
+        "Bienvenue dans l'héritage vivant."
+      ]
+    },
+    "values": [
+      {
+        "title": "Discrétion Absolue",
+        "lines": [
+          "Pas de réception ostentatoire, pas de foule.",
+          "Votre intimité est notre priorité numéro un."
+        ]
+      },
+      {
+        "title": "Luxe Naturel",
+        "lines": [
+          "Des matériaux bruts, du lin, du bois flotté.",
+          "Le raffinement se trouve dans la simplicité."
+        ]
+      },
+      {
+        "title": "Temps Suspendu",
+        "lines": [
+          "Ici, pas de montres. Pas d'horaires stricts.",
+          "Vous vivez au rythme du soleil et de la mer."
+        ]
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+    ]
   }
 }

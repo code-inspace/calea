@@ -4,11 +4,25 @@ import Footer from '../components/Footer';
 
 export default function Legal() {
   return (
-    <main className="relative w-full min-h-screen bg-paradou-cream text-paradou-green overflow-x-hidden pt-40">
+    <main className="relative w-full min-h-screen bg-paradou-cream text-paradou-green overflow-x-hidden">
       <Navbar />
+      
+      {/* Mini Hero with sober background image */}
+      <section className="relative w-full h-[40vh] min-h-[300px] flex items-center justify-center mb-16">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&q=80&w=2000" 
+            alt="Mentions Légales" 
+            className="w-full h-full object-cover grayscale opacity-80"
+          />
+          <div className="absolute inset-0 bg-[#1A2F23]/70 mix-blend-multiply" />
+        </div>
+        <h1 className="relative z-10 font-serif text-5xl md:text-7xl text-white tracker-wider mt-16">
+          Mentions Légales
+        </h1>
+      </section>
+
       <div className="max-w-4xl mx-auto px-4 md:px-12 pb-32">
-        <h1 className="font-serif text-5xl md:text-7xl mb-16 text-paradou-green">Mentions Légales</h1>
-        
         <div className="font-sans text-lg leading-relaxed flex flex-col gap-12 text-paradou-green/80">
           <section>
             <h2 className="font-inter font-medium tracking-[0.2em] uppercase text-sm mb-4 text-paradou-green/50">1. Éditeur du site</h2>

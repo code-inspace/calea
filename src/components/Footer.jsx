@@ -1,13 +1,44 @@
-import React from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import logoLight from '../assets/logo-calea-light.png';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Footer() {
   const { t } = useTranslation();
+  const location = useLocation();
+  const footerRef = useRef(null);
+
+  useLayoutEffect(() => {
+    // La page d'accueil gère déjà son propre ScrollTrigger global pour tous les blocs data-color
+    if (location.pathname === '/') return;
+
+    const ctx = gsap.context(() => {
+      const mainEl = footerRef.current.closest('main');
+      if (!mainEl) return;
+      
+      // Delay to let parent components (like Story.jsx) initialize their scroll pins first
+      setTimeout(() => {
+        const originalColor = window.getComputedStyle(mainEl).backgroundColor;
+
+        ScrollTrigger.create({
+          trigger: footerRef.current,
+          start: 'top 50%',
+          onEnter: () => gsap.to(mainEl, { backgroundColor: '#1A2F23', duration: 1.5, overwrite: "auto" }),
+          onLeaveBack: () => gsap.to(mainEl, { backgroundColor: originalColor, duration: 1.5, overwrite: "auto" }),
+        });
+        ScrollTrigger.refresh();
+      }, 100);
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, [location.pathname]);
 
   return (
-    <section id="contact" data-color="#1A2F23" className="py-40 flex flex-col items-center justify-center text-center w-full">
+    <section ref={footerRef} id="contact" data-color="#1A2F23" className="min-h-screen flex flex-col items-center justify-center text-center w-full py-20">
       <img src={logoLight} alt="Caléa" className="h-12 md:h-16 mb-16 opacity-80" />
       <h2 className="font-serif text-5xl md:text-7xl text-white mb-6 px-4">
         {t('footer.headline')}

@@ -149,7 +149,7 @@ export default function Contact() {
       </section>
 
       {/* SECTION 03: INFORMATIONS PRATIQUES */}
-      <section className="py-24 px-4 w-full flex justify-center bg-[#F4F1EA]">
+      <section className="py-24 px-4 w-full flex justify-center">
         <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 text-center">
           
           {/* Address */}
