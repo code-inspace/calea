@@ -36,7 +36,7 @@ export default function NotFound() {
           className="relative inline-flex justify-center items-center w-48 h-12 bg-[#1A2F23] text-[#FDFCF8] font-inter text-xs tracking-widest uppercase overflow-hidden hover:shadow-xl hover:shadow-[#1A2F23]/20 transition-shadow duration-300"
         >
           <span className="roll-top flex items-center justify-center w-full">{t('notFound.btn')}</span>
-          <span className="roll-bottom absolute inset-0 flex items-center justify-center">{t('notFound.btn')}</span>
+          <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center">{t('notFound.btn')}</span>
         </Link>
       </section>
 

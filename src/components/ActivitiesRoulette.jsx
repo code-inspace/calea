@@ -105,9 +105,7 @@ export default function ActivitiesRoulette() {
       {/* Intro Text */}
       <div className="roulette-intro max-w-3xl mx-auto text-center px-6 mb-20 md:mb-32 relative z-10">
         <p className="font-sans text-base md:text-lg text-[#1A2F23]/80 leading-relaxed font-medium">
-          {sliderData.headline} — Nous prenons fierté à vous offrir des expériences mémorables,
-          qui apportent une diversité de sensations à votre séjour. Permettez-nous de vous
-          présenter nos activités sélectionnées pour vous.
+          {sliderData.headline} — {t('activitiesRoulette.intro')}
         </p>
       </div>
 
@@ -164,7 +162,7 @@ export default function ActivitiesRoulette() {
                     <span className="w-8 h-8 rounded-full border border-[#1A2F23]/20 flex items-center justify-center">
                       <IconComp size={14} />
                     </span>
-                    Découvrir
+                    {t('activitiesRoulette.discover')}
                   </div>
                 </div>
 
@@ -181,8 +179,8 @@ export default function ActivitiesRoulette() {
           to="/contact"
           className="bg-[#1A2F23] text-[#FDFCF8] px-10 md:px-14 py-4 md:py-5 rounded-full font-inter text-xs md:text-sm tracking-widest uppercase hover:bg-black transition-colors duration-500 shadow-xl shadow-[#1A2F23]/20 overflow-hidden relative"
         >
-          <span className="roll-top flex items-center justify-center">VOIR NOS ACTIVITÉS</span>
-          <span className="roll-bottom absolute inset-0 flex items-center justify-center">VOIR NOS ACTIVITÉS</span>
+          <span className="roll-top flex items-center justify-center">{t('activitiesRoulette.cta')}</span>
+          <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center">{t('activitiesRoulette.cta')}</span>
         </Link>
       </div>
 

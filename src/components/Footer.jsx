@@ -56,7 +56,7 @@ export default function Footer() {
           className="flex-1 md:flex-none px-10 py-5 bg-white text-paradou-green font-sans tracking-widest text-sm uppercase hover:bg-paradou-mint transition-colors duration-300 overflow-hidden relative"
         >
           <span className="roll-top flex items-center justify-center">{t('footer.ctaPrimary')}</span>
-          <span className="roll-bottom absolute inset-0 flex items-center justify-center">{t('footer.ctaPrimary')}</span>
+          <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center">{t('footer.ctaPrimary')}</span>
         </Link>
         <Link
           ref={ctaSecondaryRef}
@@ -64,18 +64,18 @@ export default function Footer() {
           className="flex-1 md:flex-none px-10 py-5 border border-white/30 text-white font-sans tracking-widest text-sm uppercase hover:bg-white hover:text-paradou-green transition-colors duration-300 overflow-hidden relative"
         >
           <span className="roll-top flex items-center justify-center">{t('footer.ctaSecondary')}</span>
-          <span className="roll-bottom absolute inset-0 flex items-center justify-center">{t('footer.ctaSecondary')}</span>
+          <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center">{t('footer.ctaSecondary')}</span>
         </Link>
       </div>
       <div className="mt-32 w-full px-4 opacity-50 font-sans text-xs tracking-widest text-white leading-loose text-center">
         {t('footer.seoLinks')}
       </div>
       <div className="mt-12 flex flex-col items-center gap-4 font-inter font-light text-xs text-white/40 tracking-widest">
-        <Link to="/mentions-legales" className="uppercase hover:text-white transition-colors">Mentions Légales</Link>
+        <Link to="/mentions-legales" className="uppercase hover:text-white transition-colors">{t('footer.legal')}</Link>
         <div className="flex items-center gap-2">
-          <span>© 2026 Caléa</span>
+          <span>{t('footer.copyright')}</span>
           <span>
-            Réalisé par <a href="https://axelcoudair.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Axel Coudair</a>
+            {t('footer.madeBy')} <a href="https://axelcoudair.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Axel Coudair</a>
           </span>
         </div>
       </div>

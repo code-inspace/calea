@@ -53,7 +53,8 @@
   ],
   "bungalowsIntro": {
     "title": "Four hideaways. Four ways to vanish from the world.",
-    "subtitle": "Each private bungalow is a world of its own — where understated luxury meets untouched nature on the French Riviera."
+    "subtitle": "Each private bungalow is a world of its own — where understated luxury meets untouched nature on the French Riviera.",
+    "cta": "Discover"
   },
   "bungalows": [
     {
@@ -170,8 +171,50 @@
     "subhead": "Reserve your bungalow · limited availability.",
     "ctaPrimary": "BOOK NOW",
     "ctaSecondary": "CONTACT US",
-    "seoLinks": "Tropical resort French Riviera · Luxury hotel Provence · Private bungalow seaside · Romantic getaway South of France · Luxury spa Mediterranean · Caléa"
+    "seoLinks": "Tropical resort French Riviera · Luxury hotel Provence · Private bungalow seaside · Romantic getaway South of France · Luxury spa Mediterranean · Caléa",
+    "legal": "Legal notice",
+    "copyright": "© 2026 Caléa",
+    "madeBy": "Made by"
   },
+  "activitiesRoulette": {
+    "intro": "We take pride in offering you memorable experiences that bring a diversity of sensations to your stay. Allow us to present our curated activities selected for you.",
+    "discover": "Discover",
+    "cta": "VIEW OUR ACTIVITIES"
+  },
+  "bungalowFeatures": {
+    "pool": "Pool",
+    "jacuzzi": "Jacuzzi"
+  },
+  "bungalows": [
+    {
+      "name": "The Olive Grove Cabin",
+      "capacity": "2 Persons",
+      "bedrooms": "1 Bedroom",
+      "atmosphere": "A cosy nest hidden beneath centuries-old olive trees. Silence reigns, broken only by the song of cicadas. Ideal for a romantic retreat with its private pool sheltered from view.",
+      "price": "from €450 / night"
+    },
+    {
+      "name": "The Celestial Retreat",
+      "capacity": "2-4 Persons",
+      "bedrooms": "2 Bedrooms",
+      "atmosphere": "Perched on the heights of the estate, this bungalow offers a sweeping view of the Mediterranean. Its jacuzzi on the panoramic terrace is perfect for admiring the rosy twilight sky.",
+      "price": "from €680 / night"
+    },
+    {
+      "name": "The Wild Suite",
+      "capacity": "2 Persons",
+      "bedrooms": "1 Bedroom",
+      "atmosphere": "Luxury in its purest form. Surrounded by Provençal scrubland, this bungalow merges interior and exterior. Enjoy your infinity pool and a private jacuzzi for suspended moments.",
+      "price": "from €950 / night"
+    },
+    {
+      "name": "The Solar Villa",
+      "capacity": "4-6 Persons",
+      "bedrooms": "3 Bedrooms",
+      "atmosphere": "Our most spacious gem. Designed for families or friends with its vast open living room, summer kitchen and large pool surrounded by elegant Balinese sun beds.",
+      "price": "from €1,600 / night"
+    }
+  ],
   "bungalowsPage": [
     {
       "id": "bungalow-1",
@@ -241,7 +284,10 @@
         "Open 24/7",
         "Continuous concierge service"
       ]
-    }
+    },
+    "mapTitle": "Caléa, an exclusive retreat nestled in the heart of the",
+    "mapTitleHighlight": "French Riviera",
+    "mapDesc": "Perched on the heights of the peninsula, our estate offers an oasis of absolute calm, suspended between the Provençal scrubland and the infinite azure of the Mediterranean."
   },
   "storyPage": {
     "heroTitle": "The Story of Caléa.",

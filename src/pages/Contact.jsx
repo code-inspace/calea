@@ -152,7 +152,7 @@ export default function Contact() {
                   className="px-16 py-5 bg-paradou-green text-paradou-cream font-inter tracking-widest text-sm uppercase hover:bg-paradou-green/80 transition-colors duration-300 w-full md:w-auto overflow-hidden relative"
                 >
                   <span className="roll-top flex items-center justify-center">{t('contactPage.form.submitBtn')}</span>
-                  <span className="roll-bottom absolute inset-0 flex items-center justify-center">{t('contactPage.form.submitBtn')}</span>
+                  <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center">{t('contactPage.form.submitBtn')}</span>
                 </button>
               </div>
             </form>
@@ -210,10 +210,10 @@ export default function Contact() {
         {/* Text Content */}
         <div className="w-full md:w-[45%] z-10 flex flex-col justify-center py-24 px-8 md:px-16">
           <h2 className="font-serif text-4xl md:text-6xl text-white mb-8 leading-tight max-w-lg">
-            Caléa, un refuge exclusif niché au cœur de la <span className="italic">French Riviera</span>.
+            {t('contactPage.mapTitle')} <span className="italic">{t('contactPage.mapTitleHighlight')}</span>.
           </h2>
           <p className="font-sans text-lg md:text-xl text-white/70 max-w-md leading-relaxed">
-            Situé sur les hauteurs de la presqu'île, notre domaine offre une parenthèse de calme absolu, suspendu entre le maquis provençal et l'azur infini de la Méditerranée.
+            {t('contactPage.mapDesc')}
           </p>
         </div>
 

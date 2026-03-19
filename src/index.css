@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Text roll buttons: hide bottom span by default to prevent flash */
-.roll-bottom {
-  transform: translateY(110%);
-}
 
 @layer base {
   body {

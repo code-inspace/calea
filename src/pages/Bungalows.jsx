@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Users, BedDouble, Droplets, Waves } from 'lucide-react';
@@ -9,15 +10,19 @@ import useTextRoll from '../hooks/useTextRoll';
 
 export default function Bungalows() {
   const { t } = useTranslation();
+  const location = useLocation();
   const ctaRef = useTextRoll();
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeBungalow = bungalows[activeIndex];
+  const bungalowsText = t('bungalows', { returnObjects: true });
+  const mergedBungalows = bungalows.map((b, i) => ({ ...b, ...bungalowsText[i] }));
+  const initialIndex = location.state?.index ?? 0;
+  const [activeIndex, setActiveIndex] = useState(initialIndex);
+  const activeBungalow = mergedBungalows[activeIndex];
   const [mainImage, setMainImage] = useState(activeBungalow.gallery[0]);
 
   // When bungalow changes, reset main image to the first of the new gallery
   const handleBungalowChange = (index) => {
     setActiveIndex(index);
-    setMainImage(bungalows[index].gallery[0]);
+    setMainImage(mergedBungalows[index].gallery[0]);
   };
 
   return (
@@ -44,7 +49,7 @@ export default function Bungalows() {
         
         {/* Navigation for Bungalows */}
         <div className="flex gap-8 text-white/50 font-sans tracking-widest text-sm uppercase flex-wrap">
-          {bungalows.map((b, idx) => (
+          {mergedBungalows.map((b, idx) => (
             <button 
               key={b.id}
               onClick={() => handleBungalowChange(idx)}
@@ -72,7 +77,7 @@ export default function Bungalows() {
               className="inline-block px-8 py-4 bg-white text-paradou-green font-inter tracking-[0.2em] text-xs uppercase hover:bg-paradou-mint transition-colors duration-300 overflow-hidden relative"
             >
               <span className="roll-top flex items-center justify-center">{t('footer.ctaPrimary')}</span>
-              <span className="roll-bottom absolute inset-0 flex items-center justify-center">{t('footer.ctaPrimary')}</span>
+              <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center">{t('footer.ctaPrimary')}</span>
             </a>
           </div>
 
@@ -110,7 +115,7 @@ export default function Bungalows() {
                 <div className="bg-[#FDFCF8] text-paradou-green w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
                   <Waves size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
                   <span className="font-sans text-[10px] uppercase tracking-widest text-center">
-                    Piscine
+                    {t('bungalowFeatures.pool')}
                   </span>
                 </div>
               )}
@@ -118,7 +123,7 @@ export default function Bungalows() {
                 <div className="bg-[#FDFCF8] text-paradou-green w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
                   <Droplets size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
                   <span className="font-sans text-[10px] uppercase tracking-widest text-center">
-                    Jacuzzi
+                    {t('bungalowFeatures.jacuzzi')}
                   </span>
                 </div>
               )}

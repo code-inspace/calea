@@ -53,7 +53,8 @@
   ],
   "bungalowsIntro": {
     "title": "Quatre refuges. Quatre façons de s'évader du monde.",
-    "subtitle": "Chaque bungalow privatif est un univers à part — entre luxe discret, nature intacte et douceur de vivre sur la Côte d'Azur."
+    "subtitle": "Chaque bungalow privatif est un univers à part — entre luxe discret, nature intacte et douceur de vivre sur la Côte d'Azur.",
+    "cta": "Consulter"
   },
   "bungalows": [
     {
@@ -170,8 +171,50 @@
     "subhead": "Réservez votre bungalow · disponibilités limitées.",
     "ctaPrimary": "RÉSERVER MAINTENANT",
     "ctaSecondary": "NOUS CONTACTER",
-    "seoLinks": "Resort tropical Côte d'Azur · Hôtel de luxe Provence · Bungalow privatif bord de mer · Séjour romantique Sud de France · Spa luxe Méditerranée · Caléa"
+    "seoLinks": "Resort tropical Côte d'Azur · Hôtel de luxe Provence · Bungalow privatif bord de mer · Séjour romantique Sud de France · Spa luxe Méditerranée · Caléa",
+    "legal": "Mentions légales",
+    "copyright": "© 2026 Caléa",
+    "madeBy": "Réalisé par"
   },
+  "activitiesRoulette": {
+    "intro": "Nous prenons fierté à vous offrir des expériences mémorables, qui apportent une diversité de sensations à votre séjour. Permettez-nous de vous présenter nos activités sélectionnées pour vous.",
+    "discover": "Découvrir",
+    "cta": "VOIR NOS ACTIVITÉS"
+  },
+  "bungalowFeatures": {
+    "pool": "Piscine",
+    "jacuzzi": "Jacuzzi"
+  },
+  "bungalows": [
+    {
+      "name": "La Cabane des Oliviers",
+      "capacity": "2 Personnes",
+      "bedrooms": "1 Chambre",
+      "atmosphere": "Un nid douillet caché sous les oliviers centenaires. Le silence est roi, seulement troublé par le chant des cigales. Idéal pour une retraite en amoureux avec sa piscine privée à l'abri des regards.",
+      "price": "à partir de 450 € / nuit"
+    },
+    {
+      "name": "Le Refuge Céleste",
+      "capacity": "2-4 Personnes",
+      "bedrooms": "2 Chambres",
+      "atmosphere": "Perché sur les hauteurs du domaine, ce bungalow offre une vue plongeante sur la Méditerranée. Son jacuzzi sur la terrasse panoramique est parfait pour admirer le ciel rosé du crépuscule.",
+      "price": "à partir de 680 € / nuit"
+    },
+    {
+      "name": "La Suite Sauvage",
+      "capacity": "2 Personnes",
+      "bedrooms": "1 Chambre",
+      "atmosphere": "Le luxe à l'état pur. Entouré par le maquis provençal, ce bungalow fusionne l'intérieur et l'extérieur. Profitez de votre piscine à débordement et d'un jacuzzi privatif pour des instants suspendus.",
+      "price": "à partir de 950 € / nuit"
+    },
+    {
+      "name": "La Villa Solaire",
+      "capacity": "4-6 Personnes",
+      "bedrooms": "3 Chambres",
+      "atmosphere": "Notre merveille la plus spacieuse. Conçue pour les familles ou les amis avec son immense salon ouvert, sa cuisine d'été et sa large piscine entourée de lits balinais élégants.",
+      "price": "à partir de 1 600 € / nuit"
+    }
+  ],
   "bungalowsPage": [
     {
       "id": "bungalow-1",
@@ -241,7 +284,10 @@
         "Ouverte 24h/24 et 7j/7",
         "Service conciergerie en continu"
       ]
-    }
+    },
+    "mapTitle": "Caléa, un refuge exclusif niché au cœur de la",
+    "mapTitleHighlight": "French Riviera",
+    "mapDesc": "Situé sur les hauteurs de la presqu'île, notre domaine offre une parenthèse de calme absolu, suspendu entre le maquis provençal et l'azur infini de la Méditerranée."
   },
   "storyPage": {
     "heroTitle": "L'histoire de Caléa.",

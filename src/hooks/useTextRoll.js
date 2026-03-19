@@ -1,10 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 
 export default function useTextRoll() {
   const ref = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
 
@@ -12,16 +12,17 @@ export default function useTextRoll() {
     const bottom = el.querySelector('.roll-bottom');
     if (!top || !bottom) return;
 
-    gsap.set(bottom, { yPercent: 110 });
+    // roll-bottom starts below via CSS (top-full), no GSAP init needed
+    const h = el.offsetHeight;
 
     const onEnter = () => {
-      gsap.to(top,    { yPercent: -110, duration: 0.48, ease: 'power3.inOut', overwrite: true });
-      gsap.to(bottom, { yPercent: 0,    duration: 0.48, ease: 'power3.inOut', overwrite: true });
+      gsap.to(top,    { y: -h, duration: 0.48, ease: 'power3.inOut', overwrite: true });
+      gsap.to(bottom, { y: -h, duration: 0.48, ease: 'power3.inOut', overwrite: true });
     };
 
     const onLeave = () => {
-      gsap.to(top,    { yPercent: 0,   duration: 0.48, ease: 'power3.inOut', overwrite: true });
-      gsap.to(bottom, { yPercent: 110, duration: 0.48, ease: 'power3.inOut', overwrite: true });
+      gsap.to(top,    { y: 0, duration: 0.48, ease: 'power3.inOut', overwrite: true });
+      gsap.to(bottom, { y: 0, duration: 0.48, ease: 'power3.inOut', overwrite: true });
     };
 
     el.addEventListener('mouseenter', onEnter);

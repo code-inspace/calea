@@ -70,7 +70,7 @@ export default function ActivitiesSlider() {
             
             <button ref={ctaRef} className="flex items-center gap-4 px-8 py-3 border border-[#1A2F23]/20 rounded-full font-sans text-sm tracking-widest text-[#1A2F23] hover:bg-[#1A2F23] hover:text-[#FDFCF8] transition-colors duration-300 overflow-hidden relative">
               <span className="roll-top flex items-center gap-4">{sliderData.cta}<ArrowRight size={16} /></span>
-              <span className="roll-bottom absolute inset-0 flex items-center justify-center gap-4">{sliderData.cta}<ArrowRight size={16} /></span>
+              <span className="roll-bottom absolute top-full left-0 right-0 h-full flex items-center justify-center gap-4">{sliderData.cta}<ArrowRight size={16} /></span>
             </button>
           </div>
         </div>
