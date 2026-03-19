@@ -164,6 +164,19 @@ export default function Story() {
         invalidateOnRefresh: true
       });
 
+      // 5. Global Background Colors (AFTER ALL PINS)
+      const sections = gsap.utils.toArray('section');
+      sections.forEach((section) => {
+        const color = section.getAttribute('data-color') || '#FDFCF8';
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top 50%",
+          end: "bottom 50%",
+          onEnter: () => gsap.to(mainRef.current, { backgroundColor: color, duration: 1, overwrite: "auto" }),
+          onEnterBack: () => gsap.to(mainRef.current, { backgroundColor: color, duration: 1, overwrite: "auto" })
+        });
+      });
+
     }, mainRef);
 
     return () => ctx.revert();
@@ -178,7 +191,7 @@ export default function Story() {
       <Navbar />
 
       {/* SECTION 01 · HERO HISTOIRE */}
-      <section className="hero-section relative w-full h-screen overflow-hidden flex items-center justify-center">
+      <section data-color="#1A2F23" className="hero-section relative w-full h-screen overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0 bg-[#1A2F23]">
           <img 
             src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=2000" 
@@ -192,7 +205,7 @@ export default function Story() {
       </section>
 
       {/* SECTION 02 · LE RÉCIT (TIMELINE) */}
-      <section ref={narrativeRef} className="relative w-full bg-[#1A2F23] text-[#FDFCF8] py-16 overflow-hidden">
+      <section data-color="#1A2F23" ref={narrativeRef} className="relative w-full text-[#FDFCF8] py-16 overflow-hidden transition-colors duration-1000">
         
         <div ref={timelineWrapperRef} className="relative w-full max-w-7xl mx-auto flex flex-col pt-32 pb-0">
           {/* Lignes de repère limitées à ce conteneur (exact pixels on mobile to avoid subpixel rendering translation bugs) */}
@@ -238,7 +251,7 @@ export default function Story() {
 
         {/* Paragraphe de conclusion hors de l'axe central vertical */}
         <div className="timeline-step relative w-full max-w-4xl mx-auto pt-24 md:pt-32 pb-24 md:pb-32 flex justify-center text-center z-30 px-8 md:px-0">
-          <p className="timeline-text font-serif text-3xl md:text-6xl lg:text-7xl leading-tight text-white bg-[#1A2F23]">
+          <p className="timeline-text font-serif text-3xl md:text-6xl lg:text-7xl leading-tight text-white mix-blend-difference">
             {mockStory.narrative.paragraphs[mockStory.narrative.paragraphs.length - 1]}
           </p>
         </div>
@@ -246,7 +259,7 @@ export default function Story() {
       </section>
 
       {/* SECTION 03 · LES VALEURS */}
-      <section ref={valuesRef} className="relative w-full text-[#1A2F23] py-48 px-6 md:px-12 flex flex-col items-center overflow-hidden">
+      <section data-color="#FDFCF8" ref={valuesRef} className="relative w-full text-[#1A2F23] py-48 px-6 md:px-12 flex flex-col items-center overflow-hidden transition-colors duration-1000">
         <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-24 md:gap-12 relative z-10 pt-16">
           {mockStory.values.map((v, i) => {
             const Icon = valueIcons[i];
@@ -283,7 +296,7 @@ export default function Story() {
       </section>
 
       {/* SECTION 04 · GALERIE HISTOIRE */}
-      <section ref={galleryWrapperRef} className="relative w-full h-screen overflow-hidden">
+      <section data-color="#FDFCF8" ref={galleryWrapperRef} className="relative w-full h-screen overflow-hidden transition-colors duration-1000">
         <div 
           ref={galleryRef} 
           className="absolute top-0 left-0 h-full flex items-center gap-12 md:gap-24 px-[10vw] pt-20"

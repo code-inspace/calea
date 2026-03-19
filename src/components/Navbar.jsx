@@ -17,20 +17,31 @@ export default function Navbar() {
   const menuOverlayRef = useRef(null);
   const menuArchRef = useRef(null);
   const menuLinksRef = useRef([]);
+  const hasForcedNav = useRef(false);
+  const navTween = useRef(null);
 
   // Fade in AFTER the entire Hero text animation sequence ends (only on home)
   useEffect(() => {
+    hasForcedNav.current = false;
+    
+    if (navTween.current) navTween.current.kill();
+    
     const isHome = location.pathname === '/';
-    gsap.fromTo(navRef.current,
+    navTween.current = gsap.fromTo(navRef.current,
       { opacity: 0, y: -20 },
       { 
         opacity: 1, 
         y: 0, 
         duration: 1, 
         ease: 'power2.out', 
-        delay: isHome ? 7.2 : 0 
+        delay: isHome ? 7.2 : 0,
+        overwrite: 'auto'
       }
     );
+    
+    return () => {
+      if (navTween.current) navTween.current.kill();
+    };
   }, [location.pathname]);
 
 
@@ -41,13 +52,19 @@ export default function Navbar() {
       const scrollY = window.scrollY;
       setScrolled(scrollY > 60);
 
+      if (scrollY > 10 && !hasForcedNav.current) {
+        hasForcedNav.current = true;
+        if (navTween.current) navTween.current.kill(); // On tue explicitement l'animation initiale retardée !
+        gsap.to(navRef.current, { opacity: 1, y: 0, duration: 0.3, overwrite: 'auto' });
+      }
+
       const main = document.querySelector('main');
       let shouldBeLight = true; // default on Hero pages
 
       if (main) {
         // If we scroll past the initial hero (typically 100vh)
         // Wait, on some pages (like Contact) the Hero is shorter and cream.
-        if (scrollY > window.innerHeight - 80 || location.pathname !== '/') {
+        if (scrollY > window.innerHeight - 80 || !['/', '/histoire'].includes(location.pathname)) {
           const bg = main.style.backgroundColor || window.getComputedStyle(main).backgroundColor;
           const match = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
           if (match) {
@@ -200,24 +217,24 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
-          </ul>
 
-          {/* Language toggle (Desktop) */}
-          <div className={`hidden md:flex gap-3 font-inter text-xs tracking-widest transition-colors duration-500 ${textClass}`}>
-            <button
-              onClick={() => changeLanguage('fr')}
-              className={`transition-all duration-300 ${i18n.language === 'fr' ? 'font-semibold' : 'opacity-50 hover:opacity-100'}`}
-            >
-              FR
-            </button>
-            <span className="opacity-30">|</span>
-            <button
-              onClick={() => changeLanguage('en')}
-              className={`transition-all duration-300 ${i18n.language === 'en' ? 'font-semibold' : 'opacity-50 hover:opacity-100'}`}
-            >
-              EN
-            </button>
-          </div>
+            {/* Language toggle (Desktop) */}
+            <li className={`flex items-center gap-3 font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 mt-[1px] ${textClass}`}>
+              <button
+                onClick={() => changeLanguage('fr')}
+                className={`transition-opacity duration-300 ${i18n.language === 'fr' ? 'opacity-100 font-medium' : 'opacity-40 hover:opacity-100'}`}
+              >
+                FR
+              </button>
+              <span className="opacity-20 pointer-events-none pb-[1px]">|</span>
+              <button
+                onClick={() => changeLanguage('en')}
+                className={`transition-opacity duration-300 ${i18n.language === 'en' ? 'opacity-100 font-medium' : 'opacity-40 hover:opacity-100'}`}
+              >
+                EN
+              </button>
+            </li>
+          </ul>
         </div>
 
       </nav>

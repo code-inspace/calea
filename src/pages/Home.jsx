@@ -10,7 +10,7 @@ import ScrollExperience from '../components/ScrollExperience';
 import StoryCarousel from '../components/StoryCarousel';
 import BungalowGrid from '../components/BungalowGrid';
 import AudioToggle from '../components/AudioToggle';
-import ActivitiesSlider from '../components/ActivitiesSlider';
+import ActivitiesRoulette from '../components/ActivitiesRoulette';
 import Footer from '../components/Footer';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -48,13 +48,13 @@ export default function Home() {
 
       <Hero />
 
-      <ScrollExperience />
+      {/* <ScrollExperience /> */}
 
       {/* Hook Section */}
       <section id="story" data-color="#FDFCF8" className="min-h-[50vh] flex items-center justify-center text-center py-32">
         <div className="w-full px-4 md:px-12 flex flex-col items-center">
           <h2 className="font-serif text-3xl md:text-5xl mb-12 text-paradou-green leading-tight">
-            {t('hook.line1')}<br/>
+            {t('hook.line1')}<br />
             {t('hook.line2')}
           </h2>
           <p className="font-sans text-lg md:text-xl text-paradou-green/80 whitespace-pre-line mb-8 tracking-wide">
@@ -81,8 +81,8 @@ export default function Home() {
         <BungalowGrid />
       </section>
 
-      {/* Activities Slider replaces the old static experiences */}
-      <ActivitiesSlider />
+      {/* Activities Roulette replaces the old slider */}
+      <ActivitiesRoulette />
 
       <Footer />
     </main>
