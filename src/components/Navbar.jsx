@@ -21,11 +21,9 @@ function NavItem({ link, className }) {
     gsap.set(line, { scaleX: 0, transformOrigin: 'left center' });
 
     const onEnter = () => {
-      gsap.set(line, { transformOrigin: 'left center' });
       gsap.to(line, { scaleX: 1, duration: 0.4, ease: 'power2.out', overwrite: true });
     };
     const onLeave = () => {
-      gsap.set(line, { transformOrigin: 'right center' });
       gsap.to(line, { scaleX: 0, duration: 0.32, ease: 'power2.in', overwrite: true });
     };
 
