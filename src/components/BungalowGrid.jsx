@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,13 +70,19 @@ export default function BungalowGrid() {
             className={`bungalow-card flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
           >
             {/* Image Box */}
-            <div className="w-full md:w-1/2 overflow-hidden aspect-[4/5] md:aspect-auto md:h-[80vh] relative">
+            <Link 
+              to="/bungalows" 
+              className="w-full md:w-1/2 overflow-hidden aspect-[4/5] md:aspect-auto md:h-[80vh] relative block group cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none flex items-center justify-center">
+                <span className="text-white font-serif italic text-2xl rotate-[-5deg] scale-90 group-hover:scale-100 transition-transform duration-700">Découvrir</span>
+              </div>
               <img 
                 src={bungalow.gallery[0]} 
                 alt={bungalow.name}
-                className="bungalow-img w-full h-full object-cover absolute inset-0"
+                className="bungalow-img w-full h-full object-cover absolute inset-0 scale-[1.02] group-hover:scale-105 transition-transform duration-1000"
               />
-            </div>
+            </Link>
             
             {/* Text Box */}
             <div className="bungalow-text w-full md:w-1/2 flex flex-col justify-center px-8 py-16 md:px-24">
