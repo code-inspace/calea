@@ -1,5 +1,6 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Sparkles, Leaf, Hourglass } from 'lucide-react';
@@ -170,6 +171,10 @@ export default function Story() {
 
   return (
     <main ref={mainRef} className="relative w-full bg-[#FDFCF8] text-paradou-green overflow-x-hidden">
+      <Helmet>
+        <title>L'Histoire de Caléa — Un Rêve Provençal</title>
+        <meta name="description" content="Découvrez l'histoire de Caléa : un jardin secret, une famille, un héritage vivant sur la Côte d'Azur. L'authenticité d'un domaine provençal réinventé avec âme." />
+      </Helmet>
       <Navbar />
 
       {/* SECTION 01 — HERO HISTOIRE */}

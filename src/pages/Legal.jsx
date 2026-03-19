@@ -1,10 +1,15 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export default function Legal() {
   return (
     <main className="relative w-full min-h-screen bg-paradou-cream text-paradou-green overflow-x-hidden">
+      <Helmet>
+        <title>Mentions Légales — Caléa Resort</title>
+        <meta name="description" content="Mentions légales du site Caléa Resort : éditeur, hébergement, propriété intellectuelle, données personnelles et cookies." />
+      </Helmet>
       <Navbar />
       
       {/* Mini Hero with sober background image */}

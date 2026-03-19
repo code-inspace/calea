@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -21,6 +22,10 @@ export default function Bungalows() {
 
   return (
     <main className="relative w-full min-h-screen bg-paradou-green overflow-hidden">
+      <Helmet>
+        <title>Bungalows — Caléa Resort</title>
+        <meta name="description" content="Découvrez les bungalows privés de Caléa : General Room, Suite Royale et Villa Privée face à la Mediterranée. Chaque hébergement conjugue luxe, nature et intimité." />
+      </Helmet>
       <Navbar />
 
       {/* Hero Full Screen Image */}

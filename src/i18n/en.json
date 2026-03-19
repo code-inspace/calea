@@ -196,6 +196,8 @@
   ],
   "contactPage": {
     "heroTitle": "Write to us.",
+    "heroSub": "A question, a reservation, a wish.",
+    "heroResponse": "Response guaranteed within 24 hours",
     "form": {
       "nameLabel": "Your name",
       "emailLabel": "Your email address",

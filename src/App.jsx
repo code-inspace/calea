@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Home from './pages/Home';
 import Bungalows from './pages/Bungalows';
 import Contact from './pages/Contact';
@@ -8,15 +9,17 @@ import Story from './pages/Story';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/bungalows" element={<Bungalows />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/mentions-legales" element={<Legal />} />
-        <Route path="/histoire" element={<Story />} />
-      </Routes>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/bungalows" element={<Bungalows />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/mentions-legales" element={<Legal />} />
+          <Route path="/histoire" element={<Story />} />
+        </Routes>
+      </Router>
+    </HelmetProvider>
   );
 }
 

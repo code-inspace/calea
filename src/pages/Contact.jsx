@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -17,27 +18,35 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate an API call
-    setTimeout(() => {
-      setIsSubmitted(true);
-    }, 500);
+    // Formspree endpoint — replace YOUR_FORM_ID with your real Formspree form ID
+    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    if (res.ok) setIsSubmitted(true);
   };
 
   const iframeSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.2014187062402!2d6.636605915228833!3d43.268157779136155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cebdcb2bf6201b%3A0xe549557b44565780!2sSaint-Tropez%2C%20France!5e0!3m2!1sen!2s!4v1655112000000!5m2!1sen!2s";
 
   return (
     <main className="relative w-full min-h-screen bg-paradou-cream text-paradou-green overflow-x-hidden">
-      {/* We need the Navbar to show on the Contact page. It assumes an ID "top" or just sits fixed. */}
-      {/* Since the BG is Sand (cream), we want dark text for Navbar. Navbar handles it automatically based on bg color. */}
+      <Helmet>
+        <title>Contact — Caléa Resort</title>
+        <meta name="description" content="Écrivez-nous pour réserver votre bungalow, obtenir des informations ou planifier votre séjour à Caléa, sur la Côte d'Azur." />
+      </Helmet>
       <Navbar />
 
       {/* SECTION 01: HERO CONTACT */}
-      <section className="pt-48 pb-20 px-4 md:px-12 flex items-center justify-center text-center">
-        <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl tracking-tight">
+      <section className="pt-48 pb-20 px-4 md:px-12 flex flex-col items-center justify-center text-center">
+        <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl tracking-tight mb-8">
           {t('contactPage.heroTitle')}
         </h1>
+        <p className="font-sans text-lg md:text-xl text-paradou-green/60">
+          {t('contactPage.heroSub')}
+        </p>
       </section>
 
       {/* SECTION 02: FORMULAIRE CONTACT */}
@@ -193,11 +202,11 @@ export default function Contact() {
       </section>
 
       {/* SECTION 04: CARTE */}
-      <section className="w-full h-[50vh] relative filter grayscale sepia-[0.3] hue-rotate-[-10deg] opacity-90 hover:opacity-100 transition-opacity duration-700">
+      <section className="w-full h-[50vh] relative opacity-90 hover:opacity-100 transition-opacity duration-700" style={{ filter: 'grayscale(0.6) sepia(0.2)' }}>
         <iframe 
           title="Map"
           src={iframeSrc}
-          className="absolute inset-0 w-full h-full border-0 pointer-events-none"
+          className="absolute inset-0 w-full h-full border-0"
           loading="lazy"
           allowFullScreen
         ></iframe>
