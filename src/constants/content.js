@@ -14,7 +14,7 @@ export const content = {
     story: {
       paragraphs: [
         "L'histoire commence par un jardin à l'abandon.",
-        "Dans les années 70, Henri Marceau tombe amoureux d'un domaine secret sur les hauteurs de la Côte d'Azur. Il y plante des frangipaniers, des bananiers, des hibiscus. Il bâtit dix maisons de bois blanc face à la mer. Il appelle ça Le Paradou Blanc — le paradis caché.",
+        "Dans les années 70, Henri Marceau tombe amoureux d'un domaine secret sur les hauteurs de la Côte d'Azur. Il y plante des frangipaniers, des bananiers, des hibiscus. Il bâtit dix maisons de bois blanc face à la mer. Il appelle ça Le Paradou Blanc · le paradis caché.",
         "Pendant quarante ans, des familles du monde entier viennent ici déposer leurs valises et leurs urgences.",
         "Puis vient Théo. Le fils. L'héritier. Celui qui aurait pu vendre. Il choisit de rêver autrement.",
         "Avec le regard d'une nouvelle génération et le respect de ce que son père avait semé, Théo réinvente Le Paradou Blanc. Même âme. Nouveau souffle.",
@@ -29,11 +29,11 @@ export const content = {
     },
     features: [
       "Piscine à débordement face à la Méditerranée.",
-      "Spa Paradou — soins inspirés des rituels tropicaux et provençaux.",
-      "Restaurant Le Frangipier — gastronomie du soleil, produits locaux.",
-      "Plage privée — accès exclusif, transats, service à la plage.",
-      "Jardin tropical de 3 hectares — un écrin de verdure et de silence.",
-      "Conciergerie 24h — chaque désir, chaque détail, pris en charge."
+      "Spa Paradou · soins inspirés des rituels tropicaux et provençaux.",
+      "Restaurant Le Frangipier · gastronomie du soleil, produits locaux.",
+      "Plage privée · accès exclusif, transats, service à la plage.",
+      "Jardin tropical de 3 hectares · un écrin de verdure et de silence.",
+      "Conciergerie 24h · chaque désir, chaque détail, pris en charge."
     ],
     bungalowsIntro: {
       title: "Dix univers. Dix façons de disparaître du monde.",
@@ -122,7 +122,7 @@ export const content = {
     ],
     footer: {
       headline: "Votre rêve commence ici.",
-      subhead: "Réservez votre bungalow — disponibilités limitées.",
+      subhead: "Réservez votre bungalow · disponibilités limitées.",
       ctaPrimary: "RÉSERVER MAINTENANT",
       ctaSecondary: "NOUS CONTACTER",
       seoLinks: "Resort tropical Côte d'Azur · Hôtel de luxe Provence · Bungalow privatif bord de mer · Séjour romantique Sud de France · Spa luxe Méditerranée · Le Paradou Blanc"
@@ -143,7 +143,7 @@ export const content = {
     story: {
       paragraphs: [
         "It begins with an abandoned garden.",
-        "In the 1970s, Henri Marceau fell in love with a secret estate on the heights of the French Riviera. He planted frangipani, banana trees, hibiscus. He built ten white wooden houses facing the sea. He called it Le Paradou Blanc — the hidden paradise.",
+        "In the 1970s, Henri Marceau fell in love with a secret estate on the heights of the French Riviera. He planted frangipani, banana trees, hibiscus. He built ten white wooden houses facing the sea. He called it Le Paradou Blanc · the hidden paradise.",
         "For forty years, families from around the world came here to leave behind their luggage and their urgency.",
         "Then came Théo. The son. The heir. The one who could have sold it all. He chose to dream differently.",
         "With the vision of a new generation and a deep respect for what his father had planted, Théo reimagined Le Paradou Blanc. Same soul. New breath.",
@@ -158,11 +158,11 @@ export const content = {
     },
     features: [
       "Infinity pool overlooking the Mediterranean.",
-      "Paradou Spa — rituals inspired by tropical and Provençal traditions.",
-      "Le Frangipier Restaurant — sun-drenched gastronomy, local produce.",
-      "Private beach — exclusive access, sun loungers, beach service.",
-      "3-hectare tropical garden — a cocoon of greenery and silence.",
-      "24h concierge — every wish, every detail, taken care of."
+      "Paradou Spa · rituals inspired by tropical and Provençal traditions.",
+      "Le Frangipier Restaurant · sun-drenched gastronomy, local produce.",
+      "Private beach · exclusive access, sun loungers, beach service.",
+      "3-hectare tropical garden · a cocoon of greenery and silence.",
+      "24h concierge · every wish, every detail, taken care of."
     ],
     bungalowsIntro: {
       title: "Ten worlds. Ten ways to disappear.",
@@ -251,7 +251,7 @@ export const content = {
     ],
     footer: {
       headline: "Your dream begins here.",
-      subhead: "Reserve your bungalow — limited availability.",
+      subhead: "Reserve your bungalow · limited availability.",
       ctaPrimary: "BOOK NOW",
       ctaSecondary: "CONTACT US",
       seoLinks: "Tropical resort French Riviera · Luxury hotel Provence · Private bungalow seaside · Romantic getaway South of France · Luxury spa Mediterranean · Le Paradou Blanc"

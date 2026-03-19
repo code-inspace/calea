@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <main id="top" ref={mainRef} className="relative w-full overflow-x-hidden min-h-screen bg-paradou-cream">
       <Helmet>
-        <title>Caléa — Resort Provençal · Luxe & Nature sur la Côte d'Azur</title>
+        <title>Caléa · Resort Provençal · Luxe & Nature sur la Côte d'Azur</title>
         <meta name="description" content="Caléa, le resort provençal secret sur la Côte d'Azur. Bungalows privatifs face à la mer, spa, cuisine locale et expériences uniques. Réservez votre escapade." />
       </Helmet>
       <Noise />

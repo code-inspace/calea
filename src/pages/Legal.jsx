@@ -7,7 +7,7 @@ export default function Legal() {
   return (
     <main className="relative w-full min-h-screen bg-paradou-cream text-paradou-green overflow-x-hidden">
       <Helmet>
-        <title>Mentions Légales — Caléa Resort</title>
+        <title>Mentions Légales · Caléa Resort</title>
         <meta name="description" content="Mentions légales du site Caléa Resort : éditeur, hébergement, propriété intellectuelle, données personnelles et cookies." />
       </Helmet>
       <Navbar />

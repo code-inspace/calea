@@ -20,7 +20,7 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Formspree endpoint — replace YOUR_FORM_ID with your real Formspree form ID
+    // Formspree endpoint · replace YOUR_FORM_ID with your real Formspree form ID
     const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -34,7 +34,7 @@ export default function Contact() {
   return (
     <main className="relative w-full min-h-screen bg-paradou-cream text-paradou-green overflow-x-hidden">
       <Helmet>
-        <title>Contact — Caléa Resort</title>
+        <title>Contact · Caléa Resort</title>
         <meta name="description" content="Écrivez-nous pour réserver votre bungalow, obtenir des informations ou planifier votre séjour à Caléa, sur la Côte d'Azur." />
       </Helmet>
       <Navbar />

@@ -67,7 +67,6 @@ export default function Footer() {
         <Link to="/mentions-legales" className="uppercase hover:text-white transition-colors">Mentions Légales</Link>
         <div className="flex items-center gap-2">
           <span>© 2026 Caléa</span>
-          <span>—</span>
           <span>
             Réalisé par <a href="https://axelcoudair.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Axel Coudair</a>
           </span>

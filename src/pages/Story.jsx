@@ -172,12 +172,12 @@ export default function Story() {
   return (
     <main ref={mainRef} className="relative w-full bg-[#FDFCF8] text-paradou-green overflow-x-hidden">
       <Helmet>
-        <title>L'Histoire de Caléa — Un Rêve Provençal</title>
+        <title>L'Histoire de Caléa · Un Rêve Provençal</title>
         <meta name="description" content="Découvrez l'histoire de Caléa : un jardin secret, une famille, un héritage vivant sur la Côte d'Azur. L'authenticité d'un domaine provençal réinventé avec âme." />
       </Helmet>
       <Navbar />
 
-      {/* SECTION 01 — HERO HISTOIRE */}
+      {/* SECTION 01 · HERO HISTOIRE */}
       <section className="hero-section relative w-full h-screen overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0 bg-[#1A2F23]">
           <img 
@@ -191,7 +191,7 @@ export default function Story() {
         </h1>
       </section>
 
-      {/* SECTION 02 — LE RÉCIT (TIMELINE) */}
+      {/* SECTION 02 · LE RÉCIT (TIMELINE) */}
       <section ref={narrativeRef} className="relative w-full bg-[#1A2F23] text-[#FDFCF8] py-16 overflow-hidden">
         
         <div ref={timelineWrapperRef} className="relative w-full max-w-7xl mx-auto flex flex-col pt-32 pb-0">
@@ -243,7 +243,7 @@ export default function Story() {
 
       </section>
 
-      {/* SECTION 03 — LES VALEURS */}
+      {/* SECTION 03 · LES VALEURS */}
       <section ref={valuesRef} className="relative w-full text-[#1A2F23] py-48 px-6 md:px-12 flex flex-col items-center overflow-hidden">
         <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-24 md:gap-12 relative z-10 pt-16">
           {mockStory.values.map((v, i) => {
@@ -280,7 +280,7 @@ export default function Story() {
         </div>
       </section>
 
-      {/* SECTION 04 — GALERIE HISTOIRE */}
+      {/* SECTION 04 · GALERIE HISTOIRE */}
       <section ref={galleryWrapperRef} className="relative w-full h-screen overflow-hidden">
         <div 
           ref={galleryRef} 

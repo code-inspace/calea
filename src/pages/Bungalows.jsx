@@ -23,7 +23,7 @@ export default function Bungalows() {
   return (
     <main className="relative w-full min-h-screen bg-paradou-green overflow-hidden">
       <Helmet>
-        <title>Bungalows — Caléa Resort</title>
+        <title>Bungalows · Caléa Resort</title>
         <meta name="description" content="Découvrez les bungalows privés de Caléa : General Room, Suite Royale et Villa Privée face à la Mediterranée. Chaque hébergement conjugue luxe, nature et intimité." />
       </Helmet>
       <Navbar />
