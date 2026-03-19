@@ -23,13 +23,13 @@
   "hook": {
     "line1": "Ce n'est pas un hôtel.",
     "line2": "C'est un rêve que vous n'aurez pas envie de quitter.",
-    "paragraph1": "Dix bungalows nichés dans un jardin tropical,\nà quelques pas de la Méditerranée.",
+    "paragraph1": "Quatre bungalows nichés dans un jardin tropical,\nà quelques pas de la Méditerranée.",
     "paragraph2": "Ici, le luxe ne se montre pas.\nIl se ressent."
   },
   "story": {
     "paragraphs": [
       "L'histoire commence par un jardin à l'abandon.",
-      "Dans les années 70, Henri Marceau tombe amoureux d'un domaine secret sur les hauteurs de la Côte d'Azur. Il y plante des frangipaniers, des bananiers, des hibiscus. Il bâtit dix maisons de bois blanc face à la mer. Il appelle ça Caléa · le paradis caché.",
+      "Dans les années 70, Henri Marceau tombe amoureux d'un domaine secret sur les hauteurs de la Côte d'Azur. Il y plante des frangipaniers, des bananiers, des hibiscus. Il bâtit quatre maisons de bois blanc face à la mer. Il appelle ça Caléa · le paradis caché.",
       "Pendant quarante ans, des familles du monde entier viennent ici déposer leurs valises et leurs urgences.",
       "Puis vient Théo. Le fils. L'héritier. Celui qui aurait pu vendre. Il choisit de rêver autrement.",
       "Avec le regard d'une nouvelle génération et le respect de ce que son père avait semé, Théo réinvente Caléa. Même âme. Nouveau souffle.",
@@ -51,8 +51,8 @@
     "Conciergerie 24h · chaque désir, chaque détail, pris en charge."
   ],
   "bungalowsIntro": {
-    "title": "Dix univers. Dix façons de disparaître du monde.",
-    "subtitle": "Chaque bungalow est une adresse en soi."
+    "title": "Quatre refuges. Quatre façons de s'évader du monde.",
+    "subtitle": "Chaque bungalow privatif est un univers à part — entre luxe discret, nature intacte et douceur de vivre sur la Côte d'Azur."
   },
   "bungalows": [
     {
@@ -247,7 +247,7 @@
     "narrative": {
       "paragraphs": [
         "L'histoire commence par un jardin à l'abandon.",
-        "Dans les années 70, Henri Marceau tombe amoureux d'un domaine secret sur les hauteurs de la Côte d'Azur. Il y plante des frangipaniers, des bananiers, des hibiscus. Il bâtit dix maisons de bois blanc face à la mer. Il appelle ça Caléa · le paradis caché.",
+        "Dans les années 70, Henri Marceau tombe amoureux d'un domaine secret sur les hauteurs de la Côte d'Azur. Il y plante des frangipaniers, des bananiers, des hibiscus. Il bâtit quatre maisons de bois blanc face à la mer. Il appelle ça Caléa · le paradis caché.",
         "Pendant quarante ans, des familles du monde entier viennent ici déposer leurs valises et leurs urgences.",
         "Puis vient Théo. Le fils. L'héritier. Celui qui aurait pu vendre. Il choisit de rêver autrement.",
         "Avec le regard d'une nouvelle génération et le respect de ce que son père avait semé, Théo réinvente Caléa. Même âme. Nouveau souffle.",

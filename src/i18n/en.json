@@ -23,13 +23,13 @@
   "hook": {
     "line1": "This is not a hotel.",
     "line2": "It's a dream you won't want to leave.",
-    "paragraph1": "Ten bungalows nestled in a tropical garden,\nsteps from the Mediterranean.",
+    "paragraph1": "Four bungalows nestled in a tropical garden,\nsteps from the Mediterranean.",
     "paragraph2": "Here, luxury doesn't show off.\nIt simply is."
   },
   "story": {
     "paragraphs": [
       "It begins with an abandoned garden.",
-      "In the 1970s, Henri Marceau fell in love with a secret estate on the heights of the French Riviera. He planted frangipani, banana trees, hibiscus. He built ten white wooden houses facing the sea. He called it Caléa · the hidden paradise.",
+      "In the 1970s, Henri Marceau fell in love with a secret estate on the heights of the French Riviera. He planted frangipani, banana trees, hibiscus. He built four white wooden houses facing the sea. He called it Caléa · the hidden paradise.",
       "For forty years, families from around the world came here to leave behind their luggage and their urgency.",
       "Then came Théo. The son. The heir. The one who could have sold it all. He chose to dream differently.",
       "With the vision of a new generation and a deep respect for what his father had planted, Théo reimagined Caléa. Same soul. New breath.",
@@ -51,8 +51,8 @@
     "24h concierge · every wish, every detail, taken care of."
   ],
   "bungalowsIntro": {
-    "title": "Ten worlds. Ten ways to disappear.",
-    "subtitle": "Each bungalow is a destination of its own."
+    "title": "Four hideaways. Four ways to vanish from the world.",
+    "subtitle": "Each private bungalow is a world of its own — where understated luxury meets untouched nature on the French Riviera."
   },
   "bungalows": [
     {
@@ -247,7 +247,7 @@
     "narrative": {
       "paragraphs": [
         "It begins with an abandoned garden.",
-        "In the 1970s, Henri Marceau fell in love with a secret estate on the heights of the French Riviera. He planted frangipani, banana trees, hibiscus. He built ten white wooden bungalows facing the sea. He called it Caléa · the hidden paradise.",
+        "In the 1970s, Henri Marceau fell in love with a secret estate on the heights of the French Riviera. He planted frangipani, banana trees, hibiscus. He built four white wooden bungalows facing the sea. He called it Caléa · the hidden paradise.",
         "For forty years, families from around the world came here to leave behind their luggage and their urgencies.",
         "Then came Théo. The son. The heir. The one who could have sold it all. He chose to dream differently.",
         "With the vision of a new generation and a deep respect for what his father had planted, Théo reimagined Caléa. Same soul. New breath.",
