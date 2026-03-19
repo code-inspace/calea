@@ -87,14 +87,14 @@ export default function Navbar() {
               {link.isRouterLink ? (
                 <Link
                   to={link.href}
-                  className={`font-sans text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
+                  className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
                 >
                   {link.label}
                 </Link>
               ) : (
                 <a
                   href={link.href}
-                  className={`font-sans text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
+                  className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
                 >
                   {link.label}
                 </a>
@@ -121,7 +121,7 @@ export default function Navbar() {
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className={`font-sans text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
+                  className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
                 >
                   {link.label}
                 </a>
@@ -130,7 +130,7 @@ export default function Navbar() {
           </ul>
 
           {/* Language toggle */}
-          <div className={`flex gap-3 font-sans text-xs tracking-widest transition-colors duration-500 ${textClass}`}>
+          <div className={`flex gap-3 font-inter text-xs tracking-widest transition-colors duration-500 ${textClass}`}>
             <button
               onClick={() => changeLanguage('fr')}
               className={`transition-all duration-300 ${i18n.language === 'fr' ? 'font-semibold' : 'opacity-50 hover:opacity-100'}`}

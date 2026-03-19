@@ -12,10 +12,12 @@ export default {
         'paradou-green': '#1A2F23',
       },
       fontFamily: {
-        // Fraunces = corps de texte, léger et élégant
+        // Fraunces = corps de texte (textes longs, paragraphes)
         sans: ['Fraunces', 'serif'],
-        // DM Serif Display = tous les titres
+        // DM Serif Display = tous les grands titres
         serif: ['"DM Serif Display"', 'serif'],
+        // Inter = pour la navigation / micro-textes techniques
+        inter: ['Inter', 'sans-serif'],
         // Legacy candidates (conservés pour référence)
         'playfair': ['"Playfair Display"', 'serif'],
         'dm-serif': ['"DM Serif Display"', 'serif'],

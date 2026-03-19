@@ -110,7 +110,7 @@ export default function StoryCarousel() {
               <span className="font-sans text-xs uppercase tracking-widest text-white/70 mb-4">
                 {card.title}
               </span>
-              <p className="font-serif text-xl md:text-3xl leading-relaxed text-white max-w-3xl whitespace-pre-line">
+              <p className="font-sans text-xl md:text-3xl leading-relaxed text-white max-w-3xl whitespace-pre-line">
                 {card.text}
               </p>
             </div>

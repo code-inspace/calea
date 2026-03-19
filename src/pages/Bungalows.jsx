@@ -45,7 +45,7 @@ export default function Bungalows() {
               onClick={() => handleBungalowChange(idx)}
               className={`transition-colors duration-300 ${activeIndex === idx ? 'text-white border-b border-white pb-1' : 'hover:text-white/80'}`}
             >
-              0{idx + 1}
+              {b.name}
             </button>
           ))}
         </div>
@@ -53,7 +53,7 @@ export default function Bungalows() {
         {/* Content Overlay */}
         <div className="flex flex-col md:flex-row justify-between items-end gap-12">
           
-          {/* Left Side: Title & Description */}
+          {/* Left Side: Title & Description & CTA */}
           <div className="text-white max-w-2xl">
             <span className="font-sans text-sm tracking-[0.2em] uppercase text-white/70">
               / Rooms
@@ -61,9 +61,15 @@ export default function Bungalows() {
             <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl mt-4 mb-6 leading-none">
               {activeBungalow.name}
             </h1>
-            <p className="font-sans text-lg md:text-xl text-white/80 leading-relaxed">
+            <p className="font-sans text-lg md:text-xl text-white/80 leading-relaxed mb-8">
               {activeBungalow.description}
             </p>
+            <a 
+              href="/#contact"
+              className="inline-block px-8 py-4 bg-white text-paradou-green font-inter tracking-[0.2em] text-xs uppercase hover:bg-paradou-mint transition-colors duration-300"
+            >
+              {t('footer.ctaPrimary')}
+            </a>
           </div>
 
           {/* Right Side: Modules + Miniatures (Like Mokcup) */}
