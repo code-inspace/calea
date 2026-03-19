@@ -55,9 +55,6 @@ export default function Bungalows() {
           
           {/* Left Side: Title & Description & CTA */}
           <div className="text-white max-w-2xl">
-            <span className="font-sans text-sm tracking-[0.2em] uppercase text-white/70">
-              / Rooms
-            </span>
             <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl mt-4 mb-6 leading-none">
               {activeBungalow.name}
             </h1>
