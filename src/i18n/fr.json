@@ -1,4 +1,17 @@
 {
+  "notFound": {
+    "title": "404",
+    "subtitle": "Page introuvable.",
+    "desc": "Il semblerait que vous vous soyez égaré en chemin.",
+    "btn": "Retour à l'accueil"
+  },
+  "nav": {
+    "home": "Accueil",
+    "bungalows": "Bungalows",
+    "experiences": "Expériences",
+    "story": "L'histoire",
+    "book": "Réserver"
+  },
   "hero": {
     "line1": "Il existe, quelque part entre la Provence et l'horizon,",
     "line2": "un endroit où le temps s'oublie.",

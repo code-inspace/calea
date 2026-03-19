@@ -8,7 +8,7 @@ import logoDark from '../assets/logo-calea.png';
 import logoLight from '../assets/logo-calea-light.png';
 
 export default function Navbar() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [isLight, setIsLight] = useState(true);
@@ -117,14 +117,20 @@ export default function Navbar() {
 
   const navLinks = {
     left: [
-      { label: 'Bungalows', href: '/bungalows', isRouterLink: true },
-      { label: 'Expériences', href: '/#experiences', isRouterLink: false },
+      { label: t('nav.bungalows'), href: '/bungalows', isRouterLink: true },
+      { label: t('nav.experiences'), href: '/#experiences', isRouterLink: false },
     ],
     right: [
-      { label: "L'histoire", href: '/histoire', isRouterLink: true },
-      { label: 'Réserver', href: '/contact', isRouterLink: true },
+      { label: t('nav.story'), href: '/histoire', isRouterLink: true },
+      { label: t('nav.book'), href: '/contact', isRouterLink: true },
     ],
   };
+
+  const mobileLinks = [
+    { label: t('nav.home'), href: '/', isRouterLink: true },
+    ...navLinks.left,
+    ...navLinks.right
+  ];
 
   const textClass = isLight ? 'text-white' : 'text-paradou-green';
   const textHover = isLight ? 'hover:text-white/60' : 'hover:text-paradou-green/60';
@@ -240,7 +246,7 @@ export default function Navbar() {
             </button>
             
             <div className="flex flex-col items-center justify-center gap-10 h-full w-full max-w-sm mt-4">
-              {[...navLinks.left, ...navLinks.right].map((link, i) => (
+              {mobileLinks.map((link, i) => (
                 <React.Fragment key={link.label}>
                   {link.isRouterLink ? (
                     <Link
@@ -266,7 +272,7 @@ export default function Navbar() {
 
               {/* Language Toggle in Menu */}
               <div 
-                ref={el => menuLinksRef.current[navLinks.left.length + navLinks.right.length] = el}
+                ref={el => menuLinksRef.current[mobileLinks.length] = el}
                 className="mt-8 flex gap-8 font-inter text-sm tracking-widest text-white/50"
               >
                 <button

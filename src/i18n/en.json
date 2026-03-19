@@ -1,4 +1,17 @@
 {
+  "notFound": {
+    "title": "404",
+    "subtitle": "Page not found.",
+    "desc": "It seems you have lost your way.",
+    "btn": "Back to home"
+  },
+  "nav": {
+    "home": "Home",
+    "bungalows": "Bungalows",
+    "experiences": "Experiences",
+    "story": "Story",
+    "book": "Book"
+  },
   "hero": {
     "line1": "Somewhere between Provence and the open horizon,",
     "line2": "time simply disappears.",

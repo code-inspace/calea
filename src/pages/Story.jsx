@@ -195,27 +195,29 @@ export default function Story() {
       <section ref={narrativeRef} className="relative w-full bg-[#1A2F23] text-[#FDFCF8] py-16 overflow-hidden">
         
         <div ref={timelineWrapperRef} className="relative w-full max-w-7xl mx-auto flex flex-col pt-32 pb-0">
-          {/* Lignes de repère limitées à ce conteneur */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-white/10 z-10 md:-translate-x-1/2" />
-          <div className="timeline-progress absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-white z-20 origin-top md:-translate-x-1/2" />
+          {/* Lignes de repère limitées à ce conteneur (exact pixels on mobile to avoid subpixel rendering translation bugs) */}
+          <div className="absolute left-[23px] md:left-1/2 top-0 bottom-0 w-[2px] md:w-px bg-white/10 z-10 md:-translate-x-1/2" />
+          <div className="timeline-progress absolute left-[23px] md:left-1/2 top-0 bottom-0 w-[2px] bg-white z-20 origin-top md:-translate-x-1/2" />
 
           {mockStory.narrative.paragraphs.slice(0, -1).map((p, i) => {
             const imgSrc = timelineImages[i];
             const isEven = i % 2 === 0;
 
             return (
-              <div key={i} className={`timeline-step relative w-full min-h-[90vh] pb-32 flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center z-30 px-6 md:px-12`}>
+              <div key={i} className={`timeline-step relative w-full min-h-0 md:min-h-[90vh] py-16 md:py-0 md:pb-32 flex flex-col items-start ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} md:items-center z-30 px-6 md:px-12`}>
                 <div className="hidden md:block absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 bg-white rounded-full z-30 timeline-dot box-content border-4 border-[#1A2F23]" />
-                <div className="md:hidden absolute left-6 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 bg-white rounded-full z-30 timeline-dot box-content border-4 border-[#1A2F23]" />
+                
+                {/* 14px left edge + 10px half-width = 24px center */}
+                <div className="md:hidden absolute left-[14px] top-[80px] -translate-y-1/2 w-3 h-3 bg-white rounded-full z-30 timeline-dot box-content border-4 border-[#1A2F23]" />
 
-                <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${isEven ? 'md:pr-24 text-left md:text-right' : 'md:pl-24 text-left'} flex flex-col justify-center`}>
-                  <p className="timeline-text font-sans text-2xl md:text-3xl lg:text-4xl leading-relaxed text-white/90">
+                <div className={`w-full md:w-1/2 pl-[60px] md:pl-0 ${isEven ? 'md:pr-24 text-left md:text-right' : 'md:pl-24 text-left'} flex flex-col justify-center pt-2 md:pt-0`}>
+                  <p className="timeline-text font-sans text-xl md:text-3xl lg:text-4xl leading-relaxed text-white/90">
                     {p}
                   </p>
                 </div>
 
-                <div className={`w-full md:w-1/2 pl-12 md:pl-0 mt-16 md:mt-0 ${isEven ? 'md:pl-24' : 'md:pr-24 flex justify-end'} timeline-img`}>
-                  <div className="relative w-full aspect-[4/5] max-w-sm md:max-w-md overflow-hidden">
+                <div className={`w-full md:w-1/2 pl-[60px] md:pl-0 mt-8 md:mt-0 ${isEven ? 'md:pl-24' : 'md:pr-24 md:flex md:justify-end'} timeline-img`}>
+                  <div className="relative w-full aspect-[4/5] max-w-[260px] md:max-w-md overflow-hidden">
                     <img 
                       src={imgSrc} 
                       alt={`Histoire étape ${i+1}`} 
@@ -230,13 +232,13 @@ export default function Story() {
           {/* Point final de la ligne */}
           <div className="timeline-step relative w-full h-0 z-30">
             <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full timeline-dot box-content border-4 border-[#1A2F23]" />
-            <div className="md:hidden absolute left-6 top-0 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full timeline-dot box-content border-4 border-[#1A2F23]" />
+            <div className="md:hidden absolute left-[12px] top-0 -translate-y-1/2 w-4 h-4 bg-white rounded-full timeline-dot box-content border-4 border-[#1A2F23]" />
           </div>
         </div>
 
         {/* Paragraphe de conclusion hors de l'axe central vertical */}
-        <div className="timeline-step relative w-full max-w-4xl mx-auto pt-32 pb-32 flex justify-center text-center z-30">
-          <p className="timeline-text font-serif text-4xl md:text-6xl lg:text-7xl leading-tight text-white px-6 md:px-0 bg-[#1A2F23]">
+        <div className="timeline-step relative w-full max-w-4xl mx-auto pt-24 md:pt-32 pb-24 md:pb-32 flex justify-center text-center z-30 px-8 md:px-0">
+          <p className="timeline-text font-serif text-3xl md:text-6xl lg:text-7xl leading-tight text-white bg-[#1A2F23]">
             {mockStory.narrative.paragraphs[mockStory.narrative.paragraphs.length - 1]}
           </p>
         </div>

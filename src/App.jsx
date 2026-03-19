@@ -6,6 +6,7 @@ import Bungalows from './pages/Bungalows';
 import Contact from './pages/Contact';
 import Legal from './pages/Legal';
 import Story from './pages/Story';
+import NotFound from './pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/mentions-legales" element={<Legal />} />
           <Route path="/histoire" element={<Story />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </HelmetProvider>
