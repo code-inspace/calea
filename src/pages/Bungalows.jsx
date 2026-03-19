@@ -3,21 +3,20 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Users, BedDouble } from 'lucide-react';
+import { Users, BedDouble, Droplets, Waves } from 'lucide-react';
+import { bungalows } from '../data/bungalows';
 
 export default function Bungalows() {
   const { t } = useTranslation();
   
-  const mockBungalows = t('bungalowsPage', { returnObjects: true });
-
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeBungalow = mockBungalows[activeIndex];
+  const activeBungalow = bungalows[activeIndex];
   const [mainImage, setMainImage] = useState(activeBungalow.gallery[0]);
 
   // When bungalow changes, reset main image to the first of the new gallery
   const handleBungalowChange = (index) => {
     setActiveIndex(index);
-    setMainImage(mockBungalows[index].gallery[0]);
+    setMainImage(bungalows[index].gallery[0]);
   };
 
   return (
@@ -43,8 +42,8 @@ export default function Bungalows() {
       <div className="relative z-10 w-full h-[100vh] pt-32 px-6 md:px-16 flex flex-col justify-between pb-8">
         
         {/* Navigation for Bungalows */}
-        <div className="flex gap-8 text-white/50 font-sans tracking-widest text-sm uppercase">
-          {mockBungalows.map((b, idx) => (
+        <div className="flex gap-8 text-white/50 font-sans tracking-widest text-sm uppercase flex-wrap">
+          {bungalows.map((b, idx) => (
             <button 
               key={b.id}
               onClick={() => handleBungalowChange(idx)}
@@ -64,7 +63,7 @@ export default function Bungalows() {
               {activeBungalow.name}
             </h1>
             <p className="font-sans text-lg md:text-xl text-white/80 leading-relaxed mb-8">
-              {activeBungalow.description}
+              {activeBungalow.atmosphere}
             </p>
             <a 
               href="/#contact"
@@ -91,19 +90,35 @@ export default function Bungalows() {
             </div>
 
             {/* Info Cards */}
-            <div className="flex flex-col gap-[2px]">
-              <div className="bg-[#FDFCF8] text-paradou-green w-32 h-32 md:w-40 md:h-40 flex flex-col items-center justify-center p-4">
-                <Users size={40} className="mb-4" strokeWidth={1.5} />
-                <span className="font-sans text-xs uppercase tracking-widest text-center">
+            <div className="grid grid-cols-2 gap-[2px]">
+              <div className="bg-[#FDFCF8] text-paradou-green w-32 h-32 md:w-36 md:h-36 flex flex-col items-center justify-center p-4">
+                <Users size={32} className="mb-3 opacity-80" strokeWidth={1.5} />
+                <span className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-center">
                   {activeBungalow.capacity}
                 </span>
               </div>
-              <div className="bg-[#FDFCF8] text-paradou-green w-32 h-32 md:w-40 md:h-40 flex flex-col items-center justify-center p-4">
-                <BedDouble size={40} className="mb-4" strokeWidth={1.5} />
-                <span className="font-sans text-xs uppercase tracking-widest text-center">
-                  {activeBungalow.bedSize}
+              <div className="bg-[#FDFCF8] text-paradou-green w-32 h-32 md:w-36 md:h-36 flex flex-col items-center justify-center p-4">
+                <BedDouble size={32} className="mb-3 opacity-80" strokeWidth={1.5} />
+                <span className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-center">
+                  {activeBungalow.bedrooms}
                 </span>
               </div>
+              {activeBungalow.pool && (
+                <div className="bg-[#FDFCF8] text-paradou-green w-32 h-32 md:w-36 md:h-36 flex flex-col items-center justify-center p-4">
+                  <Waves size={32} className="mb-3 opacity-80" strokeWidth={1.5} />
+                  <span className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-center">
+                    Piscine
+                  </span>
+                </div>
+              )}
+              {activeBungalow.jacuzzi && (
+                <div className="bg-[#FDFCF8] text-paradou-green w-32 h-32 md:w-36 md:h-36 flex flex-col items-center justify-center p-4">
+                  <Droplets size={32} className="mb-3 opacity-80" strokeWidth={1.5} />
+                  <span className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-center">
+                    Jacuzzi
+                  </span>
+                </div>
+              )}
             </div>
 
           </div>

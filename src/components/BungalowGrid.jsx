@@ -5,9 +5,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+import { bungalows } from '../data/bungalows';
+
 export default function BungalowGrid() {
   const { t } = useTranslation();
-  const bungalows = t('bungalows', { returnObjects: true });
   const intro = t('bungalowsIntro', { returnObjects: true });
   const containerRef = useRef(null);
 
@@ -70,7 +71,7 @@ export default function BungalowGrid() {
             {/* Image Box */}
             <div className="w-full md:w-1/2 overflow-hidden aspect-[4/5] md:aspect-auto md:h-[80vh] relative">
               <img 
-                src={bungalow.image} 
+                src={bungalow.gallery[0]} 
                 alt={bungalow.name}
                 className="bungalow-img w-full h-full object-cover absolute inset-0"
               />
@@ -85,10 +86,11 @@ export default function BungalowGrid() {
                 {bungalow.name}
               </h3>
               <p className="font-sans text-lg md:text-xl text-paradou-green/80 leading-relaxed mb-8">
-                {bungalow.description}
+                {bungalow.atmosphere}
               </p>
-              <div className="flex items-center gap-4 text-paradou-green font-sans uppercase tracking-widest text-sm font-semibold border-t border-paradou-green/20 pt-6">
-                <span>{bungalow.price}</span>
+              <div className="flex items-center justify-between border-t border-paradou-green/20 pt-6">
+                <span className="text-paradou-green font-sans uppercase tracking-widest text-sm font-semibold">{bungalow.price}</span>
+                <span className="text-paradou-green/50 font-sans tracking-widest text-xs uppercase">{bungalow.capacity}</span>
               </div>
             </div>
           </div>
