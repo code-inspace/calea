@@ -1,10 +1,14 @@
 import React, { useLayoutEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function BungalowGrid({ bungalows, intro }) {
+export default function BungalowGrid() {
+  const { t } = useTranslation();
+  const bungalows = t('bungalows', { returnObjects: true });
+  const intro = t('bungalowsIntro', { returnObjects: true });
   const containerRef = useRef(null);
 
   useLayoutEffect(() => {

@@ -12,8 +12,17 @@ export default {
         'paradou-green': '#1A2F23',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['"Cormorant Garamond"', 'serif'],
+        // Fraunces = corps de texte, léger et élégant
+        sans: ['Fraunces', 'serif'],
+        // DM Serif Display = tous les titres
+        serif: ['"DM Serif Display"', 'serif'],
+        // Legacy candidates (conservés pour référence)
+        'playfair': ['"Playfair Display"', 'serif'],
+        'dm-serif': ['"DM Serif Display"', 'serif'],
+        'caslon': ['"Libre Caslon Display"', 'serif'],
+        'fraunces': ['Fraunces', 'serif'],
+        'lora': ['Lora', 'serif'],
+        'cormorant': ['"Cormorant Garamond"', 'serif'],
       },
     },
   },

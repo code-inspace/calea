@@ -1,0 +1,168 @@
+{
+  "hero": {
+    "line1": "Somewhere between Provence and the open horizon,",
+    "line2": "time simply disappears.",
+    "brand": "Caléa.",
+    "headline": "You deserve more\nthan your next vacation.",
+    "titleLine1": "You deserve more",
+    "titleLine2": "than your next vacation."
+  },
+  "hook": {
+    "line1": "This is not a hotel.",
+    "line2": "It's a dream you won't want to leave.",
+    "paragraph1": "Ten bungalows nestled in a tropical garden,\nsteps from the Mediterranean.",
+    "paragraph2": "Here, luxury doesn't show off.\nIt simply is."
+  },
+  "story": {
+    "paragraphs": [
+      "It begins with an abandoned garden.",
+      "In the 1970s, Henri Marceau fell in love with a secret estate on the heights of the French Riviera. He planted frangipani, banana trees, hibiscus. He built ten white wooden houses facing the sea. He called it Caléa — the hidden paradise.",
+      "For forty years, families from around the world came here to leave behind their luggage and their urgency.",
+      "Then came Théo. The son. The heir. The one who could have sold it all. He chose to dream differently.",
+      "With the vision of a new generation and a deep respect for what his father had planted, Théo reimagined Caléa. Same soul. New breath.",
+      "Welcome to the living legacy."
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&q=80"
+    ]
+  },
+  "features": [
+    "Infinity pool overlooking the Mediterranean.",
+    "Caléa Spa — rituals inspired by tropical and Provençal traditions.",
+    "Le Frangipier Restaurant — sun-drenched gastronomy, local produce.",
+    "Private beach — exclusive access, sun loungers, beach service.",
+    "3-hectare tropical garden — a cocoon of greenery and silence.",
+    "24h concierge — every wish, every detail, taken care of."
+  ],
+  "bungalowsIntro": {
+    "title": "Ten worlds. Ten ways to disappear.",
+    "subtitle": "Each bungalow is a destination of its own."
+  },
+  "bungalows": [
+    {
+      "id": "01",
+      "name": "LE BUNGALOW TIARE",
+      "description": "The most intimate. Nestled beneath a century-old frangipani, it awakens every sense at dawn. Private terrace, outdoor stone shower, canopy bed draped in white linen.",
+      "price": "from 480 € / night",
+      "image": "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=80&w=2000"
+    },
+    {
+      "id": "02",
+      "name": "LE BUNGALOW AZUR",
+      "description": "Facing the sea. The Mediterranean blue becomes your horizon from bed. Heated private pool, suspended terrace, in-room breakfast included.",
+      "price": "from 780 € / night",
+      "image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=2000"
+    },
+    {
+      "id": "03",
+      "name": "LE BUNGALOW SELVA",
+      "description": "Immersed in tropical vegetation. The Provençal jungle wraps around you. Private hammam, Japanese wooden bath, light filtered through leaves all day long.",
+      "price": "from 560 € / night",
+      "image": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=2000"
+    },
+    {
+      "id": "04",
+      "name": "LE BUNGALOW SOLANDRA",
+      "description": "The largest. Designed for families who refuse to choose between space and refinement. Two bedrooms, open garden lounge, private pool, summer kitchen.",
+      "price": "from 1 200 € / night",
+      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000"
+    },
+    {
+      "id": "05",
+      "name": "LE BUNGALOW ALBA",
+      "description": "The dawn bungalow. East-facing, it catches the very first light of day. Perfect for early risers and lovers of golden morning silence.",
+      "price": "from 510 € / night",
+      "image": "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&q=80&w=2000"
+    },
+    {
+      "id": "06",
+      "name": "LE BUNGALOW CORAIL",
+      "description": "Coral and white tones. A warm and enveloping atmosphere. Direct garden access, freestanding white marble bathtub, terrace with suspended daybed.",
+      "price": "from 620 € / night",
+      "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=2000"
+    },
+    {
+      "id": "07",
+      "name": "LE BUNGALOW NOHEA",
+      "description": "\"Graceful\" in Hawaiian. The most refined. Clean lines, raw natural materials, absolute silence. For those who know that true luxury is the absence of excess.",
+      "price": "from 540 € / night",
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000"
+    },
+    {
+      "id": "08",
+      "name": "LE BUNGALOW MISTRAL",
+      "description": "The wildest. Perched at the edge of the estate, it offers open views of the garrigue and the sea. Open architecture, bamboo pergola, a constant warm breeze.",
+      "price": "from 590 € / night",
+      "image": "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=2000"
+    },
+    {
+      "id": "09",
+      "name": "LE BUNGALOW LOTUS",
+      "description": "Our signature bungalow. A private pool surrounded by lotus flowers, a terrace floating above the water, a bed facing the starlit sky. The Caléa experience in its purest form.",
+      "price": "from 1 450 € / night",
+      "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=2000"
+    },
+    {
+      "id": "10",
+      "name": "LE BUNGALOW HENRI",
+      "description": "A tribute to the founder. The original bungalow, lovingly restored by Théo. Vintage furniture, archive photographs on the walls, soul intact. To sleep here is to sleep inside history.",
+      "price": "from 680 € / night",
+      "image": "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?auto=format&fit=crop&q=80&w=2000"
+    }
+  ],
+  "experiencesIntro": "What you experience here resembles nothing else.",
+  "experiences": [
+    "Breakfast served at the edge of your private pool.",
+    "Candlelit dinner beneath the frangipani trees.",
+    "Couples' treatment at the spa as the sun sets.",
+    "Private sailing trip along the French Riviera.",
+    "Provençal cooking class with our starred chef.",
+    "Sunrise yoga facing the Mediterranean."
+  ],
+  "footer": {
+    "headline": "Your dream begins here.",
+    "subhead": "Reserve your bungalow — limited availability.",
+    "ctaPrimary": "BOOK NOW",
+    "ctaSecondary": "CONTACT US",
+    "seoLinks": "Tropical resort French Riviera · Luxury hotel Provence · Private bungalow seaside · Romantic getaway South of France · Luxury spa Mediterranean · Caléa"
+  },
+  "bungalowsPage": [
+    {
+      "id": "bungalow-1",
+      "name": "General Room",
+      "capacity": "1-2 People",
+      "bedSize": "180 cm",
+      "description": "A beautiful, bright, open-concept room with sweeping views.",
+      "gallery": [
+        "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+        "https://images.unsplash.com/photo-1522771731478-44bf10cb73fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+      ]
+    },
+    {
+      "id": "bungalow-2",
+      "name": "Suite Royale",
+      "capacity": "2-4 People",
+      "bedSize": "200 cm",
+      "description": "Spacious luxury with premium amenities and ocean breeze.",
+      "gallery": [
+        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+        "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+      ]
+    },
+    {
+      "id": "bungalow-3",
+      "name": "Villa Privée",
+      "capacity": "4-6 People",
+      "bedSize": "2 x 180 cm",
+      "description": "Complete privacy and ultimate comfort for your retreat.",
+      "gallery": [
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+      ]
+    }
+  ]
+}

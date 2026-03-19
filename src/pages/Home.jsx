@@ -1,0 +1,96 @@
+import React, { useLayoutEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Noise from '../components/Noise';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import ScrollExperience from '../components/ScrollExperience';
+import StoryCarousel from '../components/StoryCarousel';
+import BungalowGrid from '../components/BungalowGrid';
+import AudioToggle from '../components/AudioToggle';
+import Footer from '../components/Footer';
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function Home() {
+  const { t } = useTranslation();
+  const mainRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const sections = gsap.utils.toArray('section');
+      sections.forEach((section) => {
+        const color = section.getAttribute('data-color') || '#FDFCF8';
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top 75%",
+          end: "bottom 25%",
+          onEnter: () => gsap.to(mainRef.current, { backgroundColor: color, duration: 1, overwrite: "auto" }),
+          onEnterBack: () => gsap.to(mainRef.current, { backgroundColor: color, duration: 1, overwrite: "auto" })
+        });
+      });
+    }, mainRef);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <main id="top" ref={mainRef} className="relative w-full overflow-x-hidden min-h-screen bg-paradou-cream">
+      <Noise />
+      <AudioToggle />
+      <Navbar />
+
+      <Hero />
+
+      <ScrollExperience />
+
+      {/* Hook Section */}
+      <section id="story" data-color="#FDFCF8" className="min-h-[50vh] flex items-center justify-center text-center py-32">
+        <div className="w-full px-4 md:px-12 flex flex-col items-center">
+          <h2 className="font-serif text-3xl md:text-5xl mb-12 text-paradou-green leading-tight">
+            {t('hook.line1')}<br/>
+            {t('hook.line2')}
+          </h2>
+          <p className="font-sans text-lg md:text-xl text-paradou-green/80 whitespace-pre-line mb-8 tracking-wide">
+            {t('hook.paragraph1')}
+          </p>
+          <p className="font-sans text-lg md:text-xl text-paradou-green/80 whitespace-pre-line font-medium tracking-wide">
+            {t('hook.paragraph2')}
+          </p>
+        </div>
+      </section>
+
+      <StoryCarousel />
+
+      {/* Features */}
+      <section data-color="#E0F2F1" className="py-32 text-center w-full px-4 flex flex-col gap-6">
+        {t('features', { returnObjects: true }).map((feature, i) => (
+          <p key={i} className="font-serif text-xl md:text-3xl text-paradou-green/90">
+            {feature}
+          </p>
+        ))}
+      </section>
+
+      <section id="bungalows">
+        <BungalowGrid />
+      </section>
+
+      {/* Experiences section */}
+      <section id="experiences" data-color="#E0F2F1" className="py-32 w-full flex flex-col items-center text-center">
+        <h2 className="font-serif text-3xl md:text-5xl text-paradou-green mb-16 px-4">
+          {t('experiencesIntro')}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-x-20 w-full px-4 md:px-12 text-left">
+          {t('experiences', { returnObjects: true }).map((exp, i) => (
+            <div key={i} className="flex gap-4 items-start border-t border-paradou-green/20 pt-6">
+              <span className="font-sans text-sm text-paradou-green/40 mt-1">0{i + 1}</span>
+              <p className="font-serif text-xl md:text-2xl text-paradou-green/90">{exp}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}

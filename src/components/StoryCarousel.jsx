@@ -1,34 +1,39 @@
 import React, { useLayoutEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function StoryCarousel({ content }) {
+export default function StoryCarousel() {
+  const { t } = useTranslation();
   const containerRef = useRef(null);
   const wrapperRef = useRef(null);
+
+  const paragraphs = t('story.paragraphs', { returnObjects: true });
+  const images = t('story.images', { returnObjects: true });
 
   const storyCards = [
     { 
       title: "Chapitre I", 
-      text: content.story.paragraphs[0] + "\n\n" + content.story.paragraphs[1],
-      image: content.story.images[0]
+      text: paragraphs[0] + "\n\n" + paragraphs[1],
+      image: images[0]
     },
     { 
       title: "Chapitre II", 
-      text: content.story.paragraphs[2],
-      image: content.story.images[1]
+      text: paragraphs[2],
+      image: images[1]
     },
     { 
       title: "Chapitre III", 
-      text: content.story.paragraphs[3] + "\n\n" + content.story.paragraphs[4],
-      image: content.story.images[2]
+      text: paragraphs[3] + "\n\n" + paragraphs[4],
+      image: images[2]
     },
     { 
       title: "Chapitre IV", 
-      text: content.story.paragraphs[5],
-      image: content.story.images[3]
+      text: paragraphs[5],
+      image: images[3]
     }
   ];
 
