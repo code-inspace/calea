@@ -1,54 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Users, BedDouble, Droplets, Waves, ChevronRight, ChevronLeft } from 'lucide-react';
+import BungalowNav from '../components/BungalowNav';
+import { Users, BedDouble, Droplets, Waves } from 'lucide-react';
 import { bungalows } from '../data/bungalows';
 import useTextRoll from '../hooks/useTextRoll';
-import gsap from 'gsap';
-
-// Tab avec underline progressif GSAP (même logique que NavItem)
-function BungalowTab({ label, isActive, onClick }) {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const line = el.querySelector('.tab-line');
-    if (!line) return;
-
-    gsap.set(line, { scaleX: isActive ? 1 : 0, transformOrigin: 'left center' });
-
-    const onEnter = () => gsap.to(line, { scaleX: 1, duration: 0.4, ease: 'power2.out', overwrite: true });
-    const onLeave = () => {
-      if (isActive) return;
-      gsap.to(line, { scaleX: 0, duration: 0.32, ease: 'power2.in', overwrite: true });
-    };
-
-    el.addEventListener('mouseenter', onEnter);
-    el.addEventListener('mouseleave', onLeave);
-    return () => {
-      el.removeEventListener('mouseenter', onEnter);
-      el.removeEventListener('mouseleave', onLeave);
-      gsap.killTweensOf(line);
-    };
-  }, [isActive]);
-
-  return (
-    <button
-      ref={ref}
-      onClick={onClick}
-      className={`whitespace-nowrap shrink-0 flex flex-col transition-colors duration-300 ${
-        isActive ? 'text-white' : 'text-white/50 hover:text-white/80'
-      }`}
-    >
-      {label}
-      <span className="tab-line block h-px w-full bg-white mt-[3px]" />
-    </button>
-  );
-}
 
 export default function Bungalows() {
   const { t } = useTranslation();
@@ -60,28 +19,7 @@ export default function Bungalows() {
   const [activeIndex, setActiveIndex] = useState(initialIndex);
   const activeBungalow = mergedBungalows[activeIndex];
   const [mainImage, setMainImage] = useState(activeBungalow.gallery[0]);
-  const tabsRef = useRef(null);
-  const [canScrollRight, setCanScrollRight] = useState(false);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
 
-  // Check if tabs container is scrollable
-  useEffect(() => {
-    const el = tabsRef.current;
-    if (!el) return;
-    const check = () => {
-      setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 2);
-      setCanScrollLeft(el.scrollLeft > 2);
-    };
-    check();
-    el.addEventListener('scroll', check, { passive: true });
-    window.addEventListener('resize', check);
-    return () => {
-      el.removeEventListener('scroll', check);
-      window.removeEventListener('resize', check);
-    };
-  }, []);
-
-  // When bungalow changes, reset main image to the first of the new gallery
   const handleBungalowChange = (index) => {
     setActiveIndex(index);
     setMainImage(mergedBungalows[index].gallery[0]);
@@ -110,52 +48,15 @@ export default function Bungalows() {
         <div className="absolute inset-0 bg-gradient-to-b from-calea-primary/60 via-transparent to-transparent" />
       </div>
 
-      {/* Top Sidebar / Selector -> Or a floating header like mockup */}
+      {/* Main layout */}
       <div className="relative z-10 w-full h-[100vh] pt-24 md:pt-32 px-6 md:px-16 flex flex-col justify-between pb-6 md:pb-8 overflow-hidden">
 
-        {/* Navigation for Bungalows */}
-        <div className="flex items-center gap-1 w-full">
-          {/* Left arrow — mobile only */}
-          <div className={`md:hidden flex-shrink-0 transition-opacity duration-300 ${canScrollLeft ? 'opacity-100' : 'opacity-0'}`}>
-            <ChevronLeft size={16} strokeWidth={1.5} className="text-white/70" />
-          </div>
-
-          {/* Scrollable tabs */}
-          <div
-            ref={tabsRef}
-            style={{
-              maskImage: canScrollLeft && canScrollRight
-                ? 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)'
-                : canScrollLeft
-                  ? 'linear-gradient(to right, transparent 0%, black 12%)'
-                  : canScrollRight
-                    ? 'linear-gradient(to left, transparent 0%, black 12%)'
-                    : 'none',
-              WebkitMaskImage: canScrollLeft && canScrollRight
-                ? 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)'
-                : canScrollLeft
-                  ? 'linear-gradient(to right, transparent 0%, black 12%)'
-                  : canScrollRight
-                    ? 'linear-gradient(to left, transparent 0%, black 12%)'
-                    : 'none',
-            }}
-            className="flex gap-8 text-white/50 font-sans tracking-widest text-sm uppercase overflow-x-auto scrollbar-hide pb-1 flex-1 min-w-0"
-          >
-            {mergedBungalows.map((b, idx) => (
-              <BungalowTab
-                key={b.id}
-                label={b.name}
-                isActive={activeIndex === idx}
-                onClick={() => handleBungalowChange(idx)}
-              />
-            ))}
-          </div>
-
-          {/* Right arrow — mobile only */}
-          <div className={`md:hidden flex-shrink-0 transition-opacity duration-300 ${canScrollRight ? 'opacity-100' : 'opacity-0'}`}>
-            <ChevronRight size={16} strokeWidth={1.5} className="text-white/70 animate-scroll-hint" />
-          </div>
-        </div>
+        {/* Bungalow Tab Navigation */}
+        <BungalowNav
+          bungalows={mergedBungalows}
+          activeIndex={activeIndex}
+          onChange={handleBungalowChange}
+        />
 
         {/* Content Overlay */}
         <div className="flex flex-col md:flex-row md:justify-between items-start md:items-end gap-3 md:gap-12">
@@ -178,10 +79,10 @@ export default function Bungalows() {
             </a>
           </div>
 
-          {/* Right Side: Modules + Miniatures (Like Mokcup) */}
+          {/* Right Side: Gallery + Info Cards */}
           <div className="flex flex-col items-start md:items-end gap-4 md:gap-6">
 
-            {/* Gallery Thumbnails — desktop only */}
+            {/* Gallery Thumbnails */}
             <div className="flex gap-4 mb-8">
               {activeBungalow.gallery.map((img, i) => (
                 <div
