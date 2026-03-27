@@ -9,7 +9,7 @@ import logoLight from '../assets/logo-calea-light.png';
 import useButtonAnim from '../hooks/useButtonAnim';
 
 // Lien de nav avec underline progressif GSAP
-function NavItem({ link, className }) {
+function NavItem({ link, isActive, className }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -18,12 +18,13 @@ function NavItem({ link, className }) {
     const line = el.querySelector('.nav-line');
     if (!line) return;
 
-    gsap.set(line, { scaleX: 0, transformOrigin: 'left center' });
+    gsap.set(line, { scaleX: isActive ? 1 : 0, transformOrigin: 'left center' });
 
     const onEnter = () => {
       gsap.to(line, { scaleX: 1, duration: 0.4, ease: 'power2.out', overwrite: true });
     };
     const onLeave = () => {
+      if (isActive) return; // garde l'underline si page active
       gsap.to(line, { scaleX: 0, duration: 0.32, ease: 'power2.in', overwrite: true });
     };
 
@@ -34,7 +35,7 @@ function NavItem({ link, className }) {
       el.removeEventListener('mouseleave', onLeave);
       gsap.killTweensOf(line);
     };
-  }, []);
+  }, [isActive]);
 
   const inner = (
     <>
@@ -213,6 +214,7 @@ export default function Navbar() {
             <li key={link.label}>
               <NavItem
                 link={link}
+                isActive={location.pathname === link.href}
                 className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
               />
             </li>
@@ -239,6 +241,7 @@ export default function Navbar() {
               <li key={link.label}>
                 <NavItem
                   link={link}
+                  isActive={location.pathname === link.href}
                   className={`font-inter text-xs tracking-[0.2em] uppercase transition-colors duration-500 ${textClass} ${textHover}`}
                 />
               </li>
