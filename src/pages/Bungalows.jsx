@@ -69,7 +69,7 @@ export default function Bungalows() {
       </div>
 
       {/* Top Sidebar / Selector -> Or a floating header like mockup */}
-      <div className="relative z-10 w-full h-[100vh] pt-20 md:pt-32 px-6 md:px-16 flex flex-col justify-between pb-6 md:pb-8">
+      <div className="relative z-10 w-full h-[100vh] pt-20 md:pt-32 px-6 md:px-16 flex flex-col justify-between pb-6 md:pb-8 overflow-hidden">
 
         {/* Navigation for Bungalows */}
         <div className="flex items-center gap-1 w-full">
@@ -117,7 +117,7 @@ export default function Bungalows() {
         </div>
 
         {/* Content Overlay */}
-        <div className="flex flex-col md:flex-row justify-between items-end gap-4 md:gap-12">
+        <div className="flex flex-col md:flex-row md:justify-between items-start md:items-end gap-3 md:gap-12">
 
           {/* Left Side: Title & Description & CTA */}
           <div className="text-white max-w-2xl">
@@ -138,7 +138,7 @@ export default function Bungalows() {
           </div>
 
           {/* Right Side: Modules + Miniatures (Like Mokcup) */}
-          <div className="flex flex-col items-center md:items-end gap-4 md:gap-6 w-full md:w-auto">
+          <div className="flex flex-col items-end gap-4 md:gap-6">
 
             {/* Gallery Thumbnails — desktop only */}
             <div className="flex gap-4 mb-8">
