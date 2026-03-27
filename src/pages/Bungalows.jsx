@@ -60,8 +60,12 @@ export default function Bungalows() {
           alt={activeBungalow.name} 
           className="w-full h-full object-cover transition-all duration-700 ease-in-out"
         />
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-calea-primary/90 via-transparent to-calea-primary/70 mix-blend-multiply" />
+        {/* Bottom gradient — mobile only, strong for readability */}
+        <div className="md:hidden absolute inset-0 bg-gradient-to-t from-calea-primary via-calea-primary/50 to-transparent" />
+        {/* Bottom gradient — desktop, lighter */}
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-calea-primary/90 via-transparent to-transparent" />
+        {/* Top gradient — navbar contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-calea-primary/60 via-transparent to-transparent" />
       </div>
 
       {/* Top Sidebar / Selector -> Or a floating header like mockup */}
