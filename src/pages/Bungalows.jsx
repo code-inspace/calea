@@ -69,7 +69,7 @@ export default function Bungalows() {
       </div>
 
       {/* Top Sidebar / Selector -> Or a floating header like mockup */}
-      <div className="relative z-10 w-full h-[100vh] pt-20 md:pt-32 px-6 md:px-16 flex flex-col justify-between pb-6 md:pb-8 overflow-hidden">
+      <div className="relative z-10 w-full h-[100vh] pt-24 md:pt-32 px-6 md:px-16 flex flex-col justify-between pb-6 md:pb-8 overflow-hidden">
 
         {/* Navigation for Bungalows */}
         <div className="flex items-center gap-1 w-full">
