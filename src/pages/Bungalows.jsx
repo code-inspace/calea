@@ -7,6 +7,48 @@ import Footer from '../components/Footer';
 import { Users, BedDouble, Droplets, Waves, ChevronRight, ChevronLeft } from 'lucide-react';
 import { bungalows } from '../data/bungalows';
 import useTextRoll from '../hooks/useTextRoll';
+import gsap from 'gsap';
+
+// Tab avec underline progressif GSAP (même logique que NavItem)
+function BungalowTab({ label, isActive, onClick }) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const line = el.querySelector('.tab-line');
+    if (!line) return;
+
+    gsap.set(line, { scaleX: isActive ? 1 : 0, transformOrigin: 'left center' });
+
+    const onEnter = () => gsap.to(line, { scaleX: 1, duration: 0.4, ease: 'power2.out', overwrite: true });
+    const onLeave = () => {
+      if (isActive) return;
+      gsap.to(line, { scaleX: 0, duration: 0.32, ease: 'power2.in', overwrite: true });
+    };
+
+    el.addEventListener('mouseenter', onEnter);
+    el.addEventListener('mouseleave', onLeave);
+    return () => {
+      el.removeEventListener('mouseenter', onEnter);
+      el.removeEventListener('mouseleave', onLeave);
+      gsap.killTweensOf(line);
+    };
+  }, [isActive]);
+
+  return (
+    <button
+      ref={ref}
+      onClick={onClick}
+      className={`whitespace-nowrap shrink-0 flex flex-col transition-colors duration-300 ${
+        isActive ? 'text-white' : 'text-white/50 hover:text-white/80'
+      }`}
+    >
+      {label}
+      <span className="tab-line block h-px w-full bg-white mt-[3px]" />
+    </button>
+  );
+}
 
 export default function Bungalows() {
   const { t } = useTranslation();
@@ -100,13 +142,12 @@ export default function Bungalows() {
             className="flex gap-8 text-white/50 font-sans tracking-widest text-sm uppercase overflow-x-auto scrollbar-hide pb-1 flex-1 min-w-0"
           >
             {mergedBungalows.map((b, idx) => (
-              <button
+              <BungalowTab
                 key={b.id}
+                label={b.name}
+                isActive={activeIndex === idx}
                 onClick={() => handleBungalowChange(idx)}
-                className={`whitespace-nowrap shrink-0 transition-colors duration-300 ${activeIndex === idx ? 'text-white border-b border-white pb-1' : 'hover:text-white/80'}`}
-              >
-                {b.name}
-              </button>
+              />
             ))}
           </div>
 
@@ -138,7 +179,7 @@ export default function Bungalows() {
           </div>
 
           {/* Right Side: Modules + Miniatures (Like Mokcup) */}
-          <div className="flex flex-col items-end gap-4 md:gap-6">
+          <div className="flex flex-col items-start md:items-end gap-4 md:gap-6">
 
             {/* Gallery Thumbnails — desktop only */}
             <div className="flex gap-4 mb-8">
@@ -154,7 +195,7 @@ export default function Bungalows() {
             </div>
 
             {/* Info Cards */}
-            <div className="flex flex-row flex-wrap md:flex-nowrap gap-[2px] justify-center md:justify-end">
+            <div className="flex flex-row flex-wrap md:flex-nowrap gap-[2px] justify-start md:justify-end">
               <div className="bg-[#FDFCF8] text-calea-primary w-20 h-20 md:w-32 md:h-32 flex flex-col items-center justify-center p-2 md:p-3">
                 <Users size={22} className="mb-1 md:mb-2 opacity-80" strokeWidth={1.5} />
                 <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-widest text-center">
