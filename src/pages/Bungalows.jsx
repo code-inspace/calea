@@ -121,7 +121,7 @@ export default function Bungalows() {
 
           {/* Left Side: Title & Description & CTA */}
           <div className="text-white max-w-2xl">
-            <h1 className="font-serif text-4xl md:text-8xl lg:text-9xl mt-4 mb-3 md:mb-6 leading-none">
+            <h1 className="font-serif text-4xl md:text-8xl lg:text-9xl mt-0 md:mt-4 mb-3 md:mb-6 leading-none">
               {activeBungalow.name}
             </h1>
             <p className="font-sans text-lg md:text-xl text-white/80 leading-relaxed mb-8">
@@ -138,7 +138,7 @@ export default function Bungalows() {
           </div>
 
           {/* Right Side: Modules + Miniatures (Like Mokcup) */}
-          <div className="flex flex-col items-end gap-4 md:gap-6">
+          <div className="flex flex-col items-center md:items-end gap-4 md:gap-6 w-full md:w-auto">
 
             {/* Gallery Thumbnails — desktop only */}
             <div className="flex gap-4 mb-8">
@@ -154,7 +154,7 @@ export default function Bungalows() {
             </div>
 
             {/* Info Cards */}
-            <div className="flex flex-row flex-wrap md:flex-nowrap gap-[2px] justify-end">
+            <div className="flex flex-row flex-wrap md:flex-nowrap gap-[2px] justify-center md:justify-end">
               <div className="bg-[#FDFCF8] text-calea-primary w-20 h-20 md:w-32 md:h-32 flex flex-col items-center justify-center p-2 md:p-3">
                 <Users size={22} className="mb-1 md:mb-2 opacity-80" strokeWidth={1.5} />
                 <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-widest text-center">
