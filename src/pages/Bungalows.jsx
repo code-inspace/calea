@@ -55,9 +55,9 @@ export default function Bungalows() {
 
       {/* Hero Full Screen Image */}
       <div className="absolute inset-0 w-full h-[100vh] z-0">
-        <img 
-          src={mainImage} 
-          alt={activeBungalow.name} 
+        <img
+          src={mainImage}
+          alt={activeBungalow.name}
           className="w-full h-full object-cover transition-all duration-700 ease-in-out"
         />
         {/* Bottom gradient — mobile only, strong for readability */}
@@ -69,8 +69,8 @@ export default function Bungalows() {
       </div>
 
       {/* Top Sidebar / Selector -> Or a floating header like mockup */}
-      <div className="relative z-10 w-full h-[100vh] pt-32 px-6 md:px-16 flex flex-col justify-between pb-8">
-        
+      <div className="relative z-10 w-full h-[100vh] pt-20 md:pt-32 px-6 md:px-16 flex flex-col justify-between pb-6 md:pb-8">
+
         {/* Navigation for Bungalows */}
         <div className="flex items-center gap-1 w-full">
           {/* Left arrow — mobile only */}
@@ -85,17 +85,17 @@ export default function Bungalows() {
               maskImage: canScrollLeft && canScrollRight
                 ? 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)'
                 : canScrollLeft
-                ? 'linear-gradient(to right, transparent 0%, black 12%)'
-                : canScrollRight
-                ? 'linear-gradient(to left, transparent 0%, black 12%)'
-                : 'none',
+                  ? 'linear-gradient(to right, transparent 0%, black 12%)'
+                  : canScrollRight
+                    ? 'linear-gradient(to left, transparent 0%, black 12%)'
+                    : 'none',
               WebkitMaskImage: canScrollLeft && canScrollRight
                 ? 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)'
                 : canScrollLeft
-                ? 'linear-gradient(to right, transparent 0%, black 12%)'
-                : canScrollRight
-                ? 'linear-gradient(to left, transparent 0%, black 12%)'
-                : 'none',
+                  ? 'linear-gradient(to right, transparent 0%, black 12%)'
+                  : canScrollRight
+                    ? 'linear-gradient(to left, transparent 0%, black 12%)'
+                    : 'none',
             }}
             className="flex gap-8 text-white/50 font-sans tracking-widest text-sm uppercase overflow-x-auto scrollbar-hide pb-1 flex-1 min-w-0"
           >
@@ -117,11 +117,11 @@ export default function Bungalows() {
         </div>
 
         {/* Content Overlay */}
-        <div className="flex flex-col md:flex-row justify-between items-end gap-12">
-          
+        <div className="flex flex-col md:flex-row justify-between items-end gap-4 md:gap-12">
+
           {/* Left Side: Title & Description & CTA */}
           <div className="text-white max-w-2xl">
-            <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl mt-4 mb-6 leading-none">
+            <h1 className="font-serif text-4xl md:text-8xl lg:text-9xl mt-4 mb-3 md:mb-6 leading-none">
               {activeBungalow.name}
             </h1>
             <p className="font-sans text-lg md:text-xl text-white/80 leading-relaxed mb-8">
@@ -138,12 +138,12 @@ export default function Bungalows() {
           </div>
 
           {/* Right Side: Modules + Miniatures (Like Mokcup) */}
-          <div className="flex flex-col items-end gap-6">
-            
-            {/* Gallery Thumbnails */}
+          <div className="flex flex-col items-end gap-4 md:gap-6">
+
+            {/* Gallery Thumbnails — desktop only */}
             <div className="flex gap-4 mb-8">
               {activeBungalow.gallery.map((img, i) => (
-                <div 
+                <div
                   key={i}
                   onMouseEnter={() => setMainImage(img)}
                   className={`w-24 h-16 md:w-32 md:h-20 overflow-hidden rounded-[1rem] md:rounded-[1.25rem] cursor-pointer border-2 transition-all ${mainImage === img ? 'border-white' : 'border-transparent opacity-60 hover:opacity-100'}`}
@@ -155,30 +155,30 @@ export default function Bungalows() {
 
             {/* Info Cards */}
             <div className="flex flex-row flex-wrap md:flex-nowrap gap-[2px] justify-end">
-              <div className="bg-[#FDFCF8] text-calea-primary w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
-                <Users size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
-                <span className="font-sans text-[10px] uppercase tracking-widest text-center">
+              <div className="bg-[#FDFCF8] text-calea-primary w-20 h-20 md:w-32 md:h-32 flex flex-col items-center justify-center p-2 md:p-3">
+                <Users size={22} className="mb-1 md:mb-2 opacity-80" strokeWidth={1.5} />
+                <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-widest text-center">
                   {activeBungalow.capacity}
                 </span>
               </div>
-              <div className="bg-[#FDFCF8] text-calea-primary w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
-                <BedDouble size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
-                <span className="font-sans text-[10px] uppercase tracking-widest text-center">
+              <div className="bg-[#FDFCF8] text-calea-primary w-20 h-20 md:w-32 md:h-32 flex flex-col items-center justify-center p-2 md:p-3">
+                <BedDouble size={22} className="mb-1 md:mb-2 opacity-80" strokeWidth={1.5} />
+                <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-widest text-center">
                   {activeBungalow.bedrooms}
                 </span>
               </div>
               {activeBungalow.pool && (
-                <div className="bg-[#FDFCF8] text-calea-primary w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
-                  <Waves size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
-                  <span className="font-sans text-[10px] uppercase tracking-widest text-center">
+                <div className="bg-[#FDFCF8] text-calea-primary w-20 h-20 md:w-32 md:h-32 flex flex-col items-center justify-center p-2 md:p-3">
+                  <Waves size={22} className="mb-1 md:mb-2 opacity-80" strokeWidth={1.5} />
+                  <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-widest text-center">
                     {t('bungalowFeatures.pool')}
                   </span>
                 </div>
               )}
               {activeBungalow.jacuzzi && (
-                <div className="bg-[#FDFCF8] text-calea-primary w-28 h-28 md:w-32 md:h-32 flex flex-col items-center justify-center p-3">
-                  <Droplets size={28} className="mb-2 opacity-80" strokeWidth={1.5} />
-                  <span className="font-sans text-[10px] uppercase tracking-widest text-center">
+                <div className="bg-[#FDFCF8] text-calea-primary w-20 h-20 md:w-32 md:h-32 flex flex-col items-center justify-center p-2 md:p-3">
+                  <Droplets size={22} className="mb-1 md:mb-2 opacity-80" strokeWidth={1.5} />
+                  <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-widest text-center">
                     {t('bungalowFeatures.jacuzzi')}
                   </span>
                 </div>
