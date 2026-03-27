@@ -26,6 +26,15 @@ export default {
         'lora': ['Lora', 'serif'],
         'cormorant': ['"Cormorant Garamond"', 'serif'],
       },
+      animation: {
+        'scroll-hint': 'scroll-hint 1.2s ease-in-out infinite',
+      },
+      keyframes: {
+        'scroll-hint': {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '50%': { transform: 'translateX(4px)' },
+        },
+      },
     },
   },
   plugins: [],
