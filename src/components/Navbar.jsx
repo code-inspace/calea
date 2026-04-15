@@ -195,8 +195,8 @@ export default function Navbar() {
     <header
       ref={navRef}
       style={{ opacity: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-[padding,backdrop-filter,background-color] duration-500 ${
-        scrolled ? 'py-5 backdrop-blur-md bg-black/10' : 'py-8 bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-[padding] duration-500 ${
+        scrolled ? 'py-5' : 'py-8'
       }`}
     >
       <nav className="w-full flex items-center justify-between px-6 md:px-16">
