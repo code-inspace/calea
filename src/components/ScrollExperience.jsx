@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -10,6 +10,16 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 export default function ScrollExperience() {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)');
+    const handler = (e) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   useEffect(() => {
     // Ultimate fix for mobile Safari/Chrome strict autoplay
@@ -122,36 +132,72 @@ export default function ScrollExperience() {
     });
   }, { scope: containerRef }); // Automatically cleans up GSAP context!
 
+  if (isMobile) {
+    return (
+      <section data-color="#1A2E23" className="w-full h-screen overflow-x-auto overflow-y-hidden flex snap-x snap-mandatory scroll-smooth" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className="relative flex-none w-screen h-screen snap-center overflow-hidden"
+          >
+            <img
+              src={slide.images[0].src}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/50" />
+            <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center gap-6">
+              {index === 1 && (
+                <div className="text-calea-mint">
+                  <Sparkles size={36} strokeWidth={1} />
+                </div>
+              )}
+              <h2 className="font-serif text-4xl leading-tight text-white drop-shadow-lg">
+                {slide.text}
+              </h2>
+            </div>
+            {/* Dots indicator */}
+            <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2">
+              {slides.map((_, i) => (
+                <span
+                  key={i}
+                  className={`block w-1.5 h-1.5 rounded-full transition-all ${i === index ? 'bg-white w-4' : 'bg-white/40'}`}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+    );
+  }
+
   return (
     <section data-color="#1A2E23" ref={containerRef} className="h-screen w-full relative overflow-hidden bg-calea-primary text-calea-cream flex items-center justify-center">
-      
+
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
-        <video 
+        <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
-          autoPlay 
-          loop 
+          autoPlay
+          loop
           muted
           playsInline
         >
           <source src={skyviewVideo} type="video/mp4" />
         </video>
-        {/* 30% Dark Overlay */}
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {slides.map((slide, index) => (
         <div key={index} className="anim-slide absolute inset-0 w-full h-full pointer-events-none flex items-center justify-center">
-          
-          {/* Images floating behind/around the text */}
+
           {slide.images.map((img, i) => (
             <div key={i} className={`anim-image absolute overflow-hidden rounded-[2rem] md:rounded-[3rem] shadow-2xl ${img.class} pointer-events-auto`}>
               <img src={img.src} alt="" className="w-full h-full object-cover" />
             </div>
           ))}
 
-          {/* Central Text */}
           <div className="anim-text absolute z-10 w-full max-w-4xl px-4 text-center flex flex-col items-center">
              {index === 1 && (
                <div className="anim-icon mb-6 text-calea-mint">
@@ -162,10 +208,10 @@ export default function ScrollExperience() {
               {slide.text}
             </h2>
           </div>
-          
+
         </div>
       ))}
-      
+
     </section>
   );
 }
