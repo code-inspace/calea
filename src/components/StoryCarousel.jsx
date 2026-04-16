@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState, useEffect } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -22,11 +22,16 @@ function ArrowBtn({ onClick, disabled, children }) {
   );
 }
 
+const CARD_GAP = 0.64; // fraction of innerWidth entre les centres de cartes (> card width 55vw)
+
 export default function StoryCarousel() {
   const { t } = useTranslation();
   const containerRef = useRef(null);
-  const wrapperRef = useRef(null);
   const mobileContainerRef = useRef(null);
+  const cardRefs = useRef([]);
+  const containerTopRef = useRef(0);
+  const currentCardRef = useRef(0);
+  const isTransitioningRef = useRef(false);
   const [currentCard, setCurrentCard] = useState(0);
   const [isMobile, setIsMobile] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
@@ -36,10 +41,10 @@ export default function StoryCarousel() {
   const images = t('story.images', { returnObjects: true });
 
   const storyCards = [
-    { title: "Chapitre I",   text: paragraphs[0] + "\n\n" + paragraphs[1], image: images[0] },
-    { title: "Chapitre II",  text: paragraphs[2],                           image: images[1] },
-    { title: "Chapitre III", text: paragraphs[3] + "\n\n" + paragraphs[4], image: images[2] },
-    { title: "Chapitre IV",  text: paragraphs[5],                           image: images[3] },
+    { title: 'Chapitre I',   image: images[0] },
+    { title: 'Chapitre II',  image: images[1] },
+    { title: 'Chapitre III', image: images[2] },
+    { title: 'Chapitre IV',  image: images[3] },
   ];
 
   useEffect(() => {
@@ -49,34 +54,77 @@ export default function StoryCarousel() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  // GSAP horizontal scroll — desktop only
+  const applyCoverflow = (virtualPos) => {
+    const gap = window.innerWidth * CARD_GAP;
+    storyCards.forEach((_, i) => {
+      const el = cardRefs.current[i];
+      if (!el) return;
+      const offset = i - virtualPos;
+      const absOffset = Math.abs(offset);
+      gsap.set(el, {
+        x: offset * gap,
+        scale: Math.max(1 - absOffset * 0.12, 0.76),
+        opacity: Math.max(1 - absOffset * 0.45, 0.15),
+        zIndex: Math.round(10 - absOffset * 2),
+      });
+    });
+  };
+
+  // Setup initial + ScrollTrigger desktop
   useLayoutEffect(() => {
     if (isMobile) return;
 
-    const ctx = gsap.context(() => {
-      const wrapper = wrapperRef.current;
-      const getScrollAmount = () => -(wrapper.scrollWidth - window.innerWidth);
+    // Capturer offsetTop AVANT que ScrollTrigger ne pin l'élément
+    containerTopRef.current = containerRef.current?.offsetTop ?? 0;
 
-      gsap.to(wrapper, {
-        x: getScrollAmount,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          pin: true,
-          scrub: 1,
-          end: () => `+=${wrapper.scrollWidth}`,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            setCurrentCard(Math.round(self.progress * (storyCards.length - 1)));
-          },
+    applyCoverflow(0);
+
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: 'top top',
+        end: `+=${(storyCards.length - 1) * window.innerHeight}`,
+        pin: true,
+        scrub: true,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const pos = self.progress * (storyCards.length - 1);
+          setCurrentCard(Math.round(pos));
+          applyCoverflow(pos);
         },
       });
     }, containerRef);
 
-    return () => ctx.revert();
+    // Wheel handler : 1 scroll = 1 carte
+    const handleWheel = (e) => {
+      const rect = containerRef.current?.getBoundingClientRect();
+      if (!rect || Math.abs(rect.top) > 5) return;
+
+      // Aux extrémités, laisser le scroll naturel
+      if (e.deltaY > 0 && currentCardRef.current === storyCards.length - 1) return;
+      if (e.deltaY < 0 && currentCardRef.current === 0) return;
+
+      e.preventDefault();
+      if (isTransitioningRef.current) return;
+
+      const next = currentCardRef.current + (e.deltaY > 0 ? 1 : -1);
+      isTransitioningRef.current = true;
+      currentCardRef.current = next;
+      setCurrentCard(next);
+
+      window.scrollTo({ top: containerTopRef.current + next * window.innerHeight, behavior: 'smooth' });
+      setTimeout(() => { isTransitioningRef.current = false; }, 700);
+    };
+
+    document.addEventListener('wheel', handleWheel, { passive: false, capture: true });
+
+    return () => {
+      ctx.revert();
+      document.removeEventListener('wheel', handleWheel, { capture: true });
+    };
   }, [isMobile]);
 
-  // Suivi slide courant sur mobile via scroll
+  // Suivi slide courant sur mobile
   useEffect(() => {
     if (!isMobile) return;
     const el = mobileContainerRef.current;
@@ -90,10 +138,12 @@ export default function StoryCarousel() {
     if (isMobile) {
       mobileContainerRef.current?.scrollTo({ left: index * window.innerWidth, behavior: 'smooth' });
     } else {
-      const cardScrollRange = wrapperRef.current
-        ? wrapperRef.current.scrollWidth / storyCards.length
-        : window.innerWidth;
-      window.scrollBy({ top: (index - currentCard) * cardScrollRange, behavior: 'smooth' });
+      if (isTransitioningRef.current) return;
+      isTransitioningRef.current = true;
+      currentCardRef.current = index;
+      setCurrentCard(index);
+      window.scrollTo({ top: containerTopRef.current + index * window.innerHeight, behavior: 'smooth' });
+      setTimeout(() => { isTransitioningRef.current = false; }, 700);
     }
   };
 
@@ -114,14 +164,11 @@ export default function StoryCarousel() {
             </div>
           ))}
         </div>
-
-        {/* Flèche gauche */}
         <div className="absolute left-2 top-1/2 -translate-y-1/2 z-20">
           <ArrowBtn onClick={() => goToCard(currentCard - 1)} disabled={currentCard === 0}>
             <ArrowLeft size={16} strokeWidth={1.5} />
           </ArrowBtn>
         </div>
-        {/* Flèche droite */}
         <div className="absolute right-2 top-1/2 -translate-y-1/2 z-20">
           <ArrowBtn onClick={() => goToCard(currentCard + 1)} disabled={currentCard === storyCards.length - 1}>
             <ArrowRight size={16} strokeWidth={1.5} />
@@ -131,12 +178,21 @@ export default function StoryCarousel() {
     );
   }
 
-  // ── Desktop ──────────────────────────────────────────────────────────────
+  // ── Desktop coverflow + scroll vertical ──────────────────────────────────
   return (
-    <section data-color="#FDFCF8" ref={containerRef} className="h-screen w-full overflow-hidden flex flex-col justify-center relative bg-transparent">
-      <div ref={wrapperRef} className="flex items-center h-[70vh] px-[20vw] gap-8 md:gap-16 w-max">
+    <section
+      data-color="#FDFCF8"
+      ref={containerRef}
+      className="h-screen w-full overflow-hidden flex items-center justify-center relative bg-transparent"
+    >
+      <div className="relative w-full h-[70vh] flex items-center justify-center">
         {storyCards.map((card, i) => (
-          <div key={i} className="story-card relative w-[75vw] md:w-[60vw] h-full flex-shrink-0 rounded-[2rem] md:rounded-[3rem] overflow-hidden group">
+          <div
+            key={i}
+            ref={el => cardRefs.current[i] = el}
+            className="absolute w-[55vw] h-full rounded-[2rem] md:rounded-[3rem] overflow-hidden group"
+            style={{ willChange: 'transform, opacity' }}
+          >
             <img
               src={card.image}
               alt={card.title}
@@ -146,13 +202,11 @@ export default function StoryCarousel() {
         ))}
       </div>
 
-      {/* Flèche gauche */}
       <div className="absolute left-6 top-1/2 -translate-y-1/2 z-20">
         <ArrowBtn onClick={() => goToCard(currentCard - 1)} disabled={currentCard === 0}>
           <ArrowLeft size={16} strokeWidth={1.5} />
         </ArrowBtn>
       </div>
-      {/* Flèche droite */}
       <div className="absolute right-6 top-1/2 -translate-y-1/2 z-20">
         <ArrowBtn onClick={() => goToCard(currentCard + 1)} disabled={currentCard === storyCards.length - 1}>
           <ArrowRight size={16} strokeWidth={1.5} />
