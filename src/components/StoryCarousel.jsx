@@ -29,6 +29,7 @@ export default function StoryCarousel() {
   const containerRef = useRef(null);
   const mobileContainerRef = useRef(null);
   const cardRefs = useRef([]);
+  const mobileCardRefs = useRef([]);
   const containerTopRef = useRef(0);
   const currentCardRef = useRef(0);
   const isTransitioningRef = useRef(false);
@@ -53,6 +54,18 @@ export default function StoryCarousel() {
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
   }, []);
+
+  const applyMobileCoverflow = (virtualPos) => {
+    storyCards.forEach((_, i) => {
+      const el = mobileCardRefs.current[i];
+      if (!el) return;
+      const absOffset = Math.abs(i - virtualPos);
+      gsap.set(el, {
+        scale: Math.max(1 - absOffset * 0.12, 0.76),
+        opacity: Math.max(1 - absOffset * 0.45, 0.15),
+      });
+    });
+  };
 
   const applyCoverflow = (virtualPos) => {
     const gap = window.innerWidth * CARD_GAP;
@@ -124,12 +137,17 @@ export default function StoryCarousel() {
     };
   }, [isMobile]);
 
-  // Suivi slide courant sur mobile
+  // Suivi slide courant + coverflow sur mobile
   useEffect(() => {
     if (!isMobile) return;
     const el = mobileContainerRef.current;
     if (!el) return;
-    const onScroll = () => setCurrentCard(Math.round(el.scrollLeft / el.clientWidth));
+    applyMobileCoverflow(0);
+    const onScroll = () => {
+      const virtualPos = el.scrollLeft / el.clientWidth;
+      setCurrentCard(Math.round(virtualPos));
+      applyMobileCoverflow(virtualPos);
+    };
     el.addEventListener('scroll', onScroll, { passive: true });
     return () => el.removeEventListener('scroll', onScroll);
   }, [isMobile]);
@@ -158,7 +176,11 @@ export default function StoryCarousel() {
         >
           {storyCards.map((card, i) => (
             <div key={i} className="relative flex-none w-screen h-[70vh] snap-center px-6">
-              <div className="relative w-full h-full rounded-[2rem] overflow-hidden">
+              <div
+                ref={el => mobileCardRefs.current[i] = el}
+                className="relative w-full h-full rounded-[2rem] overflow-hidden"
+                style={{ willChange: 'transform, opacity' }}
+              >
                 <img src={card.image} alt={card.title} className="absolute inset-0 w-full h-full object-cover" />
               </div>
             </div>
