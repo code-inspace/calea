@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Sparkles, Leaf, Hourglass } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import StoryCarousel from '../components/StoryCarousel';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,8 +27,6 @@ export default function Story() {
   const narrativeRef = useRef(null);
   const timelineWrapperRef = useRef(null);
   const valuesRef = useRef(null);
-  const galleryWrapperRef = useRef(null);
-  const galleryRef = useRef(null);
 
   const mockStory = t('storyPage', { returnObjects: true });
 
@@ -143,28 +142,7 @@ export default function Story() {
         }
       });
 
-      // 4. Galerie Histoire
-      const getScrollAmount = () => {
-        let galleryWidth = galleryRef.current.scrollWidth;
-        return -(galleryWidth - window.innerWidth);
-      };
-
-      const tween = gsap.to(galleryRef.current, {
-        x: getScrollAmount,
-        ease: 'none'
-      });
-
-      ScrollTrigger.create({
-        trigger: galleryWrapperRef.current,
-        start: 'top top',
-        end: () => `+=${getScrollAmount() * -1}`,
-        pin: true,
-        animation: tween,
-        scrub: 1.5,
-        invalidateOnRefresh: true
-      });
-
-      // 5. Global Background Colors (AFTER ALL PINS)
+      // 4. Global Background Colors (AFTER ALL PINS)
       const sections = gsap.utils.toArray('section');
       sections.forEach((section) => {
         const color = section.getAttribute('data-color') || '#FDFCF8';
@@ -296,24 +274,7 @@ export default function Story() {
       </section>
 
       {/* SECTION 04 · GALERIE HISTOIRE */}
-      <section data-color="#FDFCF8" ref={galleryWrapperRef} className="relative w-full h-screen overflow-hidden transition-colors duration-1000">
-        <div 
-          ref={galleryRef} 
-          className="absolute top-0 left-0 h-full flex items-center gap-12 md:gap-24 px-[10vw] pt-20"
-          style={{ width: 'max-content' }}
-        >
-          {mockStory.gallery.map((img, i) => (
-            <div key={i} className="w-[80vw] md:w-[60vw] lg:w-[45vw] h-[60vh] flex-shrink-0 overflow-hidden rounded-[2rem] md:rounded-[3rem] relative group">
-              <div className="absolute inset-0 bg-[#FDFCF8]/10 group-hover:bg-transparent transition-colors duration-700 z-10" />
-              <img 
-                src={img} 
-                alt={`Archive ${i}`}
-                className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-[0.3] transition-all duration-1000 scale-100 group-hover:scale-105"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+      <StoryCarousel images={mockStory.gallery} grayscale />
 
       <Footer />
     </main>

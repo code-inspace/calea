@@ -24,7 +24,7 @@ function ArrowBtn({ onClick, disabled, children }) {
 
 const CARD_GAP = 0.64; // fraction of innerWidth entre les centres de cartes (> card width 55vw)
 
-export default function StoryCarousel() {
+export default function StoryCarousel({ images: imagesProp = null, grayscale = false }) {
   const { t } = useTranslation();
   const containerRef = useRef(null);
   const mobileContainerRef = useRef(null);
@@ -39,14 +39,15 @@ export default function StoryCarousel() {
   );
 
   const paragraphs = t('story.paragraphs', { returnObjects: true });
-  const images = t('story.images', { returnObjects: true });
+  const translationImages = t('story.images', { returnObjects: true });
+  const resolvedImages = imagesProp ?? translationImages;
 
-  const storyCards = [
-    { title: 'Chapitre I',   image: images[0] },
-    { title: 'Chapitre II',  image: images[1] },
-    { title: 'Chapitre III', image: images[2] },
-    { title: 'Chapitre IV',  image: images[3] },
-  ];
+  const storyCards = resolvedImages.map((img, i) => ({
+    title: `Chapitre ${['I','II','III','IV','V'][i] ?? i + 1}`,
+    image: img,
+  }));
+
+  const imgClass = `absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105${grayscale ? ' grayscale' : ''}`;
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 768px)');
@@ -181,7 +182,7 @@ export default function StoryCarousel() {
                 className="relative w-full h-full rounded-[2rem] overflow-hidden"
                 style={{ willChange: 'transform, opacity' }}
               >
-                <img src={card.image} alt={card.title} className="absolute inset-0 w-full h-full object-cover" />
+                <img src={card.image} alt={card.title} className={`absolute inset-0 w-full h-full object-cover${grayscale ? ' grayscale' : ''}`} />
               </div>
             </div>
           ))}
@@ -218,7 +219,7 @@ export default function StoryCarousel() {
             <img
               src={card.image}
               alt={card.title}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              className={imgClass}
             />
           </div>
         ))}
