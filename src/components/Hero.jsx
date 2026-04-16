@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -13,15 +13,35 @@ export default function Hero() {
   const videoRef = useRef(null);
   const wordsRef = useRef([]);
   const subtitleRef = useRef(null);
+  const [videoFailed, setVideoFailed] = useState(false);
+  const [posterUrl, setPosterUrl] = useState(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current.playsInline = true;
-      const p = videoRef.current.play();
-      if (p !== undefined) p.catch(() => {});
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.defaultMuted = true;
+    video.muted = true;
+    video.playsInline = true;
+
+    // Capture la première frame dès que la vidéo est chargée
+    const captureFrame = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth || 1920;
+        canvas.height = video.videoHeight || 1080;
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        setPosterUrl(canvas.toDataURL('image/jpeg', 0.85));
+      } catch (_) {}
+    };
+    video.addEventListener('loadeddata', captureFrame, { once: true });
+
+    const p = video.play();
+    if (p !== undefined) {
+      p.catch(() => setVideoFailed(true));
     }
+
+    return () => video.removeEventListener('loadeddata', captureFrame);
   }, []);
 
   useLayoutEffect(() => {
@@ -88,7 +108,7 @@ export default function Hero() {
       >
         <video
           ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
+          className={`absolute inset-0 w-full h-full object-cover ${videoFailed ? 'hidden' : ''}`}
           autoPlay
           loop
           muted
@@ -96,6 +116,13 @@ export default function Hero() {
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
+        {videoFailed && posterUrl && (
+          <img
+            src={posterUrl}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-black/25" />
       </div>
 
